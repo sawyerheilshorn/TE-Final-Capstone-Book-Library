@@ -20,11 +20,38 @@ export default {
   name: "Search",
   data() {
     return {
-      books: [],
+      books: [
+        // {
+        //   isbn: "9781400079278",
+        //   title: "Kafka by the Shore",
+        //   author: "Haruki Murakami",
+        // },
+        // {
+        //   isbn: "9780356500157",
+        //   title: "The Girl With All the Gifts",
+        //   author: "M.R. Carey",
+        // },
+        // {
+        //   isbn: "9780684830490",
+        //   title: "The Old Man and the Sea",
+        //   author: "Ernest Hemingway",
+        // },
+        // {
+        //   isbn: "9781984822178",
+        //   title: "Normal People",
+        //   author: "Sally Rooney",
+        // },
+        // {
+        //   isbn: "9783125971400",
+        //   title: "Le Petit Prince",
+        //   author: "Antoine de Saint-ExupÃ©ry",
+        // },
+      ],
     };
   },
+
   created() {
-    BookService.listBooks().then()((response) => {
+    BookService.listBooks().then((response) => {
       this.books = response.data;
     });
   },
