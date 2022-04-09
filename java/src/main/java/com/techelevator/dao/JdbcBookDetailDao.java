@@ -28,8 +28,8 @@ public class JdbcBookDetailDao implements BookDetailDao {
     private BookDetail mapRowBookDetail(SqlRowSet rowSet){
         BookDetail bookDetail = new BookDetail();
         bookDetail.setIsbn(rowSet.getNString("isbn"));
-        bookDetail.setAuthor(rowSet.getNString("Author"));
-        bookDetail.setTitle(rowSet.getNString("Title"));
+        bookDetail.setTitle(rowSet.getNString("title"));
+        bookDetail.setAuthor(rowSet.getNString("author"));
         return bookDetail;
 
     }
