@@ -4,11 +4,13 @@ import com.techelevator.model.bookmodel.BookDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class jdbcBookDetail  implements BookDetailDao {
+@Component
+public class JdbcBookDetailDao implements BookDetailDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
