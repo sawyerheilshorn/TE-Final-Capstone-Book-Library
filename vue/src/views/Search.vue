@@ -1,6 +1,13 @@
 <template>
   <div>
-    <div v-for="book in books" v-bind:key="book.isbn">
+    <label for="isbnFilter">Filter by ISBN</label>
+    <input type="text" v-model="filter.isbn" id="isbnFilter" />
+    <label for="titleFilter">Filter by Title</label>
+    <input type="text" v-model="filter.title" id="titleFilter" />
+    <label for="authorFilter">Filter by Author</label>
+    <input type="text" v-model="filter.author" id="authorFilter" />
+
+    <div v-for="book in filteredBooks" v-bind:key="book.isbn">
       <h1>{{ book.title }}</h1>
       <img
         v-if="book.isbn"
@@ -20,34 +27,25 @@ export default {
   name: "Search",
   data() {
     return {
-      books: [
-        // {
-        //   isbn: "9781400079278",
-        //   title: "Kafka by the Shore",
-        //   author: "Haruki Murakami",
-        // },
-        // {
-        //   isbn: "9780356500157",
-        //   title: "The Girl With All the Gifts",
-        //   author: "M.R. Carey",
-        // },
-        // {
-        //   isbn: "9780684830490",
-        //   title: "The Old Man and the Sea",
-        //   author: "Ernest Hemingway",
-        // },
-        // {
-        //   isbn: "9781984822178",
-        //   title: "Normal People",
-        //   author: "Sally Rooney",
-        // },
-        // {
-        //   isbn: "9783125971400",
-        //   title: "Le Petit Prince",
-        //   author: "Antoine de Saint-ExupÃ©ry",
-        // },
-      ],
+      books: [],
+      filter: {
+        isbn: "",
+        title: "",
+        author: "",
+      },
     };
+  },
+  computed: {
+    filteredBooks: function () {
+      return this.books
+        .filter((book) => book.isbn.includes(this.filter.isbn))
+        .filter((book) =>
+          book.title.toLowerCase().includes(this.filter.title.toLowerCase())
+        )
+        .filter((book) =>
+          book.author.toLowerCase().includes(this.filter.author.toLowerCase())
+        );
+    },
   },
 
   created() {
