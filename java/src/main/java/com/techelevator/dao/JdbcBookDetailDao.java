@@ -19,13 +19,14 @@ public class JdbcBookDetailDao implements BookDetailDao {
         List<BookDetail> listOfBooks = new ArrayList<>();
         String sql = "SELECT * FROM book_details";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        while (results.next()){
+        while (results.next()) {
             BookDetail bookDetails = mapRowToBookDetail(results);
             listOfBooks.add(bookDetails);
         }
         return listOfBooks;
     }
-    private BookDetail mapRowToBookDetail(SqlRowSet rowSet){
+
+    private BookDetail mapRowToBookDetail(SqlRowSet rowSet) {
         BookDetail bookDetail = new BookDetail();
         bookDetail.setIsbn(rowSet.getString("isbn"));
         bookDetail.setAuthor(rowSet.getString("author"));
