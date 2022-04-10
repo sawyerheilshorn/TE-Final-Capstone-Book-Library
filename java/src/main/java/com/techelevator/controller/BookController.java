@@ -18,32 +18,6 @@ public class BookController {
 
     @RequestMapping(path="/books", method = RequestMethod.GET)
     public List<BookDetail> retrieveAllBooks(){
-        List<BookDetail> bookDetailList = new ArrayList<>();
-        BookDetail bookDetail = new BookDetail();
-        bookDetail.setIsbn("9781400079278");
-        bookDetail.setTitle("Kafka by the Shore");
-        bookDetail.setAuthor("Haruki Murakami");
-
-        BookDetail bookDetail1 = new BookDetail();
-        bookDetail1.setIsbn("9780356500157");
-        bookDetail1.setTitle("The Girl With All the Gifts");
-        bookDetail1.setAuthor("M.R. Carey");
-
-        BookDetail bookDetail2 = new BookDetail();
-        bookDetail2.setIsbn("9780684830490");
-        bookDetail2.setTitle("The Old Man and the Sea");
-        bookDetail2.setAuthor("Ernest Hemingway");
-
-        bookDetailList.add(bookDetail);
-        bookDetailList.add(bookDetail1);
-        bookDetailList.add(bookDetail2);
-
-        return bookDetailList;
-
-
-
-
-
-       // return bookDetailDao.getAllBooks();
+        return bookDetailDao.getAllBooks();
     }
 }
