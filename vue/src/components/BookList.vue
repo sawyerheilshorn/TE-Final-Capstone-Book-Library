@@ -1,12 +1,13 @@
 <template>
   <div>
     <div>
-      <label for="isbnFilter">Filter by ISBN</label>
-      <input type="text" v-model="filter.isbn" id="isbnFilter" />
-      <label for="titleFilter">Filter by Title</label>
-      <input type="text" v-model="filter.title" id="titleFilter" />
-      <label for="authorFilter">Filter by Author</label>
-      <input type="text" v-model="filter.author" id="authorFilter" />
+      <label  for="isbnFilter"></label>
+      <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search by ISBN" aria-label="Search" v-model="filter.isbn" id="isbnFilter" />
+      <label for="titleFilter"></label>
+      <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search by Title" aria-label="Search" v-model="filter.title" id="titleFilter" />
+      <label for="authorFilter"></label>
+      <i class="bi bi-search"></i>
+      <input class="form-control form-control-sm ml-3 w-75 bi bi-search" type="text" placeholder="Search by Author" aria-label="Search" v-model="filter.author" id="authorFilter" />
     </div>
     <div class="book-container">
       <book-card

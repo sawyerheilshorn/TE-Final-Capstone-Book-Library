@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
     <div>
       <nav class="navbar sticky-top navbar-expand-lg bg-dark">
           <div class="container">
@@ -10,7 +9,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav ">
+          <ul class="navbar-nav mr-auto w-100 justify-content-end">
             <li class="nav-item">
               <router-link class="nav-link" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;&nbsp;
             </li>
@@ -44,17 +43,19 @@ body {
 .navbar .navbar-brand {
   margin-left: 10% ;
   font-size: 30px;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
 }
 .navbar .nav-item {
   padding: 10px 20px;
   
 }
-
 .navbar .nav-link {
   font-size: 20px;
   margin-left: 10px;
   color: aliceblue;
+}
+.navbar .nav-link:hover{
+  color: rgb(126, 141, 223);
 }
 .fa-bars {
   color: #ff1515;
