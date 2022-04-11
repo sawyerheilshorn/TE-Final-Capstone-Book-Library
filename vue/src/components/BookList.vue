@@ -1,14 +1,22 @@
 <template>
   <div>
     <div>
-      <label  for="isbnFilter"></label>
-      <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search by ISBN" aria-label="Search" v-model="filter.isbn" id="isbnFilter" />
-      <label for="titleFilter"></label>
+      <div class="row g-3"  for="isbnFilter">
+        <div class="col">
+          <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search by ISBN" aria-label="Search" v-model="filter.isbn" id="isbnFilter" />
+        </div>
+
+        <div class="col" for="titleFilter">
       <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search by Title" aria-label="Search" v-model="filter.title" id="titleFilter" />
-      <label for="authorFilter"></label>
+        </div>
+      <div class="col" for="authorFilter">
       <i class="bi bi-search"></i>
       <input class="form-control form-control-sm ml-3 w-75 bi bi-search" type="text" placeholder="Search by Author" aria-label="Search" v-model="filter.author" id="authorFilter" />
+      </div>
+      </div>
+      
     </div>
+    
     <div class="book-container">
       <book-card
         v-bind:book="book"
@@ -16,6 +24,27 @@
         v-bind:key="book.isbn"
       />
     </div>
+
+    <div class="card" >
+     <img src="../img/book.jpg" class="card-img-top" alt="#">
+     <div class="card-body">
+       <h5 class="card-title">Book title</h5>
+       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+       
+    </div>
+  </div>
+  <div class="card" >
+     <img src="../img/book.jpg" class="card-img-top" alt="#">
+     <div class="card-body">
+       <h5 class="card-title">Book title</h5>
+       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+       
+    </div>
+  </div>
+  
+    
+    
+    
   </div>
 </template>
 
@@ -59,4 +88,10 @@ export default {
 </script>
 
 <style>
+.card{
+width: 18rem;
+}
+.card{
+  
+}
 </style>
