@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.bookmodel.BookDetail;
+import com.techelevator.model.bookmodel.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -21,10 +22,27 @@ public class JdbcBookDetailDao implements BookDetailDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             BookDetail bookDetails = mapRowToBookDetail(results);
+            String isbnNumber = bookDetails.getIsbn();
+            List<Genre> genreList = getGenreByISBN(isbnNumber);
+            bookDetails.setGenreList(genreList);
             listOfBooks.add(bookDetails);
         }
         return listOfBooks;
     }
+
+    private List<Genre> getGenreByISBN(String isbnNumber) {
+        List<Genre> genreList = new ArrayList<>();
+        String sqlQuery = "select genre_id, genre_name from genre where genre_id in (select genre_id from book_genre where isbn= ?);";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, isbnNumber);
+        while (results.next()) {
+            Genre genre = new Genre();
+            genre.setGenre_id(results.getInt("genre_id"));
+            genre.setGenre_name(results.getString("genre_name"));
+            genreList.add(genre);
+        }
+        return genreList;
+    }
+
 
     private BookDetail mapRowToBookDetail(SqlRowSet rowSet) {
         BookDetail bookDetail = new BookDetail();
@@ -32,6 +50,6 @@ public class JdbcBookDetailDao implements BookDetailDao {
         bookDetail.setAuthor(rowSet.getString("author"));
         bookDetail.setTitle(rowSet.getString("title"));
         return bookDetail;
-
     }
+
 }

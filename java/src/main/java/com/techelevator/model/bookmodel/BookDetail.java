@@ -1,12 +1,13 @@
 package com.techelevator.model.bookmodel;
 
+import java.util.List;
+
 public class BookDetail {
 
     private String isbn;
     private String title;
     private String author;
-
-
+    private List<Genre> genreList;
 
 
     public String getIsbn() {
@@ -31,5 +32,13 @@ public class BookDetail {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public List<Genre> getGenreList() {
+        return genreList;
+    }
+
+    public void setGenreList(List<Genre> genreList) {
+        this.genreList = genreList;
     }
 }

@@ -24,6 +24,41 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
+CREATE TABLE genre(
+	genre_id serial,
+	genre_name varchar(50), 
+	CONSTRAINT PK_genre PRIMARY KEY (genre_id)
+);
+
+CREATE TABLE book_genre(
+	isbn varchar(17) NOT NULL,
+	genre_id int NOT NULL,
+	PRIMARY KEY(isbn, genre_id)	
+);
+
+-- ********************** DATA for book_genre TABLE ************* --
+
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781400079278',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781400079278',6);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780356500157',2);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780356500157',8);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780684830490',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',5);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',6);
+
+
+-- *************** Data for genre TABLE *******************
+INSERT INTO genre(genre_id, genre_name) VALUES (1, 'Novel');
+INSERT INTO genre(genre_id, genre_name) VALUES (2, 'Horror');
+INSERT INTO genre(genre_id, genre_name) VALUES (3, 'Non Fiction');
+INSERT INTO genre(genre_id, genre_name) VALUES (4, 'Comic');
+INSERT INTO genre(genre_id, genre_name) VALUES (5, 'Adventure');
+INSERT INTO genre(genre_id, genre_name) VALUES (6, 'Fantasy');
+INSERT INTO genre(genre_id, genre_name) VALUES (7, 'SciFi');
+INSERT INTO genre(genre_id, genre_name) VALUES (8, 'Drama');
+
 
 -- *************************               Data for book_details TABLE                               ****************--
 
@@ -39,5 +74,6 @@ INSERT INTO book_details(isbn, title, author) VALUES ('9783125971400', 'Le Petit
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
+ALTER SEQUENCE genre_genre_id_seq RESTART WITH 100;
 
 COMMIT TRANSACTION;
