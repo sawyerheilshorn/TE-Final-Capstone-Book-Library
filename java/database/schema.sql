@@ -40,7 +40,7 @@ CREATE TABLE book_genre(
 
 CREATE TABLE reading_list(
 	list_id serial NOT NULL,
-	list_name varchar(50) NOT NULL,
+	list_name varchar(250) NOT NULL,
 	user_id int NOT NULL,
 	CONSTRAINT PK_reading_list PRIMARY KEY (list_id),
 	CONSTRAINT FK_reading_list_users FOREIGN KEY(user_id) REFERENCES users(user_id)
