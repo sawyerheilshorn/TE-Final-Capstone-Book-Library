@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, book_details;
+DROP TABLE IF EXISTS reading_list, users, book_details, genre, book_genre;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -33,20 +33,19 @@ CREATE TABLE genre(
 CREATE TABLE book_genre(
 	isbn varchar(17) NOT NULL,
 	genre_id int NOT NULL,
-	PRIMARY KEY(isbn, genre_id)	
+	PRIMARY KEY(isbn, genre_id),
+	CONSTRAINT FK_book_genre_book_details_isbn FOREIGN KEY(isbn) REFERENCES book_details(isbn),
+	CONSTRAINT FK_book_genre_genre FOREIGN KEY(genre_id) REFERENCES genre(genre_id)
 );
 
--- ********************** DATA for book_genre TABLE ************* --
+CREATE TABLE reading_list(
+	list_id serial NOT NULL,
+	list_name varchar(50) NOT NULL,
+	user_id int NOT NULL,
+	CONSTRAINT PK_reading_list PRIMARY KEY (list_id),
+	CONSTRAINT FK_reading_list_users FOREIGN KEY(user_id) REFERENCES users(user_id)
 
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781400079278',1);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781400079278',6);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9780356500157',2);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9780356500157',8);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9780684830490',1);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',1);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',5);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',1);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',6);
+);
 
 
 -- *************** Data for genre TABLE *******************
@@ -68,11 +67,31 @@ INSERT INTO book_details(isbn, title, author) VALUES ('9780684830490', 'The Old 
 INSERT INTO book_details(isbn, title, author) VALUES ('9781984822178', 'Normal People', 'Sally Rooney');
 INSERT INTO book_details(isbn, title, author) VALUES ('9783125971400', 'Le Petit Prince', 'Antoine de Saint-Exupéry');
 
+-- ********************** DATA for book_genre TABLE ************* --
+
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781400079278',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781400079278',6);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780356500157',2);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780356500157',8);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780684830490',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',5);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',6);
+
+
 
 -- *************************                Data for users TABLE                         **************** --
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+
+-- ********************** DATA for reading_list TABLE ********** --
+
+INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 1);
+INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 1);
+
+
 
 ALTER SEQUENCE genre_genre_id_seq RESTART WITH 100;
 
