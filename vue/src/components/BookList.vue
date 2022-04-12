@@ -131,7 +131,7 @@ export default {
 .inputs{
   display: flex;  
   justify-content: space-around; 
-  background-color:coral;
+  /*background-color:coral;*/
 }
 
 input{
