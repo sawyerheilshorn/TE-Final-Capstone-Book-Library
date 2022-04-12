@@ -8,7 +8,9 @@
       "
     />
     <h3>{{ book.author }}</h3>
-    <h4 v-for="genre in book.genre" v-bind:key="genre.id">{{ genre }}</h4>
+    <h4 v-for="genre in book.genreList" v-bind:key="genre.id">
+      {{ genre.genre_name }}
+    </h4>
   </div>
 </template>
 
@@ -21,5 +23,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>

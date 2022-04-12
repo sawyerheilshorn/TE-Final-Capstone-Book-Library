@@ -34,7 +34,7 @@
             id="authorFilter"
           />
         </div>
-           <div class="col" for="genreFilter">
+        <div class="col" for="genreFilter">
           <i class="bi bi-search"></i>
           <input
             class="form-control form-control-sm ml-3 w-75 bi bi-search"
@@ -44,6 +44,7 @@
             v-model="filter.genre"
             id="genreFilter"
           />
+        </div>
       </div>
     </div>
 
@@ -108,8 +109,19 @@ export default {
           book.author.toLowerCase().includes(this.filter.author.toLowerCase())
         )
         .filter((book) => {
-          const stringGenre = JSON.stringify(book.genre);
-          stringGenre.toLowerCase().includes(this.filter.genre.toLowerCase());
+          let stringGenre = "";
+          book.genreList.forEach((genreObject) => {
+            stringGenre += genreObject.genre_name;
+          });
+
+          console.log(stringGenre);
+
+          const trimmedGenre = this.filter.genre
+            .replace(/ /g, "")
+            .toLowerCase();
+          console.log(trimmedGenre);
+
+          return stringGenre.toLowerCase().includes(trimmedGenre);
         });
     },
   },
