@@ -1,6 +1,7 @@
 <template>
  
-    <div class="card-deck">
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col mb-4">
       <div class="card text-center">
         <img
           v-if="book.isbn"
