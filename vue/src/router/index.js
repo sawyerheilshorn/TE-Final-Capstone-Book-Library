@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Search from '../views/Search.vue'
 import ReadingList from '../views/ReadingList.vue'
+import ViewList from '../components/ViewList.vue'
 
 Vue.use(Router)
 
@@ -71,7 +72,17 @@ const router = new Router({
         meta: {
             requireAuth: false
         }
-    }
+    },
+    {
+        path: "/retrieveList",
+        name: "retrieveList",
+        component: ViewList,
+        meta: {
+            requireAuth: false
+        }
+    },
+
+
 
     ]
 })

@@ -8,7 +8,4 @@ export default {
     listBooks() {
         return http.get('/books');
     },
-    createList(list){
-        return http.post('/createList', list);
-    }
 }

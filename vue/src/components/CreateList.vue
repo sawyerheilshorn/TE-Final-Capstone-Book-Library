@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import BookService from "../services/BookService";
+import ReadingListService from "../services/ReadingListService";
 
 export default {
     name: "create-list",
@@ -25,11 +25,8 @@ export default {
     };
   },
   methods: {
-    createReadingList() {        
-        console.log("testtttttttt");
-      console.log(this.readingList);  
-      
-      BookService.createList(this.readingList).then((response) => {
+    createReadingList() {             
+      ReadingListService.createList(this.readingList).then((response) => {
         if (response.status === 200) {
           console.log(response);
         }

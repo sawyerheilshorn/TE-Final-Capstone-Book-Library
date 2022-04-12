@@ -30,6 +30,11 @@
                 >&nbsp;&nbsp;
               </li>
               <li class="nav-item">
+                <router-link class="nav-link" v-bind:to="{ name: 'retrieveList' }"
+                  >My List</router-link
+                >&nbsp;&nbsp;
+              </li>
+              <li class="nav-item">
                 <router-link
                   class="nav-link"
                   v-bind:to="{ name: 'logout' }"
