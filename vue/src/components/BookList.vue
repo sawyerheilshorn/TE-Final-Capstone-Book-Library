@@ -40,11 +40,7 @@
        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
        
     </div>
-  </div>
-  
-    
-    
-    
+  </div>  
   </div>
 </template>
 
@@ -92,6 +88,7 @@ export default {
 width: 18rem;
 }
 .card{
+  display: flex !important;
   
 }
 </style>
