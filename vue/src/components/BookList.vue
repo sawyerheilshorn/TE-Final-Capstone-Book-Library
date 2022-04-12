@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="inputs">
       <div class="row g-3" for="isbnFilter">
         <div class="col">
           <input
@@ -56,26 +56,6 @@
       />
     </div>
 
-    <div class="card">
-      <img src="../img/book.jpg" class="card-img-top" alt="#" />
-      <div class="card-body">
-        <h5 class="card-title">Book title</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../img/book.jpg" class="card-img-top" alt="#" />
-      <div class="card-body">
-        <h5 class="card-title">Book title</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -134,11 +114,26 @@ export default {
 };
 </script>
 
-<style>
-.card {
-  width: 18rem;
+
+<style >
+.book-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  color: cadetblue;
+  font-weight: bold;
+  padding: 2em 2em;
 }
-.card {
-  display: flex !important;
+
+.inputs {
+  display: flex;
+  justify-content: space-around;
+  /*background-color:coral;*/
+}
+
+input {
+  display: flex;
+  justify-content: space-around;
+
 }
 </style>
