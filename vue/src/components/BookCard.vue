@@ -8,6 +8,7 @@
       "
     />
     <h3>{{ book.author }}</h3>
+    <h4 v-for="genre in book.genre" v-bind:key="genre.id">{{ genre }}</h4>
   </div>
 </template>
 
