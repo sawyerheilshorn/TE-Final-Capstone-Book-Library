@@ -121,7 +121,8 @@ export default {
   width: 18rem;
 }
 .card {
-  display: flex !important;
+  display: flex;
 }
+
 
 </style>
