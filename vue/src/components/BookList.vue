@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="inputs">
       <div class="row g-3" for="isbnFilter">
         <div class="col">
           <input
@@ -116,20 +116,29 @@ export default {
 };
 </script>
 
-<style>
-.card {
-  width: 18rem;
-}
-.card {
-  display: flex;
-}
+<style >
 
 .book-container{
    display:flex;  
   justify-content: space-evenly;
    flex-wrap: wrap;
-   color:blue;
-   padding: 2em 0 0 0;
+   color:cadetblue;
+   font-weight: bold;   
+   padding: 2em 2em;
+   
+}
+
+.inputs{
+  display: flex;  
+  justify-content: space-around; 
+  background-color:coral;
+}
+
+input{
+  display: flex;
+  justify-content: space-around;
+  background-color: chartreuse;
+
 }
 
 

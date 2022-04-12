@@ -23,6 +23,10 @@ export default {
     margin: 50px auto;
 }
 
+h1{
+  text-align: center;
+  margin: 1em 1em;
+}
 /* Bootstrap 4 text input with search icon */
 
 .has-search .form-control {

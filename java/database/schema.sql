@@ -66,6 +66,9 @@ INSERT INTO book_details(isbn, title, author) VALUES ('9780356500157', 'The Girl
 INSERT INTO book_details(isbn, title, author) VALUES ('9780684830490', 'The Old Man and the Sea', 'Ernest Hemingway');
 INSERT INTO book_details(isbn, title, author) VALUES ('9781984822178', 'Normal People', 'Sally Rooney');
 INSERT INTO book_details(isbn, title, author) VALUES ('9783125971400', 'Le Petit Prince', 'Antoine de Saint-Exupéry');
+INSERT INTO book_details(isbn, title, author) VALUES ('9781534431003', 'This Is How You Lose the Time War', 'Amal El-Mohtar');
+INSERT INTO book_details(isbn, title, author) VALUES ('048627263X', 'Flatland', 'Edwin A. Abbott');
+INSERT INTO book_details(isbn, title, author) VALUES ('9780449208106', 'Things Fall Apart', 'Chinua Achebe');
 
 -- ********************** DATA for book_genre TABLE ************* --
 

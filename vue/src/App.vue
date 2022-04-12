@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <nav class="navbar sticky-top navbar-expand-lg bg-dark">
+      <nav id="main-nav" class="navbar sticky-top navbar-expand-lg bg-dark">
         <div class="container">
           <a class="navbar-brand" href="#">Logo</a>
           <button
@@ -78,5 +78,8 @@ body {
 .fa-bars {
   color: #ff1515;
   font-size: 30px;
+}
+#main-nav{
+  background-color: rgb(131, 80, 13);
 }
 </style>
