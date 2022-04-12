@@ -1,26 +1,19 @@
 <template>
-  <div>
-    <h1>{{ book.title }}</h1>
-    <img
-      v-if="book.isbn"
-      v-bind:src="
-        'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
-      "
-    />
-    <h3>{{ book.author }}</h3>
-    <h4 v-for="genre in book.genreList" v-bind:key="genre.id">
-      {{ genre.genre_name }}
-    </h4>
-    <div class="card">
-      <img src="../img/book.jpg" class="card-img-top" alt="#" />
-      <div class="card-body">
-        <h5 class="card-title">Book title</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+  <div id="main">
+
+      <div class="card" >
+        <div class="card text-center">
+        <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" class="card-img-top" alt="#" />
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <h6>{{ "By " + book.author }}</h6>
+          <p id="inline" v-for="genre in book.genreList" v-bind:key="genre.id" class="card-text"> 
+            {{ genre.genre_name }}
+          </p>
+        </div>
+        </div>
       </div>
-    </div>
+      
   </div>
 </template>
 
@@ -33,11 +26,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 
-div {
-  display: flex;
-  justify-content: space-around;
+
+#inline{
+  display: inline;
 }
 
 
