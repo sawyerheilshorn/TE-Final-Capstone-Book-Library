@@ -4,7 +4,7 @@
        <form v-on:submit.prevent  class="homeForm">
         <label for="reading_list">Add Reading List</label>
         <input id="reading_list" type="text" v-model="readingList.listName" />        
-         <button type="submit" @click="create_reading_list()" class="btn btn-submit">Submit</button>
+         <button type="submit" @click="createReadingList()" class="btn btn-submit">Submit</button>
       <!--button class="btn btn-cancel" type="cancel" v-on:click="cancelForm">Cancel</button-->
       </form>
       </div>
@@ -25,8 +25,10 @@ export default {
     };
   },
   methods: {
-    createReadingList() {
-     
+    createReadingList() {        
+        console.log("testtttttttt");
+      console.log(this.readingList);  
+      
       BookService.createList(this.readingList).then((response) => {
         if (response.status === 200) {
           console.log(response);
