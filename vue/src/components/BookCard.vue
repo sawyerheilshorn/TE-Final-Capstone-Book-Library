@@ -11,6 +11,16 @@
     <h4 v-for="genre in book.genreList" v-bind:key="genre.id">
       {{ genre.genre_name }}
     </h4>
+    <div class="card">
+      <img src="../img/book.jpg" class="card-img-top" alt="#" />
+      <div class="card-body">
+        <h5 class="card-title">Book title</h5>
+        <p class="card-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
