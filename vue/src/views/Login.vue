@@ -32,7 +32,7 @@
         required
       />
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <button id="sign-in" type="submit">Sign in</button>
     </form>
   </div>
 </template>
@@ -92,5 +92,9 @@ export default {
   text-align: center;
   margin-left: 35%;
   margin-bottom: 1%;
+}
+
+#sign-in {
+  margin-left: 1rem;
 }
 </style>

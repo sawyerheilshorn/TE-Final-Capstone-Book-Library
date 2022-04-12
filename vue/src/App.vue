@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div>
-      <nav id="main-nav" class="navbar sticky-top navbar-expand-lg bg-dark">
+      <nav
+        id="main-nav"
+        class="navbar sticky-top navbar-expand-lg navbar-custom"
+      >
         <div class="container">
           <a class="navbar-brand" href="#">Logo</a>
           <button
@@ -30,7 +33,9 @@
                 >&nbsp;&nbsp;
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" v-bind:to="{ name: 'retrieveList' }"
+                <router-link
+                  class="nav-link"
+                  v-bind:to="{ name: 'retrieveList' }"
                   >My List</router-link
                 >&nbsp;&nbsp;
               </li>
@@ -79,7 +84,11 @@ body {
   color: #ff1515;
   font-size: 30px;
 }
-#main-nav{
-  background-color: rgb(131, 80, 13);
+.navbar-custom {
+  background-color: rgb(229 163 102);
+}
+
+body {
+  background-image: url("assets/homePage.jpg");
 }
 </style>
