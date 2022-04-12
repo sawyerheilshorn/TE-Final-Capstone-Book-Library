@@ -124,5 +124,13 @@ export default {
   display: flex;
 }
 
+.book-container{
+   display:flex;  
+  justify-content: space-evenly;
+   flex-wrap: wrap;
+   color:blue;
+   padding: 2em 0 0 0;
+}
+
 
 </style>
