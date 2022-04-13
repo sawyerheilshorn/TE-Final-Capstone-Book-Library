@@ -1,16 +1,17 @@
 <template>
-  <div class="home">
-
-    <div class="quote">
-    
-<blockquote class="quote-card yellow-card ">
-<p>Your quote here. Edit it however you want. You can change the color by making changes to the CSS file. The code and CSS of Bootstrap 4 is in the associated tutorial zip file.
-</p>
-<cite>quote attribution</cite>
-</blockquote>
-   
-  </div>
-  </div>
+  <main id="home-grid">
+    <div class="home">
+      <h1 id="slogan">This is our slogan, we like to read books and talk about books and eat books and sleep on books we really like books and people who read books.</h1>
+        <div id="customer-quotes" class="quote">
+          <blockquote class="quote-card yellow-card ">
+            <p>
+              Your quote here. Edit it however you want. You can change the color by making changes to the CSS file. The code and CSS of Bootstrap 4 is in the associated tutorial zip file.
+            </p>
+            <cite>quote attribution</cite>
+          </blockquote>
+        </div>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -21,9 +22,31 @@ export default {
 
 
 <style scoped>
-.quote{
-  
+#home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 50px;
+  grid-template-areas: 
+  "slogan"
+  "books books quote";
 }
+
+#slogan {
+  grid-area: slogan;
+  align-items: flex-end;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+#featured-books {
+  grid-area: books;
+}
+
+#customer-quotes {
+  grid-area: quote;
+}
+
 .quote-card { 
  
 
