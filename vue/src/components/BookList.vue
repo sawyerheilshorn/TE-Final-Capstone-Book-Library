@@ -113,24 +113,5 @@ export default {
 };
 </script>
 
-<style >
-.book-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  color: cadetblue;
-  font-weight: bold;
-  padding: 2em 2em;
-}
-
-.inputs {
-  display: flex;
-  justify-content: space-around;
-  /*background-color:coral;*/
-}
-
-input {
-  display: flex;
-  justify-content: space-around;
-}
+<style scoped >
 </style>
