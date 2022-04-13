@@ -1,4 +1,5 @@
 <template>
+
   <div class="card-deck">
     <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded">
       <img
@@ -20,6 +21,7 @@
         >
           {{ genre.genre_name }}
         </p>
+
       </div>
     </div>
   </div>
@@ -34,10 +36,11 @@ export default {
 };
 </script>
 
-<style scoped >
-#inline {
+<style>
+#inline{
   display: inline;
 }
+
 
 .card-deck {
   margin: 0 1em 1em 1em;
@@ -65,4 +68,5 @@ export default {
   height: 50%;
   width: 30%;
 }*/
+
 </style>
