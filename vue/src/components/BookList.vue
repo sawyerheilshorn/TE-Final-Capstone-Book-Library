@@ -55,6 +55,7 @@
         v-bind:key="book.isbn"
       />
     </div>
+
   </div>
 </template>
 
@@ -133,5 +134,6 @@ export default {
 input {
   display: flex;
   justify-content: space-around;
+
 }
 </style>

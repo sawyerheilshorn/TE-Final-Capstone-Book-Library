@@ -31,9 +31,7 @@
         v-model="user.password"
         required
       />
-      <router-link id="register" :to="{ name: 'register' }"
-        >Need an account?</router-link
-      >
+      <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button id="sign-in" type="submit">Sign in</button>
     </form>
   </div>
@@ -98,9 +96,5 @@ export default {
 
 #sign-in {
   margin-left: 1rem;
-}
-
-#register {
-  color: white;
 }
 </style>
