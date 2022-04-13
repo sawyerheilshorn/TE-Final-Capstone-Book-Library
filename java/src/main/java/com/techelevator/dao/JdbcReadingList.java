@@ -1,7 +1,5 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.User;
-import com.techelevator.model.bookmodel.BookDetail;
 import com.techelevator.model.readinglist.ReadingList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

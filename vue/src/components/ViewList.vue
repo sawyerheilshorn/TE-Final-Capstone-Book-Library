@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div v-for="list in readingList" v-bind:key="list.listId">
+      <p> {{$store.state.user}}</p>
+    <div v-for="list in readingList" v-bind:key="list.listId">        
       <h1>{{ list.listName }}</h1>
     </div>
     <router-link id="create-list" v-bind:to="{ name: 'createList' }"

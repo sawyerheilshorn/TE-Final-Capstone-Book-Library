@@ -1,6 +1,8 @@
 package com.techelevator.model.readinglist;
 
+
 public class ReadingList {
+
     private int listId;
     private String listName;
     private int user_id;

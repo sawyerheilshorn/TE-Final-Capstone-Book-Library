@@ -61,9 +61,11 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("dashboard");
+            this.$store.commit("SET_USER", response.data.user);    
+            console.log(response.data.user);
+            this.$router.push("dashboard");        
           }
+         // this.$router.push("dashboard");
         })
         .catch((error) => {
           const response = error.response;
