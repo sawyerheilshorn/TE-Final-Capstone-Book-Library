@@ -28,15 +28,16 @@
                 >&nbsp;&nbsp;
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" v-bind:to="{ name: 'Login' }"
+                <router-link class="nav-link" v-bind:to="{ name: 'login' }"
                   >Login</router-link
                 >&nbsp;&nbsp;
               </li>
               <li class="nav-item">
                 <router-link
                   class="nav-link"
-                  v-bind:to="{ name: 'retrieveList' }"
-                  >My List</router-link
+                  v-bind:to="{ name: 'dashboard' }"
+                  v-if="$store.state.token != ''"
+                  >My Dashboard</router-link
                 >&nbsp;&nbsp;
               </li>
               <li class="nav-item">

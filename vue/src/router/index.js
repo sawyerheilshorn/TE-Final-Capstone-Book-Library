@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Search from '../views/Search.vue'
 import ReadingList from '../views/ReadingList.vue'
-import ViewList from '../components/ViewList.vue'
+import Dashboard from '../views/Dashboard.vue'
 
 Vue.use(Router)
 
@@ -24,63 +24,63 @@ const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [{
-        path: '/',
-        name: 'home',
-        component: Home,
-        meta: {
-            requiresAuth: true
-        }
-    },
-    {
-        path: "/login",
-        name: "login",
-        component: Login,
-        meta: {
-            requiresAuth: false
-        }
-    },
-    {
-        path: "/logout",
-        name: "logout",
-        component: Logout,
-        meta: {
-            requiresAuth: false
-        }
-    },
-    {
-        path: "/register",
-        name: "register",
-        component: Register,
-        meta: {
-            requiresAuth: false
+            path: '/',
+            name: 'home',
+            component: Home,
+            meta: {
+                requiresAuth: false
+            }
         },
-
-    },
-    {
-        path: "/search",
-        name: "search",
-        component: Search,
-        meta: {
-            requireAuth: false
+        {
+            path: "/login",
+            name: "login",
+            component: Login,
+            meta: {
+                requiresAuth: false
+            }
         },
+        {
+            path: "/logout",
+            name: "logout",
+            component: Logout,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/register",
+            name: "register",
+            component: Register,
+            meta: {
+                requiresAuth: false
+            },
 
-    },
-    {
-        path: "/createList",
-        name: "createList",
-        component: ReadingList,
-        meta: {
-            requireAuth: false
-        }
-    },
-    {
-        path: "/retrieveList",
-        name: "retrieveList",
-        component: ViewList,
-        meta: {
-            requireAuth: false
-        }
-    },
+        },
+        {
+            path: "/search",
+            name: "search",
+            component: Search,
+            meta: {
+                requireAuth: false
+            },
+
+        },
+        {
+            path: "/createList",
+            name: "createList",
+            component: ReadingList,
+            meta: {
+                requireAuth: true
+            }
+        },
+        {
+            path: "/dashboard",
+            name: "dashboard",
+            component: Dashboard,
+            meta: {
+                requireAuth: true
+            }
+        },
 
 
 

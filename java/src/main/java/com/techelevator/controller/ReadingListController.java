@@ -20,10 +20,10 @@ public class ReadingListController {
         return readingListDao.createReadingList(readingList.getListName());
     }
 
-    @RequestMapping(path = "/retrieveList", method = RequestMethod.GET)
+    @RequestMapping(path = "/dashboard", method = RequestMethod.GET)
     public List<ReadingList> getReadingListByUser(Principal principal) {
-//        String userName = principal.getName();
-        String userName = "user";
+        String userName = principal.getName();
+
         return readingListDao.getReadingListByUser(userName);
     }
 

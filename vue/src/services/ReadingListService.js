@@ -4,11 +4,11 @@ const http = axios.create({
     baseURL: "http://localhost:8080"
 });
 
-export default{
-    createList(list){
+export default {
+    createList(list) {
         return http.post('/createList', list);
     },
-    retrieveList(){
-        return http.get('/retrieveList');
+    retrieveList() {
+        return http.get('/dashboard');
     }
 }
