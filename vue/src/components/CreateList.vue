@@ -42,5 +42,22 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+form {
+  /* margin-left: 47%; */
+  color: white;
+  text-align: center;
+  margin-top: 10%;
+}
+
+form input {
+  margin-left: 46%;
+}
+
+form label {
+}
+
+button {
+  color: white;
+}
 </style>
