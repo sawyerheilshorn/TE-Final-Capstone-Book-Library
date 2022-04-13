@@ -16,14 +16,14 @@ public class ReadingListController {
     private ReadingListDao readingListDao;
 
     @RequestMapping(path = "/createList", method = RequestMethod.POST)
-    public int createReadingList(@RequestBody ReadingList readingList) {
-        return readingListDao.createReadingList(readingList.getListName());
+    public int createReadingList(@RequestBody ReadingList readingList, Principal principal) {
+        String userName = principal.getName();
+        return readingListDao.createReadingList(readingList.getListName(), userName);
     }
 
     @RequestMapping(path = "/dashboard", method = RequestMethod.GET)
     public List<ReadingList> getReadingListByUser(Principal principal) {
         String userName = principal.getName();
-
         return readingListDao.getReadingListByUser(userName);
     }
 
