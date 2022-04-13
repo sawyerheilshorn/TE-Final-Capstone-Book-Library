@@ -35,7 +35,7 @@ export default {
         if (response.status === 200) {
           console.log(response);
         }
-        this.$router.push("retrieveList");
+        this.$router.push("dashboard");
       });
     },
   },

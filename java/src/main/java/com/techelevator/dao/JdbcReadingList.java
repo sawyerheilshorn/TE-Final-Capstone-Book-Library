@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.User;
 import com.techelevator.model.bookmodel.BookDetail;
 import com.techelevator.model.readinglist.ReadingList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class JdbcReadingList implements ReadingListDao {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public int createReadingList(String listName) {
-        String sql = "INSERT INTO reading_list(list_name, user_id) VALUES(?, 1) RETURNING list_id;";
-        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, listName);
+    public int createReadingList(String listName, String userName) {
+        String sql = "INSERT INTO reading_list(list_name, user_id) VALUES(?, (select user_id from users where username =?)) RETURNING list_id;";
+        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, listName, userName);
         return newId;
     }
 

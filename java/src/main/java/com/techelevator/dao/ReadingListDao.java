@@ -6,6 +6,6 @@ import java.security.Principal;
 import java.util.List;
 
 public interface ReadingListDao {
-    int createReadingList(String listName);
+    int createReadingList(String listName, String userName);
     List<ReadingList> getReadingListByUser(String userName);
 }
