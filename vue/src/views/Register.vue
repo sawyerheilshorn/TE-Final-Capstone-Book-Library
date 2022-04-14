@@ -100,7 +100,7 @@ export default {
 
 #createAccount {
   width: 20%;
-  margin-left: 38rem;
+  margin-left: 47rem;
 }
 
 h1 {
