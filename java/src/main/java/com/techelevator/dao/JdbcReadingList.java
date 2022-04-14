@@ -71,10 +71,16 @@ public class JdbcReadingList implements ReadingListDao {
 
     @Override
 //    public void addBookToList (String userName, String id, String isbn) {
-    public void addBookToList (int id, String isbn) {
+    public String addBookToList (int id, String isbn) {
         String sql = "INSERT INTO reading_list_book (list_id, isbn) VALUES (?, ?);";
-        jdbcTemplate.update(sql, id, isbn);
+        jdbcTemplate.update(sql, id, isbn); //try -catch
+        return "Book " + isbn +" added to  list" ;
     }
 
-
+    @Override
+    public String removeBookFromList(int id, String isbn) {
+        String sql = "DELETE FROM reading_list_book WHERE list_id= ? AND isbn = ?";
+        jdbcTemplate.update(sql, id, isbn); //try -catch
+        return "Book " + isbn +" removed from list" ;
+    }
 }
