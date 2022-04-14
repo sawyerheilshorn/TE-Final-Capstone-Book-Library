@@ -61,7 +61,7 @@ public class JdbcBookDetailDao implements BookDetailDao {
     }
 
 
-    private BookDetail mapRowToBookDetail(SqlRowSet rowSet) {
+    public BookDetail mapRowToBookDetail(SqlRowSet rowSet) {
         BookDetail bookDetail = new BookDetail();
         bookDetail.setIsbn(rowSet.getString("isbn"));
         bookDetail.setAuthor(rowSet.getString("author"));

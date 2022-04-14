@@ -9,11 +9,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class JdbcReadingList implements ReadingListDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private JdbcBookDetailDao jdbcBookDetailDao;
+
 
     @Override
     public int createReadingList(String listName, String userName) {
@@ -29,9 +34,28 @@ public class JdbcReadingList implements ReadingListDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userName);
         while (results.next()){
             ReadingList readingList = mapRowToReadingList(results);
+            int listId = readingList.getListId();
+            String listName = readingList.getListName();
+            List<BookDetail> bookDetailList = getAllBooks(listId);
+            readingList.setBookDetailListMap(listName, bookDetailList);
             readingLists.add(readingList);
         }
         return readingLists;
+    }
+
+
+    private List<BookDetail> getAllBooks(int listId){
+       List<BookDetail> bookDetailList = new ArrayList<>();
+        String sql = "select * from book_details \n" +
+                "JOIN reading_list_book ON reading_list_book.isbn = book_details.isbn\n" +
+                "WHERE list_id=?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, listId);
+        while (results.next()) {
+            BookDetail bookDetail = jdbcBookDetailDao.mapRowToBookDetail(results);
+            bookDetailList.add(bookDetail);
+        }
+        return bookDetailList;
+
     }
 
 

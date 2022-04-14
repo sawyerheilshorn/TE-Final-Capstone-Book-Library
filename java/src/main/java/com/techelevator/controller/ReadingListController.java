@@ -19,8 +19,6 @@ public class ReadingListController {
 
     @RequestMapping(path = "/createList", method = RequestMethod.POST)
     public int createReadingList(@RequestBody ReadingList readingList, Principal principal) {
-
-
         String userName = principal.getName();
         return readingListDao.createReadingList(readingList.getListName(), userName);
     }
@@ -31,10 +29,10 @@ public class ReadingListController {
         return readingListDao.getReadingListByUser(userName);
     }
 
-//    @RequestMapping(path = "/createMyLibrary", method = RequestMethod.POST)
-//    public int createMyLibrary(@RequestBody Principal principal) {
+//    @RequestMapping(path = "/createMyLibrary", method = RequestMethod.GET)
+//    public List<ReadingList> createMyLibrary(@RequestBody Principal principal) {
 //        String userName = principal.getName();
-//        return readingListDao.createMyLibrary(userName);
+//        return readingListDao.getReadingListByUser(userName);
 //    }
 
 }
