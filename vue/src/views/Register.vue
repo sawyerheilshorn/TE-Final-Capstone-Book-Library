@@ -33,7 +33,7 @@
         required
       />
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button id="createAccount" class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
     </form>
@@ -90,4 +90,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#confirmPassword {
+  width: 30%;
+  text-align: center;
+  margin-left: 35%;
+  margin-bottom: 1%;
+}
+
+#createAccount {
+  width: 20%;
+  margin-left: 38rem;
+}
+
+h1 {
+  font-family: serif;
+}
+</style>
