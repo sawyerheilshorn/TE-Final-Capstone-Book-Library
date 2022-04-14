@@ -1,9 +1,17 @@
 <template>
-  <main id="home-grid">
-    <div class="home">
-      <h1 id="slogan">This is our slogan, we like to read books and talk about books and eat books and sleep on books we really like books and people who read books.</h1>
+  <div>
+    <div>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <div class="content">
+          <h1 class="display-4">Logo will be here </h1>
+          <p class="lead">Trade read and add your favorite books.</p>
+          <button type="button" class="btn btn-primary">Get Started</button>
+        </div>
+  </div>
+</div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -14,32 +22,25 @@ export default {
 
 
 <style scoped>
-#home-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 20px;
-  column-gap: 50px;
-  grid-template-areas: 
-  "slogan"
+.jumbotron {
+  padding: 100px;
+  margin: 0;
+  background-image:  url("../assets/tradeBook.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background: #726ea3;
+  opacity: .7;
+  z-index: -1;
+  
 }
 
-#slogan {
-  grid-area: slogan;
-  align-items: flex-end;
+ 
+
+.content{
   text-align: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 1300px;
-  font-family: serif;
-  background-color: rgb(87, 42, 21);
-  border-radius: 10px;
-}
+  color: #fff;
+  font-weight: bold;
 
-@media (max-width: 640px) {
-  .quote-card:after {
-    font-size:22em;
-    right:-25px;
-  }
 }
 
 
