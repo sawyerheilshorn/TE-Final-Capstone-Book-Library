@@ -24,8 +24,8 @@ public class BookController {
     @PreAuthorize("isAuthenticated()")
     @RequestMapping(path = "/getMyBooks", method = RequestMethod.GET)
     public List<BookDetail> getAllBooksByUser(Principal principal){
-//        String userName = principal.getName();
-        String userName = "user";
+       String userName = principal.getName();
+
         return bookDetailDao.getAllBooksByUser(userName);
     }
 
