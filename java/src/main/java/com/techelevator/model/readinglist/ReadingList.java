@@ -3,6 +3,7 @@ package com.techelevator.model.readinglist;
 
 import com.techelevator.model.bookmodel.BookDetail;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,8 @@ public class ReadingList {
     private int listId;
     private String listName;
     private int user_id;
-    private Map<String, List<BookDetail>> bookDetailListMap = new HashMap<>();
+    private List<BookDetail> bookDetailListId = new ArrayList<>();
+  // private Map<String, List<BookDetail>> bookDetailListMap = new HashMap<>();
 
     public int getListId() {
         return listId;
@@ -38,15 +40,23 @@ public class ReadingList {
         this.user_id = user_id;
     }
 
-    public Map<String, List<BookDetail>> getBookDetailListMap() {
-        return bookDetailListMap;
+    public List<BookDetail> getBookDetailList() {
+        return bookDetailListId;
     }
+
+    public void setBookDetailListId(List<BookDetail> bookDetailListId) {
+        this.bookDetailListId = bookDetailListId;
+    }
+
+    //    public Map<String, List<BookDetail>> getBookDetailListMap() {
+//        return bookDetailListMap;
+//    }
 //
 //    public void setBookDetailListMap(Map<Integer, List<BookDetail>> bookDetailListMap) {
 //        this.bookDetailListMap = bookDetailListMap;
 //    }
 
-    public void setBookDetailListMap(String listName, List<BookDetail> bookDetailList) {
-        bookDetailListMap.put(listName, bookDetailList);
-    }
+//    public void setBookDetailListMap(String listName, List<BookDetail> bookDetailList) {
+//        bookDetailListMap.put(listName, bookDetailList);
+//    }
 }

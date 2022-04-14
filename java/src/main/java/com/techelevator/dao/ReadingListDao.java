@@ -11,8 +11,4 @@ public interface ReadingListDao {
     List<ReadingList> getReadingListByUser(String userName);
 //    void addBookToList(String userName, String id, String isbn);
     void addBookToList(int id, String isbn);
-
-
-//    int createMyLibrary(String userName);
-
 }

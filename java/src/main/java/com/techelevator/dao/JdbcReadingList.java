@@ -37,7 +37,8 @@ public class JdbcReadingList implements ReadingListDao {
             int listId = readingList.getListId();
             String listName = readingList.getListName();
             List<BookDetail> bookDetailList = getAllBooks(listId);
-            readingList.setBookDetailListMap(listName, bookDetailList);
+            readingList.setBookDetailListId(bookDetailList);
+          //  readingList.setBookDetailListMap(listName, bookDetailList);
             readingLists.add(readingList);
         }
         return readingLists;
@@ -67,13 +68,6 @@ public class JdbcReadingList implements ReadingListDao {
         readingList.setUser_id(rowSet.getInt("user_id"));
         return readingList;
     }
-
-//    @Override
-//    public int createMyLibrary(String userName) {
-//        String sql = "INSERT INTO reading_list(list_name, user_id) VALUES('My Library', (select user_id from users where username =?)) RETURNING list_id;";
-//        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, userName);
-//        return newId;
-//    }
 
     @Override
 //    public void addBookToList (String userName, String id, String isbn) {
