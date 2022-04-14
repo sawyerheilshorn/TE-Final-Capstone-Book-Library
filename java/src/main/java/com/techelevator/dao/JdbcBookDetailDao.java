@@ -69,5 +69,13 @@ public class JdbcBookDetailDao implements BookDetailDao {
         return bookDetail;
     }
 
+    public String addBookToLibrary(BookDetail bookDetail, String userName) {
+        String isbn = bookDetail.getIsbn();
+        String sql = "INSERT INTO user_book (user_id, isbn) VALUES ((SELECT user_id FROM users WHERE username = ?), ?);";
+        jdbcTemplate.update(sql, userName, isbn);
+       // String sqlQuery = "INSERT INTO book_details(isbn, title, author) where isbn not ex "
+        return "added Book to library";
+    }
+
 
 }
