@@ -29,10 +29,12 @@ public class ReadingListController {
         return readingListDao.getReadingListByUser(userName);
     }
 
-//    @RequestMapping(path = "/createMyLibrary", method = RequestMethod.GET)
-//    public List<ReadingList> createMyLibrary(@RequestBody Principal principal) {
-//        String userName = principal.getName();
-//        return readingListDao.getReadingListByUser(userName);
-//    }
+    @RequestMapping(path = "/addBookToList/{id}/{isbn}", method = RequestMethod.PUT)
+    public void addBookToList(@RequestBody Principal principal, @PathVariable String id, String isbn) {
+        String userName = principal.getName();
+        readingListDao.addBookToList(userName, id, isbn);
+    }
+
+
 
 }
