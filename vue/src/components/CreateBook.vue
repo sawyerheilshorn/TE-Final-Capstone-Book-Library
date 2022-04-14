@@ -29,11 +29,11 @@
       <input
         id="genre"
         type="text"
-        v-model="book.genre"
+        v-model="book.genreList"
         placeholder="genre"
         required
       />
-      <button type="submit" @click="createBook()" class="btn btn-submit">
+      <button type="submit" @click="createBook()" class="btn btn-submit" id="btn-submit">
         Submit
       </button>
     </form>
@@ -50,7 +50,7 @@ export default {
         isbn: "",
         title: "",
         author: "",
-        genre: "",
+        genreList: "",
       },
     };
   },
@@ -68,5 +68,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+#btn-submit{
+  color:white;
+}
 </style>
