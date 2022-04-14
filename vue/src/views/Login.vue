@@ -76,7 +76,8 @@ export default {
   },
 };
 </script>
-<style scoped>
+
+<style>
 /*#login{
   display: flex;
   justify-items: center;
