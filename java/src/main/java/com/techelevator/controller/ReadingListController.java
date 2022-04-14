@@ -30,9 +30,9 @@ public class ReadingListController {
     }
 
     @RequestMapping(path = "/addBookToList/{id}/{isbn}", method = RequestMethod.PUT)
-    public void addBookToList(@RequestBody Principal principal, @PathVariable String id, String isbn) {
-        String userName = principal.getName();
-        readingListDao.addBookToList(userName, id, isbn);
+    public void addBookToList(@PathVariable int id, @PathVariable String isbn) {
+        //String userName = principal.getName(); @RequestBody Principal principal,
+        readingListDao.addBookToList(id, isbn);
     }
 
 

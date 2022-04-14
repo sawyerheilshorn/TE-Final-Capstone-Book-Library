@@ -76,8 +76,9 @@ public class JdbcReadingList implements ReadingListDao {
 //    }
 
     @Override
-    public void addBookToList (String userName, String id, String isbn) {
-        String sql = "INSERT INTO reading_list_book VALUES(list_id, isbn) VALUES (?, ?);";
+//    public void addBookToList (String userName, String id, String isbn) {
+    public void addBookToList (int id, String isbn) {
+        String sql = "INSERT INTO reading_list_book (list_id, isbn) VALUES (?, ?);";
         jdbcTemplate.update(sql, id, isbn);
     }
 
