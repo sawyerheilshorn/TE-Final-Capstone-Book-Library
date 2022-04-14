@@ -47,6 +47,13 @@ CREATE TABLE reading_list(
 
 );
 
+CREATE TABLE user_book (
+	user_id int NOT NULL,
+	isbn varchar(17) NOT NULL,
+	PRIMARY KEY(user_id, isbn),
+	CONSTRAINT FK_users_book_details FOREIGN KEY(user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_book_details_users FOREIGN KEY(isbn) REFERENCES book_details(isbn)
+);
 
 -- *************** Data for genre TABLE *******************
 INSERT INTO genre(genre_id, genre_name) VALUES (1, 'Novel');
@@ -94,6 +101,10 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 1);
 INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 1);
 
+--********************** DATA for user_book Table ****************--
+INSERT INTO user_book(user_id, isbn) VALUES (1, '9780356500157');
+INSERT INTO user_book(user_id, isbn) VALUES (1, '9780684830490');
+INSERT INTO user_book(user_id, isbn) VALUES (1, '9781984822178');
 
 
 ALTER SEQUENCE genre_genre_id_seq RESTART WITH 100;

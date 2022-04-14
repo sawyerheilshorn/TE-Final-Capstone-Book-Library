@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BookDetailDao {
     List<BookDetail> getAllBooks();
+    List<BookDetail> getAllBooksByUser(String userName);
 }
