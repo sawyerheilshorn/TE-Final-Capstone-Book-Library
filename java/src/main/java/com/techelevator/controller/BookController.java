@@ -4,10 +4,7 @@ import com.techelevator.dao.BookDetailDao;
 import com.techelevator.model.bookmodel.BookDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -30,5 +27,12 @@ public class BookController {
 //        String userName = principal.getName();
         String userName = "user";
         return bookDetailDao.getAllBooksByUser(userName);
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @RequestMapping(path = "/addBookToLibrary", method = RequestMethod.POST)
+    public String addBookToLibrary(@RequestBody BookDetail bookDetail, Principal principal){
+        String userName = principal.getName();
+        return bookDetailDao.addBookToLibrary(bookDetail, userName);
     }
 }

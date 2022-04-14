@@ -9,6 +9,5 @@ import java.util.List;
 public interface ReadingListDao {
     int createReadingList(String listName, String userName);
     List<ReadingList> getReadingListByUser(String userName);
-//    void addBookToList(String userName, String id, String isbn);
     void addBookToList(int id, String isbn);
 }
