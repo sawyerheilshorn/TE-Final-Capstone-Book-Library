@@ -7,5 +7,9 @@ export default {
 
     getMyBooks() {
         return axios.get('/getMyBooks');
+    },
+
+    addBookToLibrary(book) {
+        axios.post('/addBookToLibrary', book)
     }
 }

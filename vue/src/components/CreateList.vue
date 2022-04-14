@@ -3,7 +3,12 @@
     <div id="create_reading_list">
       <form v-on:submit.prevent class="homeForm">
         <label for="reading_list">Add Reading List</label>
-        <input id="reading_list" type="text" v-model="readingList.listName" />
+        <input
+          id="reading_list"
+          type="text"
+          v-model="readingList.listName"
+          required
+        />
         <button
           type="submit"
           @click="createReadingList()"

@@ -1,29 +1,34 @@
 <template>
-  <div class="jumbotron row ">
-    
-    <div class="row" v-for="book in myBooks" v-bind:key="book.isbn">
-      
-      <div class="card" id="myLibraryCard">
-      <img
-        v-bind:src="
-          'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
-        "
-      />
+  <div>
+    <div class="jumbotron row">
+      <div class="row" v-for="book in myBooks" v-bind:key="book.isbn">
+        <div class="card" id="myLibraryCard">
+          <img
+            v-bind:src="
+              'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
+            "
+          />
 
-      <h5>{{ book.title }}</h5>
+          <h5>{{ book.title }}</h5>
+        </div>
+      </div>
+    </div>
+    <button @click="formVisible = !formVisible">Add Book to Library</button>
 
-    </div>
-    </div>
+    <create-book v-if="formVisible" />
   </div>
 </template>
 
 <script>
 import BookService from "../services/BookService";
+import CreateBook from "../components/CreateBook.vue";
 export default {
   name: "my-library",
+  components: { CreateBook },
   data() {
     return {
       myBooks: [],
+      formVisible: false,
     };
   },
 
@@ -43,22 +48,16 @@ export default {
 
   width: 75%;
 }
-.card{
- 
-}
-.card img{
+.card img {
   height: 70%;
   width: 70%;
-  margin-left: 23% ;
+  margin-left: 23%;
   margin-bottom: 3%;
 }
-.card h5{
+.card h5 {
   text-align: center;
-
 }
-#myLibraryCard{
-   margin-right: 10% ;
+#myLibraryCard {
+  margin-right: 10%;
 }
-
-
 </style>
