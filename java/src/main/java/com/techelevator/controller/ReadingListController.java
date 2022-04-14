@@ -31,5 +31,10 @@ public class ReadingListController {
         return readingListDao.getReadingListByUser(userName);
     }
 
+//    @RequestMapping(path = "/createMyLibrary", method = RequestMethod.POST)
+//    public int createMyLibrary(@RequestBody Principal principal) {
+//        String userName = principal.getName();
+//        return readingListDao.createMyLibrary(userName);
+//    }
 
 }

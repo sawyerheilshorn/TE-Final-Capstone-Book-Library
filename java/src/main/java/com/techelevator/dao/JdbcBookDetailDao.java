@@ -42,6 +42,23 @@ public class JdbcBookDetailDao implements BookDetailDao {
         }
         return genreList;
     }
+    @Override
+    public List<BookDetail> getAllBooksByUser(String userName) {
+        List<BookDetail> bookList= new ArrayList<>();
+        String sql = "SELECT * from book_details \n" +
+                "JOIN user_book ON user_book.isbn = book_details.isbn\n" +
+                "WHERE user_book.user_id = (SELECT user_id from users WHERE username = ?);";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userName);
+        while (results.next()){
+            BookDetail bookDetails = mapRowToBookDetail(results);
+            String isbnNumber = bookDetails.getIsbn();
+            List<Genre> genreList = getGenreByISBN(isbnNumber);
+            bookDetails.setGenreList(genreList);
+            bookList.add(bookDetails);
+
+        }
+        return bookList;
+    }
 
 
     private BookDetail mapRowToBookDetail(SqlRowSet rowSet) {
@@ -51,5 +68,6 @@ public class JdbcBookDetailDao implements BookDetailDao {
         bookDetail.setTitle(rowSet.getString("title"));
         return bookDetail;
     }
+
 
 }
