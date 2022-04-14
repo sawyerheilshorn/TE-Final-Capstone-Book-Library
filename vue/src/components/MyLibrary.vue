@@ -1,16 +1,19 @@
 <template>
-  <div>
-    <div class="jumbotron">
-      <div v-for="book in myBooks" v-bind:key="book.isbn">
-        <img
-          v-bind:src="
-            'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
-          "
-        />
-        <h3>{{ book.title }}</h3>
-      </div>
+  <div class="jumbotron row ">
+    
+    <div class="row" v-for="book in myBooks" v-bind:key="book.isbn">
+      
+      <div class="card" id="myLibraryCard">
+      <img
+        v-bind:src="
+          'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
+        "
+      />
+
+      <h5>{{ book.title }}</h5>
+
     </div>
-    <button>Add Book to My Library</button>
+    </div>
   </div>
 </template>
 
@@ -33,7 +36,29 @@ export default {
 </script>
 
 <style scoped>
-#add-book {
-  color: red;
+.jumbotron {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #caa472;
+
+  width: 75%;
 }
+.card{
+ 
+}
+.card img{
+  height: 70%;
+  width: 70%;
+  margin-left: 23% ;
+  margin-bottom: 3%;
+}
+.card h5{
+  text-align: center;
+
+}
+#myLibraryCard{
+   margin-right: 10% ;
+}
+
+
 </style>

@@ -1,7 +1,11 @@
 <template>
   <div>
+    <div class="flex row">
+      
     <div v-for="list in readingList" v-bind:key="list.listId">
-      <h1>{{ list.listName }}</h1>
+      
+      <div class="card">
+      <h2>{{ list.listName }}</h2>
       <div
         id="books-in-list"
         v-for="book in list.bookDetailList"
@@ -14,9 +18,14 @@
         />
         <h3>{{ book.title }}</h3>
       </div>
+      
+      </div>
+      
+      </div>
+      <router-link id="create-list" v-bind:to="{ name: 'createList' }"
+      >Add Reading list</router-link>
     </div>
-    <router-link id="create-list" v-bind:to="{ name: 'createList' }"
-      >Add Reading list</router-link
+    
     >
   </div>
 </template>
@@ -41,10 +50,26 @@ export default {
 
 <style scoped>
 #create-list {
-  margin-left: 47%;
+  margin-top: 23%;
+  
   color: white;
 }
 #books-in-list {
   color: white;
 }
+.flex{
+  display: flex;
+
+  justify-content: space-evenly;
+}
+.card{
+  background-color:burlywood;
+  height: 90%;
+  margin-top: 20%;
+  margin-bottom: 20%;;
+}
+h2{
+  color: #fff;
+}
+
 </style>
