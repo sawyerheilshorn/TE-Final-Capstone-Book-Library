@@ -53,17 +53,24 @@
         </div>
       </nav>
     </div>
+    
     <router-view/>
   </div>
 </template>
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web");
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
+
 * {
   font-family: "Titillium Web", sans-serif;
+  
 }
-body {
-  height: 1000px;
+body { margin: 0%;
+  
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
 }
 .navbar .navbar-brand {
   margin-left: 10%;
@@ -92,4 +99,55 @@ body {
 body {
   background-image: url("assets/homePage.jpg");
 }
+
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer { 
+  margin-top: auto;
+  
+}
+
+@media (max-width: 34em) {
+    body {
+      margin-bottom: 500px;
+    }
+    .footer {
+      padding: 3em;
+      height: 500px;
+    }
+}
+
+footer {
+  padding-top: 30px;
+  background-color: #292c2f;
+  color: #bbb;
+}
+
+footer a {
+  color: #999;
+  text-decoration:none;
+}
+
+footer a:hover, footer a:focus {
+  color: #aaa;
+  text-decoration:none;
+  border-bottom:1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #82490b;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
+
 </style>
