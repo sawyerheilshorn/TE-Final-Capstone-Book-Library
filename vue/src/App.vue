@@ -53,7 +53,7 @@
         </div>
       </nav>
     </div>
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
