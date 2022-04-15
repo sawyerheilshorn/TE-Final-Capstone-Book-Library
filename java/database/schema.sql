@@ -1,7 +1,8 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS reading_list, users, book_details, genre, book_genre;
+DROP TABLE IF EXISTS reading_list, users, book_details, genre, book_genre, reading_list_book;
 DROP SEQUENCE IF EXISTS seq_user_id;
+
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1

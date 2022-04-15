@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.ReadingListDao;
+import com.techelevator.model.bookmodel.BookDetail;
 import com.techelevator.model.readinglist.ReadingList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -34,6 +35,12 @@ public class ReadingListController {
         //String userName = principal.getName(); @RequestBody Principal principal,
         return readingListDao.addBookToList(id, isbn);
     }
+//
+//    @RequestMapping(path = "/addBookToList", method = RequestMethod.POST)
+//    public String  addBookToList(@RequestBody BookDetail book) {
+//        //String userName = principal.getName(); @RequestBody Principal principal,
+//        return readingListDao.addBookToList(book.getIsbn(), book.g);
+//    }
 
     @RequestMapping(path = "/removeBookFromList/{id}/{isbn}", method = RequestMethod.PUT)
     public String removeBookFromList(@PathVariable int id, @PathVariable String isbn) {

@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div class="flex row">
       <div v-for="list in readingList" v-bind:key="list.listId">
         <div class="card">
@@ -15,18 +15,29 @@
               "
             />
             <h3>{{ book.title }}</h3>
-           
           </div>
-        
-        <label for="books">Choose a Book</label>
 
-            <select name="book" id="books">
-              <option v-for="book in $store.state.myLibrary" :value="book.title" :key="book.isbn">{{book.title}} </option>
-              
-            </select>
-            </div>
+          <label for="books">Choose a Book</label>
+
+          <select name="book" id="books" v-model="selectedInput">
+            <option
+              v-for="book in $store.state.myLibrary"
+              :value="book.title"
+              :key="book.isbn"
+            >
+              {{ book.title }}
+            </option>
+          </select>
+          <button
+            type="submit"
+            @click="addBookToList(list.listId)"
+            class="btn btn-submit"
+            id="btn-submit"
+          >
+            Add Book
+          </button>
+        </div>
       </div>
-
 
       <button id="create-list" @click="formVisible = !formVisible">
         Add Reading list
@@ -39,6 +50,7 @@
 </template>
 
 <script>
+import BookService from "../services/BookService";
 import ReadingListService from "../services/ReadingListService";
 import CreateList from "./CreateList.vue";
 
@@ -47,9 +59,44 @@ export default {
   name: "view-list",
   data() {
     return {
+      // selectedBook: {
+      //   isbn: "",
+      //   title: "",
+      //   author: "",
+      //   genreList: [
+      //     {
+      //       genre_name: "",
+      //     },
+      //   ],
+      // },
+      selectedInput: "",
       readingList: [],
       formVisible: false,
+      foundBook: {},
     };
+  },
+  computed: {},
+  methods: {
+    addBookToList(listId) {
+      this.findBookByName();
+
+      BookService.addBookToList(this.foundBook, listId).then((response) => {
+        console.log(response);
+        ReadingListService.retrieveList().then((response) => {
+          this.readingList = response.data;
+          console.log(this.readingList);
+        });
+      });
+    },
+    findBookByName() {
+      return this.$store.state.myLibrary.forEach((book) => {
+        if (book.title == this.selectedInput) {
+          console.log("Book found" + JSON.stringify(book));
+
+          this.foundBook = book;
+        }
+      });
+    },
   },
   created() {
     ReadingListService.retrieveList().then((response) => {
