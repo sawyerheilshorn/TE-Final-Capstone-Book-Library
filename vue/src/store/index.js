@@ -20,6 +20,7 @@ export default new Vuex.Store({
     state: {
         token: currentToken || '',
         user: currentUser || {},
+        myLibrary: []
     },
     mutations: {
         SET_AUTH_TOKEN(state, token) {
@@ -38,6 +39,11 @@ export default new Vuex.Store({
             state.user = {};
             axios.defaults.headers.common = {};
         },
+        ADD_ALL_BOOK(state, books){
+            books.forEach(book => {
+                state.myLibrary.unshift(book);
+            });            
+        }
 
     }
 })

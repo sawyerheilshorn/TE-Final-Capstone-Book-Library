@@ -1,41 +1,46 @@
 <template>
-  <div>
+  <div >
     <div class="flex row">
-      
-    <div v-for="list in readingList" v-bind:key="list.listId">
-      
-      <div class="card">
-      <h2>{{ list.listName }}</h2>
-      <div
-        id="books-in-list"
-        v-for="book in list.bookDetailList"
-        v-bind:key="book.isbn"
-      >
-        <img
-          v-bind:src="
-            'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
-          "
-        />
-        <h3>{{ book.title }}</h3>
-      </div>
-      
-      </div>
-      
-      </div>  
+      <div v-for="list in readingList" v-bind:key="list.listId">
+        <div class="card">
+          <h2>{{ list.listName }}</h2>
+          <div
+            id="books-in-list"
+            v-for="book in list.bookDetailList"
+            v-bind:key="book.isbn"
+          >
+            <img
+              v-bind:src="
+                'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
+              "
+            />
+            <h3>{{ book.title }}</h3>
+           
+          </div>
+        
+        <label for="books">Choose a Book</label>
 
-      <button id="create-list" @click ="formVisible = !formVisible">Add Reading list</button>
-      <create-list v-if="formVisible"/>
-     
-     
+            <select name="book" id="books">
+              <option v-for="book in $store.state.myLibrary" :value="book.title" :key="book.isbn">{{book.title}} </option>
+              
+            </select>
+            </div>
+      </div>
+
+
+      <button id="create-list" @click="formVisible = !formVisible">
+        Add Reading list
+      </button>
+      <create-list v-if="formVisible" />
     </div>
-    
+
     >
   </div>
 </template>
 
 <script>
 import ReadingListService from "../services/ReadingListService";
-import CreateList from './CreateList.vue';
+import CreateList from "./CreateList.vue";
 
 export default {
   components: { CreateList },
@@ -57,31 +62,29 @@ export default {
 <style scoped>
 #create-list {
   margin-top: 23%;
-  
+
   color: white;
 }
 #books-in-list {
   color: white;
 }
-.flex{
+.flex {
   display: flex;
 
   justify-content: space-evenly;
 }
-.card{
-  background-color:burlywood;
+.card {
+  background-color: burlywood;
   height: 90%;
   margin-top: 20%;
-  margin-bottom: 20%;;
+  margin-bottom: 20%;
 }
-h2{
+h2 {
   color: #fff;
 }
 
-#create-list{
+#create-list {
   height: 10%;
-  color:black;
-
+  color: black;
 }
-
 </style>
