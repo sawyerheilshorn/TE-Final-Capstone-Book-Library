@@ -21,9 +21,12 @@
       
       </div>
       
-      </div>
-      <router-link id="create-list" v-bind:to="{ name: 'createList' }"
-      >Add Reading list</router-link>
+      </div>  
+
+      <button id="create-list" @click ="formVisible = !formVisible">Add Reading list</button>
+      <create-list v-if="formVisible"/>
+     
+     
     </div>
     
     >
@@ -32,12 +35,15 @@
 
 <script>
 import ReadingListService from "../services/ReadingListService";
+import CreateList from './CreateList.vue';
 
 export default {
+  components: { CreateList },
   name: "view-list",
   data() {
     return {
       readingList: [],
+      formVisible: false,
     };
   },
   created() {
@@ -70,6 +76,12 @@ export default {
 }
 h2{
   color: #fff;
+}
+
+#create-list{
+  height: 10%;
+  color:black;
+
 }
 
 </style>

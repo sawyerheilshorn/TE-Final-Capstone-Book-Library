@@ -6,7 +6,6 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Search from '../views/Search.vue'
-import ReadingList from '../views/ReadingList.vue'
 import Dashboard from '../views/Dashboard.vue'
 
 Vue.use(Router)
@@ -65,14 +64,14 @@ const router = new Router({
             },
 
         },
-        {
-            path: "/createList",
-            name: "createList",
-            component: ReadingList,
-            meta: {
-                requireAuth: true
-            }
-        },
+        // {
+        //     path: "/createList",
+        //     name: "createList",
+        //     component: ReadingList,
+        //     meta: {
+        //         requireAuth: true
+        //     }
+        // },
         {
             path: "/dashboard",
             name: "dashboard",

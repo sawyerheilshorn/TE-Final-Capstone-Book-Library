@@ -39,8 +39,9 @@ export default {
       ReadingListService.createList(this.readingList).then((response) => {
         if (response.status === 200) {
           console.log(response);
+          this.$router.go(this.$router.currentRoute);
         }
-        this.$router.push("dashboard");
+        // this.$router.push("dashboard");
       });
     },
   },
@@ -57,9 +58,6 @@ form {
 
 form input {
   margin-left: 46%;
-}
-
-form label {
 }
 
 button {
