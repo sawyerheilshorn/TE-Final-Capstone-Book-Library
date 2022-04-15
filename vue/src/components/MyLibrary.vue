@@ -35,6 +35,7 @@ export default {
   created() {
     BookService.getMyBooks().then((response) => {
       this.myBooks = response.data;
+      this.$store.commit("ADD_ALL_BOOK", this.myBooks);
     });
   },
 };

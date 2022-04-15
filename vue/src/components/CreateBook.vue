@@ -29,7 +29,7 @@
       <input
         id="genre"
         type="text"
-        v-model="book.genreList.genre_name"
+        v-model="book.genreList[0].genre_name"
         placeholder="genre"
         required
       />
@@ -80,5 +80,6 @@ export default {
 <style scoped>
 #btn-submit {
   color: white;
+  margin-left: 2%;
 }
 </style>
