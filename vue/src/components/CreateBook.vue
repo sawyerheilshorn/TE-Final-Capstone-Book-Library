@@ -50,7 +50,7 @@ export default {
         isbn: "",
         title: "",
         author: "",
-        genreList: "",
+        genreList: [],
       },
     };
   },
