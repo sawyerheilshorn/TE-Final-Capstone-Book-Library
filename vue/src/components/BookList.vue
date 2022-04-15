@@ -1,53 +1,62 @@
 <template>
   <div>
-    <div class="inputs">
-      <div class="row g-3" for="isbnFilter">
-        <div class="col">
-          <input
-            class="form-control form-control-sm ml-3 w-75"
-            type="text"
-            placeholder="Search by ISBN"
-            aria-label="Search"
-            v-model="filter.isbn"
-            id="isbnFilter"
-          />
-        </div>
+    
+    <div >
+        <div class="row">
+        <div class="inputs">
+            <div class="row g-3" for="isbnFilter">
+              <div class="col">
+                <input
+                  class="form-control border-end-0 border rounded-pill"
+                  type="text"
+                  placeholder="Search by ISBN"
+                  aria-label="Search"
+                  v-model="filter.isbn"
+                  id="isbnFilter"
+                />
+              </div>
+      
+              <div class="col" for="titleFilter">
+                <input
+                  class="form-control border-end-0 border rounded-pill"
+                  type="text"
+                  placeholder="Search by Title"
+                  aria-label="Search"
+                  v-model="filter.title"
+                  id="titleFilter"
+                />
+              </div>
+              <div class="col"  for="authorFilter">
+                <i class="bi bi-search"></i>
+                <input
+                  class="form-control border-end-0 border rounded-pill"
+                  type="text"
+                  placeholder="Search by Author"
+                  aria-label="Search"
+                  v-model="filter.author"
+                  id="authorFilter"
+                />
+              </div>
+              <div class="col" for="genreFilter">
+                <i class="bi bi-search"></i>
+                <input
+                  class="form-control border-end-0 border rounded-pill"
+                  type="text"
+                  placeholder="Search by Genre"
+                  aria-label="Search"
+                  v-model="filter.genre"
+                  id="genreFilter"
+                />
+              </div>
+            </div>
 
-        <div class="col" for="titleFilter">
-          <input
-            class="form-control form-control-sm ml-3 w-75"
-            type="text"
-            placeholder="Search by Title"
-            aria-label="Search"
-            v-model="filter.title"
-            id="titleFilter"
-          />
-        </div>
-        <div class="col" for="authorFilter">
-          <i class="bi bi-search"></i>
-          <input
-            class="form-control form-control-sm ml-3 w-75 bi bi-search"
-            type="text"
-            placeholder="Search by Author"
-            aria-label="Search"
-            v-model="filter.author"
-            id="authorFilter"
-          />
-        </div>
-        <div class="col" for="genreFilter">
-          <i class="bi bi-search"></i>
-          <input
-            class="form-control form-control-sm ml-3 w-75 bi bi-search"
-            type="text"
-            placeholder="Search by Genre"
-            aria-label="Search"
-            v-model="filter.genre"
-            id="genreFilter"
-          />
-        </div>
-      </div>
+            
+
+         
+               
+              </div>
+              </div>
     </div>
-
     <div class="book-container">
       <book-card
         v-bind:book="book"
@@ -128,12 +137,16 @@ export default {
 .inputs {
   display: flex;
   justify-content: space-around;
+  justify-items: center;
+  margin-left: 30%;
+  
   /*background-color:coral;*/
 }
 
 input {
   display: flex;
   justify-content: space-around;
+  
 
 }
 </style>
