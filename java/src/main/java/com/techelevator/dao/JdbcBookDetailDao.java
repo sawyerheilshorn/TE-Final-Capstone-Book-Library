@@ -70,17 +70,25 @@ public class JdbcBookDetailDao implements BookDetailDao {
     }
 
     public String addBookToLibrary(BookDetail bookDetail, String userName) {
-        String isbn = bookDetail.getIsbn();
+        try {
+            String isbn = bookDetail.getIsbn();
 
-        String sqlQuery = "INSERT INTO book_details(isbn, title, author) VALUES(?, ?, ?);";
-        jdbcTemplate.update(sqlQuery, bookDetail.getIsbn(), bookDetail.getTitle(), bookDetail.getAuthor());
+            String sqlQuery = "INSERT INTO book_details(isbn, title, author) VALUES(?, ?, ?);";
+            jdbcTemplate.update(sqlQuery, bookDetail.getIsbn(), bookDetail.getTitle(), bookDetail.getAuthor());
 
-        String sql = "INSERT INTO user_book (user_id, isbn) VALUES ((SELECT user_id FROM users WHERE username = ?), ?);";
-        jdbcTemplate.update(sql, userName, isbn);
+            String sql = "INSERT INTO user_book (user_id, isbn) VALUES ((SELECT user_id FROM users WHERE username = ?), ?);";
+            jdbcTemplate.update(sql, userName, isbn);
 
-        String genreQuery = "INSERT INTO book_genre(isbn, genre_id) VALUES(?, (select genre_id from genre_name= ?));";
-        jdbcTemplate.update(genreQuery, bookDetail.getIsbn(), bookDetail.getGenreList().get(0));
-        return "added Book to library";
+            List<Genre> genreList = bookDetail.getGenreList();
+            for(Genre g : genreList){
+                String genreQuery = "INSERT INTO book_genre(isbn, genre_id) VALUES(?, (select genre_id from genre where genre_name= ?));";
+                jdbcTemplate.update(genreQuery, bookDetail.getIsbn(), g.getGenre_name());
+            }
+            return "added Book to library";
+        }catch (Exception e){
+            System.out.println("Exception " + e.getMessage());
+            return e.getMessage();
+        }
     }
 
 

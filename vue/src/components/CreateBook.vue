@@ -17,7 +17,7 @@
         placeholder="title"
         required
       />
-      <label for="title">Author</label>
+      <label for="author">Author</label>
       <input
         id="author"
         type="text"
@@ -25,15 +25,20 @@
         placeholder="author"
         required
       />
-      <label for="title">Genre</label>
+      <label for="genre">Genre</label>
       <input
         id="genre"
         type="text"
-        v-model="book.genreList"
+        v-model="book.genreList.genre_name"
         placeholder="genre"
         required
       />
-      <button type="submit" @click="createBook()" class="btn btn-submit" id="btn-submit">
+      <button
+        type="submit"
+        @click="createBook()"
+        class="btn btn-submit"
+        id="btn-submit"
+      >
         Submit
       </button>
     </form>
@@ -50,18 +55,22 @@ export default {
         isbn: "",
         title: "",
         author: "",
-        genreList: [],
+        genreList: [
+          {
+            genre_name: "",
+          },
+        ],
       },
     };
   },
 
   methods: {
-    createBook() {
+    createBook() {       
       BookService.addBookToLibrary(this.book).then((response) => {
         if (response.status === 200) {
           console.log(response);
         }
-        this.$router.push("dashboard");
+        this.$router.go(this.$router.currentRoute);
       });
     },
   },
@@ -69,7 +78,7 @@ export default {
 </script>
 
 <style scoped>
-#btn-submit{
-  color:white;
+#btn-submit {
+  color: white;
 }
 </style>

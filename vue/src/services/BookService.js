@@ -10,6 +10,6 @@ export default {
     },
 
     addBookToLibrary(book) {
-        axios.post('/addBookToLibrary', book)
+        return axios.post('/addBookToLibrary', book)
     }
 }
