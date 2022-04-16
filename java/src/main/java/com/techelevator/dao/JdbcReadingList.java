@@ -83,4 +83,15 @@ public class JdbcReadingList implements ReadingListDao {
         jdbcTemplate.update(sql, id, isbn); //try -catch
         return "Book " + isbn +" removed from list" ;
     }
+
+    @Override
+    public String removeList(int id) {
+        String sql = "DELETE FROM reading_list_book WHERE list_id= ?;";
+        jdbcTemplate.update(sql, id);
+
+        String sql1 = "DELETE FROM reading_list WHERE list_id= ?;";
+        jdbcTemplate.update(sql1,id);
+
+        return "List #: " + id + " removed";
+    }
 }

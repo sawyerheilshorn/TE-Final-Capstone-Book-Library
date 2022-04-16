@@ -45,7 +45,11 @@ public class ReadingListController {
 
 
 
-
+    @RequestMapping(path = "/removeList/{id}", method = RequestMethod.PUT)
+    public String removeList(@PathVariable int id) {
+        //String userName = principal.getName(); @RequestBody Principal principal,
+        return readingListDao.removeList(id);
+    }
 
 
 }

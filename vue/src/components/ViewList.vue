@@ -42,6 +42,7 @@
           >
             Add Book
           </button>
+          <button @click="removeList(list.listId)">Delete This List</button>
         </div>
       </div>
 
@@ -114,6 +115,15 @@ export default {
           });
         }
       );
+    },
+
+    removeList(listId) {
+      ReadingListService.removeList(listId).then((response) => {
+        if (response.status === 200) {
+          console.log(response);
+          this.$router.go(this.$router.currentRoute);
+        }
+      });
     },
   },
   created() {

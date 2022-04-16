@@ -9,5 +9,9 @@ export default {
     },
     removeBookFromList(id, isbn) {
         return axios.put('/removeBookFromList/' + id + '/' + isbn);
+    },
+
+    removeList(id) {
+        return axios.put('/removeList/' + id);
     }
 }

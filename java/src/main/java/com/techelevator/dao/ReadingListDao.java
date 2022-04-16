@@ -14,4 +14,6 @@ public interface ReadingListDao {
     String addBookToList(int id, String isbn);
 
     String removeBookFromList(int id, String isbn);
+
+    String removeList(int id);
 }
