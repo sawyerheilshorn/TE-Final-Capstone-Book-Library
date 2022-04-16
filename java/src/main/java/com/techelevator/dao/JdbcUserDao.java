@@ -86,6 +86,21 @@ public class JdbcUserDao implements UserDao {
         return userCreated;
     }
 
+    @Override
+    public List<User> getUsersByIsbn(String isbn) {
+        List<User> userList = new ArrayList<>();
+        String sql = "select * from users \n" +
+                "JOIN user_book ON user_book.user_id = users.user_id\n" +
+                "WHERE user_book.isbn = ?;";
+       SqlRowSet results = jdbcTemplate.queryForRowSet(sql, isbn);
+       while(results.next()){
+           User user = mapRowToUser(results);
+           userList.add(user);
+       }
+
+        return userList;
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getLong("user_id"));

@@ -35,12 +35,7 @@ public class ReadingListController {
         //String userName = principal.getName(); @RequestBody Principal principal,
         return readingListDao.addBookToList(id, isbn);
     }
-//
-//    @RequestMapping(path = "/addBookToList", method = RequestMethod.POST)
-//    public String  addBookToList(@RequestBody BookDetail book) {
-//        //String userName = principal.getName(); @RequestBody Principal principal,
-//        return readingListDao.addBookToList(book.getIsbn(), book.g);
-//    }
+
 
     @RequestMapping(path = "/removeBookFromList/{id}/{isbn}", method = RequestMethod.PUT)
     public String removeBookFromList(@PathVariable int id, @PathVariable String isbn) {
