@@ -64,8 +64,8 @@ public class AuthenticationController {
             userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
         }
     }
-    @RequestMapping(path = "/getUsers", method = RequestMethod.GET)
-    public List<User> getUsersByIsbn(@RequestBody String isbn){
+    @RequestMapping(path = "/getUsers/{isbn}", method = RequestMethod.GET)
+    public List<User> getUsersByIsbn(@PathVariable String isbn){
         return userDao.getUsersByIsbn(isbn);
     }
 

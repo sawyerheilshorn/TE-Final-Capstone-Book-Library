@@ -1,5 +1,4 @@
 <template>
-
   <div class="card-deck">
     <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded">
       <img
@@ -21,26 +20,43 @@
         >
           {{ genre.genre_name }}
         </p>
-
+        <h6>Users Who Own This Book:</h6>
+        <ul>
+          <li v-for="user in users" v-bind:key="user.user_id">
+            {{ user.username }}
+            <button>Request Book</button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import AuthService from "../services/AuthService";
+
 export default {
   name: "book-card",
+  data() {
+    return {
+      users: [],
+    };
+  },
   props: {
     book: Object,
+  },
+  created() {
+    AuthService.getUsers(this.book.isbn).then((response) => {
+      this.users = response.data;
+    });
   },
 };
 </script>
 
 <style>
-#inline{
+#inline {
   display: inline;
 }
-
 
 .card-deck {
   margin: 0 1em 1em 1em;
@@ -68,5 +84,4 @@ export default {
   height: 50%;
   width: 30%;
 }*/
-
 </style>
