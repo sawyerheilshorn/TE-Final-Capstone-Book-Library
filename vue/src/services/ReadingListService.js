@@ -6,5 +6,8 @@ export default {
     },
     retrieveList() {
         return axios.get('/dashboard');
+    },
+    removeBookFromList(id, isbn) {
+        return axios.put('/removeBookFromList/' + id + '/' + isbn);
     }
 }

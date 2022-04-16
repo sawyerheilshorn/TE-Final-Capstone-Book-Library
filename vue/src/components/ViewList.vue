@@ -15,6 +15,12 @@
               "
             />
             <h3>{{ book.title }}</h3>
+            <button
+              @click="removeBookFromList(list.listId, book)"
+              class="btn btn-submit"
+            >
+              Remove Book
+            </button>
           </div>
 
           <label for="books">Choose a Book</label>
@@ -96,6 +102,18 @@ export default {
           this.foundBook = book;
         }
       });
+    },
+
+    removeBookFromList(listId, book) {
+      ReadingListService.removeBookFromList(listId, book.isbn).then(
+        (response) => {
+          console.log(response);
+          ReadingListService.retrieveList().then((response) => {
+            this.readingList = response.data;
+            console.log(this.readingList);
+          });
+        }
+      );
     },
   },
   created() {
