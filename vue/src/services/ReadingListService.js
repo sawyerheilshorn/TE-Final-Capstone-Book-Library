@@ -14,8 +14,6 @@ export default {
     removeList(id) {
         return axios.put('/removeList/' + id);
     },
-    getBookStatus(){
-        return axios.get('/getbookstatus');
-    }
+
 
 }

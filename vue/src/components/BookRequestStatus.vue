@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import Requestervice from "../services/RequestService";
+import RequestService from "../services/RequestService";
 export default {
   name: "book-request",
   data() {
@@ -42,7 +42,7 @@ export default {
     };
   },
   created() {
-    Requestervice.getBookStatus().then((response) => {
+    RequestService.getBookStatus().then((response) => {
       console.log("BOOK REQUEST: " + response.data);
       this.bookRequests = response.data;
       this.username = this.$store.state.user.username;
