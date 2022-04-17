@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <h5><i class="fa fa-road"></i> ACME CO INC.</h5>
+                <h5><i class="fa fa-road"></i> CBUS Book Swap.</h5>
                 <div class="row">
                     <div class="col-6">
                         <ul class="list-unstyled">

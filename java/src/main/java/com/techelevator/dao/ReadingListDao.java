@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.bookmodel.BookDetail;
+import com.techelevator.model.readinglist.BookRequest;
 import com.techelevator.model.readinglist.ReadingList;
 
 import java.security.Principal;
@@ -12,6 +13,8 @@ public interface ReadingListDao {
     List<ReadingList> getReadingListByUser(String userName);
 
     String addBookToList(int id, String isbn);
+
+    List<BookRequest> getUserBookStatus(String userName);
 
     String removeBookFromList(int id, String isbn);
 

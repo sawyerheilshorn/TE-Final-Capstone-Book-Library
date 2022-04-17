@@ -1,8 +1,10 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.bookmodel.BookDetail;
+import com.techelevator.model.readinglist.BookRequest;
 import com.techelevator.model.readinglist.ReadingList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -32,21 +34,61 @@ public class JdbcReadingList implements ReadingListDao {
         List<ReadingList> readingLists = new ArrayList<>();
         String sql = "select * from reading_list where user_id =(select user_id from users where username = ?);";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userName);
-        while (results.next()){
+        while (results.next()) {
             ReadingList readingList = mapRowToReadingList(results);
             int listId = readingList.getListId();
             String listName = readingList.getListName();
             List<BookDetail> bookDetailList = getAllBooks(listId);
             readingList.setBookDetailListId(bookDetailList);
-          //  readingList.setBookDetailListMap(listName, bookDetailList);
             readingLists.add(readingList);
         }
         return readingLists;
     }
 
+    @Override
+    public String addBookToList(int id, String isbn) {
+        String sql = "INSERT INTO reading_list_book (list_id, isbn) VALUES (?, ?);";
+        jdbcTemplate.update(sql, id, isbn); //try -catch
+        return "Book " + isbn + " added to  list";
+    }
 
-    private List<BookDetail> getAllBooks(int listId){
-       List<BookDetail> bookDetailList = new ArrayList<>();
+    @Override
+    public String removeBookFromList(int id, String isbn) {
+        String sql = "DELETE FROM reading_list_book WHERE list_id= ? AND isbn = ?";
+        jdbcTemplate.update(sql, id, isbn); //try -catch
+        return "Book " + isbn + " removed from list";
+    }
+
+    @Override
+    public String removeList(int id) {
+        String sql = "DELETE FROM reading_list_book WHERE list_id= ?;";
+        jdbcTemplate.update(sql, id);
+
+        String sql1 = "DELETE FROM reading_list WHERE list_id= ?;";
+        jdbcTemplate.update(sql1, id);
+
+        return "List #: " + id + " removed";
+    }
+
+    @Override
+    public List<BookRequest> getUserBookStatus(String userName) {
+        List<BookRequest> bookRequestList = new ArrayList<>();
+        String sql = "select b.book_isbn,b.book_request_status_id, u.username as request_sender, u1.username as borrow_from from book_request AS b                \n" +
+                "JOIN users AS u ON b.request_received_from = u.user_id \n" +
+                "JOIN users AS u1 ON b.request_sent_to = u1.user_id\n" +
+                "WHERE b.book_request_status_id = (SELECT book_request_status_id FROM \n" +
+                "\tbook_request_status WHERE book_request_status_desc = 'Pending') AND (u.username = ? OR u1.username = ?);";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userName, userName);
+        while(results.next()){
+            BookRequest bookRequest = mapRowToBookRequest(results);
+            bookRequestList.add(bookRequest);
+        }
+        return bookRequestList;
+    }
+
+    private List<BookDetail> getAllBooks(int listId) {
+        List<BookDetail> bookDetailList = new ArrayList<>();
         String sql = "select * from book_details \n" +
                 "JOIN reading_list_book ON reading_list_book.isbn = book_details.isbn\n" +
                 "WHERE list_id=?;";
@@ -59,9 +101,7 @@ public class JdbcReadingList implements ReadingListDao {
 
     }
 
-
-
-    private ReadingList mapRowToReadingList (SqlRowSet rowSet) {
+    private ReadingList mapRowToReadingList(SqlRowSet rowSet) {
         ReadingList readingList = new ReadingList();
         readingList.setListId(rowSet.getInt("list_id"));
         readingList.setListName(rowSet.getString("list_name"));
@@ -69,29 +109,18 @@ public class JdbcReadingList implements ReadingListDao {
         return readingList;
     }
 
-    @Override
-//    public void addBookToList (String userName, String id, String isbn) {
-    public String addBookToList (int id, String isbn) {
-        String sql = "INSERT INTO reading_list_book (list_id, isbn) VALUES (?, ?);";
-        jdbcTemplate.update(sql, id, isbn); //try -catch
-        return "Book " + isbn +" added to  list" ;
-    }
+    private BookRequest mapRowToBookRequest(SqlRowSet rowSet){
+        BookRequest bookRequest = new BookRequest();
+       // bookRequest.setBookRequestId(rowSet.getInt(""));
+        bookRequest.setBookISBN(rowSet.getString("book_isbn"));
+        bookRequest.setTransferStatus(rowSet.getInt("book_request_status_id"));
+        try {
+            bookRequest.setRequestSender(rowSet.getString("request_sender"));
+            bookRequest.setBorrowFrom(rowSet.getString("borrow_from"));
+        } catch (DataAccessException e) {
 
-    @Override
-    public String removeBookFromList(int id, String isbn) {
-        String sql = "DELETE FROM reading_list_book WHERE list_id= ? AND isbn = ?";
-        jdbcTemplate.update(sql, id, isbn); //try -catch
-        return "Book " + isbn +" removed from list" ;
-    }
+        }
+        return bookRequest;
 
-    @Override
-    public String removeList(int id) {
-        String sql = "DELETE FROM reading_list_book WHERE list_id= ?;";
-        jdbcTemplate.update(sql, id);
-
-        String sql1 = "DELETE FROM reading_list WHERE list_id= ?;";
-        jdbcTemplate.update(sql1,id);
-
-        return "List #: " + id + " removed";
     }
 }

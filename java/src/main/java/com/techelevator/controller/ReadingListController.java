@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.ReadingListDao;
 import com.techelevator.model.bookmodel.BookDetail;
+import com.techelevator.model.readinglist.BookRequest;
 import com.techelevator.model.readinglist.ReadingList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -30,20 +31,23 @@ public class ReadingListController {
         return readingListDao.getReadingListByUser(userName);
     }
 
+    @RequestMapping(path = "/getbookstatus", method = RequestMethod.GET)
+    public List<BookRequest> getBookStatus(Principal principal){
+        String userName = principal.getName();
+        return readingListDao.getUserBookStatus(userName);
+    }
+
     @RequestMapping(path = "/addBookToList/{id}/{isbn}", method = RequestMethod.PUT)
     public String  addBookToList(@PathVariable int id, @PathVariable String isbn) {
         //String userName = principal.getName(); @RequestBody Principal principal,
         return readingListDao.addBookToList(id, isbn);
     }
 
-
     @RequestMapping(path = "/removeBookFromList/{id}/{isbn}", method = RequestMethod.PUT)
     public String removeBookFromList(@PathVariable int id, @PathVariable String isbn) {
         //String userName = principal.getName(); @RequestBody Principal principal,
        return readingListDao.removeBookFromList(id, isbn);
     }
-
-
 
     @RequestMapping(path = "/removeList/{id}", method = RequestMethod.PUT)
     public String removeList(@PathVariable int id) {
