@@ -4,6 +4,7 @@ package com.techelevator.model.readinglist;
 public class BookRequest {
     private int bookRequestId;
     private String bookISBN;
+    private String title;
     private String requestSender;
     private String borrowFrom;
     private int transferStatus;
@@ -22,6 +23,14 @@ public class BookRequest {
 
     public void setBookISBN(String bookISBN) {
         this.bookISBN = bookISBN;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getRequestSender() {

@@ -1,7 +1,9 @@
 <template>
   <div>
+     <book-request-status/>
     <view-list />
     <my-library />
+   
 
     <footer class="footer">
     <div class="container">
@@ -60,8 +62,10 @@
 <script>
 import ViewList from "../components/ViewList.vue";
 import MyLibrary from "../components/MyLibrary.vue";
+import BookRequestStatus from '../components/BookRequestStatus.vue';
+
 export default {
-  components: { ViewList, MyLibrary },
+  components: { ViewList, MyLibrary, BookRequestStatus },
 };
 </script>
 

@@ -73,7 +73,8 @@ public class JdbcReadingList implements ReadingListDao {
     @Override
     public List<BookRequest> getUserBookStatus(String userName) {
         List<BookRequest> bookRequestList = new ArrayList<>();
-        String sql = "select b.book_isbn,b.book_request_status_id, u.username as request_sender, u1.username as borrow_from from book_request AS b                \n" +
+        String sql = "select b.book_request_id, bd.isbn, bd.title, b.book_request_status_id, u.username as request_sender, u1.username as borrow_from from book_request AS b \n" +
+                "JOIN book_details AS bd ON b.book_isbn = bd.isbn \n" +
                 "JOIN users AS u ON b.request_received_from = u.user_id \n" +
                 "JOIN users AS u1 ON b.request_sent_to = u1.user_id\n" +
                 "WHERE b.book_request_status_id = (SELECT book_request_status_id FROM \n" +
@@ -111,8 +112,9 @@ public class JdbcReadingList implements ReadingListDao {
 
     private BookRequest mapRowToBookRequest(SqlRowSet rowSet){
         BookRequest bookRequest = new BookRequest();
-       // bookRequest.setBookRequestId(rowSet.getInt(""));
-        bookRequest.setBookISBN(rowSet.getString("book_isbn"));
+        bookRequest.setBookRequestId(rowSet.getInt("book_request_id"));
+        bookRequest.setBookISBN(rowSet.getString("isbn"));
+        bookRequest.setTitle(rowSet.getString("title"));
         bookRequest.setTransferStatus(rowSet.getInt("book_request_status_id"));
         try {
             bookRequest.setRequestSender(rowSet.getString("request_sender"));
