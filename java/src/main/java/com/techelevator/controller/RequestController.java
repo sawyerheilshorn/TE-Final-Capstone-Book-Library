@@ -34,5 +34,13 @@ public class RequestController {
             message = bookRequestDao.updateUserBookStatusToDeclined(userName);
         }
         return message;
-    }}
+    }
+
+    @RequestMapping(path = "/sendRequest/{isbn}/{userBorrowFrom}", method = RequestMethod.POST)
+    public int sendRequest(@PathVariable String isbn, @PathVariable String userBorrowFrom, Principal principal){
+        String userSender = principal.getName();
+        return bookRequestDao.sendRequest(isbn, userBorrowFrom, userSender);
+    }
+
+}
 

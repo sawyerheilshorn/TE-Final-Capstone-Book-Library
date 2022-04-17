@@ -39,13 +39,12 @@ public class ReadingListController {
 
     @RequestMapping(path = "/removeBookFromList/{id}/{isbn}", method = RequestMethod.PUT)
     public String removeBookFromList(@PathVariable int id, @PathVariable String isbn) {
-        //String userName = principal.getName(); @RequestBody Principal principal,
+
         return readingListDao.removeBookFromList(id, isbn);
     }
 
     @RequestMapping(path = "/removeList/{id}", method = RequestMethod.PUT)
     public String removeList(@PathVariable int id) {
-        //String userName = principal.getName(); @RequestBody Principal principal,
         return readingListDao.removeList(id);
     }
 

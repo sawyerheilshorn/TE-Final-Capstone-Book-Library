@@ -35,6 +35,14 @@ public class JdbcBookRequestDao implements BookRequestDao {
     }
 
     @Override
+    public int sendRequest(String isbn, String userBorrowFrom, String userSender) {
+        String sql = "INSERT INTO book_request(book_isbn, book_request_status_id, request_sent_to, request_received_from) VALUES(?, 1, ((select user_id from users where username = ?)), (select user_id from users where username =?))\n" +
+                "RETURNING book_request_id; ";
+        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class, isbn, userBorrowFrom, userSender);
+        return newId;
+    }
+
+    @Override
     public String updateUserBookStatusToApproved(String userName) {
         //todo update status to approved in the book_request_table and delete the book from user list
         return "Approved method";
@@ -45,6 +53,7 @@ public class JdbcBookRequestDao implements BookRequestDao {
         //todo delete the entry from book_request_table
         return "Decline method";
     }
+
 
     private BookRequest mapRowToBookRequest(SqlRowSet rowSet) {
         BookRequest bookRequest = new BookRequest();
@@ -61,4 +70,6 @@ public class JdbcBookRequestDao implements BookRequestDao {
         return bookRequest;
 
     }
+
+
 }

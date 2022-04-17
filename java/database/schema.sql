@@ -75,7 +75,7 @@ CREATE TABLE book_request_status (
 
 CREATE TABLE book_request(
 	book_request_id serial,
-	book_isbn varchar(50) NOT NULL,
+	book_isbn varchar(1000) NOT NULL,
 	book_request_status_id int NOT NULL,
 	request_received_from int NOT NULL,
 	request_sent_to int NOT NULL,	

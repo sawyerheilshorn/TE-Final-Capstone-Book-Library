@@ -24,7 +24,7 @@
         <ul>
           <li v-for="user in users" v-bind:key="user.user_id">
             {{ user.username }}
-            <button>Request Book</button>
+            <button @click="sendRequest(user.username)">Request Book</button>
           </li>
         </ul>
       </div>
@@ -34,6 +34,7 @@
 
 <script>
 import AuthService from "../services/AuthService";
+import RequestService from "../services/RequestService";
 
 export default {
   name: "book-card",
@@ -49,6 +50,16 @@ export default {
     AuthService.getUsers(this.book.isbn).then((response) => {
       this.users = response.data;
     });
+  },
+  methods: {
+    sendRequest(username) {
+      console.log("Hit Send request method in methods section. Click working");
+      RequestService.sendRequest(this.book.isbn, username).then((response) => {
+        if (response.status === 200) {
+          console.log(response);
+        }
+      });
+    },
   },
 };
 </script>
