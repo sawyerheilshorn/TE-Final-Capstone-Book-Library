@@ -24,7 +24,12 @@
         <ul>
           <li v-for="user in users" v-bind:key="user.user_id">
             {{ user.username }}
-            <button @click="sendRequest(user.username)">Request Book</button>
+            <button
+              @click="sendRequest(user.username)"
+              :disabled="enabled == false"
+            >
+              Request Book
+            </button>
           </li>
         </ul>
       </div>
@@ -41,6 +46,7 @@ export default {
   data() {
     return {
       users: [],
+      enabled: true,
     };
   },
   props: {
@@ -58,6 +64,7 @@ export default {
         if (response.status === 200) {
           console.log(response);
         }
+        this.enabled = false;
       });
     },
   },
