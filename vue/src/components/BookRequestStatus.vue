@@ -5,7 +5,9 @@
       <h2>Request received</h2>
 
       <div v-for="request in requestReceived" v-bind:key="request.book_isbn">
-        <p>{{ request.title }} &nbsp;  &nbsp; From : {{ request.requestSender }}</p>
+        <p>
+          {{ request.title }} &nbsp; &nbsp; From : {{ request.requestSender }}
+        </p>
         <button type="submit" @click="approveBookRequest(request)" class="btn">
           Approve
         </button>
@@ -16,45 +18,44 @@
     </div>
     <!-- Request sent by the user -->
     <div id="sent-request">
-        <h2>My Request</h2>
-        <div v-for="request in requestSent" v-bind:key="request.book_isbn">
-        <p>{{ request.title }} To: {{request.borrowFrom}}</p>
-    <button type="submit" @click="updateRequestStatus()" class="btn">
-      Pending
-    </button>
-    </div>
+      <h2>My Request</h2>
+      <div v-for="request in requestSent" v-bind:key="request.book_isbn">
+        <p>{{ request.title }} To: {{ request.borrowFrom }}</p>
+        <button type="submit" @click="updateRequestStatus()" class="btn">
+          Pending
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import ReadingListService from "../services/ReadingListService";
+import Requestervice from "../services/RequestService";
 export default {
   name: "book-request",
   data() {
     return {
       bookRequests: [],
-      requestSent:[],
-      requestReceived:[],
+      requestSent: [],
+      requestReceived: [],
       username: "",
     };
   },
   created() {
-    ReadingListService.getBookStatus().then((response) => {
+    Requestervice.getBookStatus().then((response) => {
       console.log("BOOK REQUEST: " + response.data);
       this.bookRequests = response.data;
       this.username = this.$store.state.user.username;
 
       this.bookRequests.forEach((bookRequest) => {
-          if(bookRequest.requestSender == this.username){
-              this.requestSent.push(bookRequest);
-            //   console.log("requestSender: " + JSON.stringify(this.requestSent));
-          }else{
-              this.requestReceived.push(bookRequest);
-            //   console.log("requestReceived: " + JSON.stringify(this.requestReceived));
-          }
-      });  
-
+        if (bookRequest.requestSender == this.username) {
+          this.requestSent.push(bookRequest);
+          //   console.log("requestSender: " + JSON.stringify(this.requestSent));
+        } else {
+          this.requestReceived.push(bookRequest);
+          //   console.log("requestReceived: " + JSON.stringify(this.requestReceived));
+        }
+      });
     });
   },
 };
@@ -62,7 +63,7 @@ export default {
 
 <style scoped>
 #received-request {
-  display: grid; 
+  display: grid;
   color: white;
   background-color: rgb(74, 78, 78);
   margin: 1px;
@@ -76,18 +77,17 @@ export default {
 }
 
 #sent-request {
- color: white;
+  color: white;
   background-color: rgb(74, 78, 78);
   /* margin: 1px;   */
   grid-area: sent-request;
-
 }
 
-#book-status{
-    display: grid;  
-    /* row-gap: 20px; */
-    /* column-gap: 50px;  */
+#book-status {
+  display: grid;
+  /* row-gap: 20px; */
+  /* column-gap: 50px;  */
 
-     grid-template-areas:"received-request sent-request"  
+  grid-template-areas: "received-request sent-request";
 }
 </style>
