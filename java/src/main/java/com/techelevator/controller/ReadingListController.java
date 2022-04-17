@@ -32,13 +32,33 @@ public class ReadingListController {
     }
 
     @RequestMapping(path = "/getBookStatus", method = RequestMethod.GET)
-    public List<BookRequest> getBookStatus(Principal principal){
+    public List<BookRequest> getBookStatus(Principal principal) {
         String userName = principal.getName();
         return readingListDao.getUserBookStatus(userName);
     }
 
+    @RequestMapping(path = "/updateStatus", method = RequestMethod.POST)
+    public String updateBookStatus(@RequestBody BookRequest bookRequest, Principal principal) {
+        String userName = principal.getName();
+        String message = null;
+        int status = bookRequest.getTransferStatus();
+        if (status == 2) {
+            message = readingListDao.updateUserBookStatusToApproved(userName);
+        } else if (status == 3) {
+            message = readingListDao.updateUserBookStatusToDeclined(userName);
+        }
+        return message;
+    }
+
+    @RequestMapping(path ="/addBookRequest", method = RequestMethod.POST)
+    public String getBookStatus(@RequestBody BookRequest bookRequest, Principal principal) {
+        String userName = principal.getName();
+
+    }
+
+
     @RequestMapping(path = "/addBookToList/{id}/{isbn}", method = RequestMethod.PUT)
-    public String  addBookToList(@PathVariable int id, @PathVariable String isbn) {
+    public String addBookToList(@PathVariable int id, @PathVariable String isbn) {
         //String userName = principal.getName(); @RequestBody Principal principal,
         return readingListDao.addBookToList(id, isbn);
     }
@@ -46,7 +66,7 @@ public class ReadingListController {
     @RequestMapping(path = "/removeBookFromList/{id}/{isbn}", method = RequestMethod.PUT)
     public String removeBookFromList(@PathVariable int id, @PathVariable String isbn) {
         //String userName = principal.getName(); @RequestBody Principal principal,
-       return readingListDao.removeBookFromList(id, isbn);
+        return readingListDao.removeBookFromList(id, isbn);
     }
 
     @RequestMapping(path = "/removeList/{id}", method = RequestMethod.PUT)

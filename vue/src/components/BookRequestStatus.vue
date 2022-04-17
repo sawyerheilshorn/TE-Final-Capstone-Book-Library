@@ -6,10 +6,10 @@
 
       <div v-for="request in requestReceived" v-bind:key="request.book_isbn">
         <p>{{ request.title }} &nbsp;  &nbsp; From : {{ request.requestSender }}</p>
-        <button type="submit" @click="approveBookRequest()" class="btn">
+        <button type="submit" @click="approveBookRequest(request)" class="btn">
           Approve
         </button>
-        <button type="submit" @click="declineBookRequest()" class="btn">
+        <button type="submit" @click="declineBookRequest(request)" class="btn">
           Decline
         </button>
       </div>
@@ -48,10 +48,10 @@ export default {
       this.bookRequests.forEach((bookRequest) => {
           if(bookRequest.requestSender == this.username){
               this.requestSent.push(bookRequest);
-              console.log("requestSender: " + JSON.stringify(this.requestSent));
+            //   console.log("requestSender: " + JSON.stringify(this.requestSent));
           }else{
               this.requestReceived.push(bookRequest);
-              console.log("requestReceived: " + JSON.stringify(this.requestReceived));
+            //   console.log("requestReceived: " + JSON.stringify(this.requestReceived));
           }
       });  
 

@@ -42,14 +42,15 @@ public class JdbcBookDetailDao implements BookDetailDao {
         }
         return genreList;
     }
+
     @Override
     public List<BookDetail> getAllBooksByUser(String userName) {
-        List<BookDetail> bookList= new ArrayList<>();
+        List<BookDetail> bookList = new ArrayList<>();
         String sql = "SELECT * from book_details \n" +
                 "JOIN user_book ON user_book.isbn = book_details.isbn\n" +
                 "WHERE user_book.user_id = (SELECT user_id from users WHERE username = ?);";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userName);
-        while (results.next()){
+        while (results.next()) {
             BookDetail bookDetails = mapRowToBookDetail(results);
             String isbnNumber = bookDetails.getIsbn();
             List<Genre> genreList = getGenreByISBN(isbnNumber);
@@ -80,12 +81,12 @@ public class JdbcBookDetailDao implements BookDetailDao {
             jdbcTemplate.update(sql, userName, isbn);
 
             List<Genre> genreList = bookDetail.getGenreList();
-            for(Genre g : genreList){
+            for (Genre g : genreList) {
                 String genreQuery = "INSERT INTO book_genre(isbn, genre_id) VALUES(?, (select genre_id from genre where genre_name= ?));";
                 jdbcTemplate.update(genreQuery, bookDetail.getIsbn(), g.getGenre_name());
             }
             return "added Book to library";
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Exception " + e.getMessage());
             return e.getMessage();
         }

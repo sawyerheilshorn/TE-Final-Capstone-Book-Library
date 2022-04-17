@@ -81,11 +81,23 @@ public class JdbcReadingList implements ReadingListDao {
                 "\tbook_request_status WHERE book_request_status_desc = 'Pending') AND (u.username = ? OR u1.username = ?);";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userName, userName);
-        while(results.next()){
+        while (results.next()) {
             BookRequest bookRequest = mapRowToBookRequest(results);
             bookRequestList.add(bookRequest);
         }
         return bookRequestList;
+    }
+
+    @Override
+    public String updateUserBookStatusToApproved(String userName) {
+        //todo update status to approved in the book_request_table and delete the book from user list
+        return "Approved method";
+    }
+
+    @Override
+    public String updateUserBookStatusToDeclined(String userName) {
+        //todo delete the entry from book_request_table
+        return "Decline method";
     }
 
     private List<BookDetail> getAllBooks(int listId) {
@@ -110,7 +122,7 @@ public class JdbcReadingList implements ReadingListDao {
         return readingList;
     }
 
-    private BookRequest mapRowToBookRequest(SqlRowSet rowSet){
+    private BookRequest mapRowToBookRequest(SqlRowSet rowSet) {
         BookRequest bookRequest = new BookRequest();
         bookRequest.setBookRequestId(rowSet.getInt("book_request_id"));
         bookRequest.setBookISBN(rowSet.getString("isbn"));
