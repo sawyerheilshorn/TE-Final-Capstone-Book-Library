@@ -31,7 +31,7 @@ public class ReadingListController {
         return readingListDao.getReadingListByUser(userName);
     }
 
-    @RequestMapping(path = "/getbookstatus", method = RequestMethod.GET)
+    @RequestMapping(path = "/getBookStatus", method = RequestMethod.GET)
     public List<BookRequest> getBookStatus(Principal principal){
         String userName = principal.getName();
         return readingListDao.getUserBookStatus(userName);
