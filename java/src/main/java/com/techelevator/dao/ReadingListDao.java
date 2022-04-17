@@ -14,6 +14,12 @@ public interface ReadingListDao {
 
     String addBookToList(int id, String isbn);
 
+    List<BookRequest> getUserBookStatus(String userName);
+
+    String updateUserBookStatusToApproved(String userName);
+
+    String updateUserBookStatusToDeclined(String userName);
+
     String removeBookFromList(int id, String isbn);
 
     String removeList(int id);
