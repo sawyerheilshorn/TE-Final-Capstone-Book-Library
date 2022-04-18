@@ -58,87 +58,73 @@
       <!-- logo -->
       <nav class="navbar">
         <div class="logo">
-          <a href="">
-            <img src="" alt="">LOGO
-          </a>
+          <a href=""> <img src="" alt="" />LOGO </a>
         </div>
         <!-- Nav menu -->
         <div class="menu">
-          <ul >
-              <li >
-                <router-link  v-bind:to="{ name: 'home' }"
-                  >Home</router-link
-                >&nbsp;&nbsp;
-              </li>
-              <li >
-                <router-link  v-bind:to="{ name: 'search' }"
-                  >Search</router-link
-                >&nbsp;&nbsp;
-              </li>
-              <li >
-                <router-link  v-bind:to="{ name: 'login' }"
-                  >Login</router-link
-                >&nbsp;&nbsp;
-              </li>
-              <li >
-                <router-link
-                  
-                  v-bind:to="{ name: 'dashboard' }"
-                  v-if="$store.state.token != ''"
-                  >My Dashboard</router-link
-                >&nbsp;&nbsp;
-              </li>
-              <li >
-                <router-link
-                  
-                  v-bind:to="{ name: 'logout' }"
-                  v-if="$store.state.token != ''"
-                  >Logout</router-link
-                >
-              </li>
-            </ul>
+          <ul>
+            <li>
+              <router-link v-bind:to="{ name: 'home' }">Home</router-link
+              >&nbsp;&nbsp;
+            </li>
+            <li>
+              <router-link v-bind:to="{ name: 'search' }">Search</router-link
+              >&nbsp;&nbsp;
+            </li>
+            <li>
+              <router-link
+                v-bind:to="{ name: 'login' }"
+                v-if="$store.state.token == ''"
+                >Login</router-link
+              >&nbsp;&nbsp;
+            </li>
+            <li>
+              <router-link
+                v-bind:to="{ name: 'dashboard' }"
+                v-if="$store.state.token != ''"
+                >My Dashboard</router-link
+              >&nbsp;&nbsp;
+            </li>
+            <li>
+              <router-link
+                v-bind:to="{ name: 'logout' }"
+                v-if="$store.state.token != ''"
+                >Logout</router-link
+              >
+            </li>
+          </ul>
         </div>
       </nav>
-      
     </div>
     <!-- footer -->
-    <body class="body"><router-view /></body>
+    <body class="body">
+      <router-view />
+    </body>
     <div class="footer" id="footer">
-       <div class="footer-bottom">
-         <div class="footer-menu">
- <ul class="f-menu">
-     <li >
-                <router-link  v-bind:to="{ name: 'home' }"
-                  >Home</router-link
-                >&nbsp;&nbsp;
-              </li>
-       <li >
-                <router-link  v-bind:to="{ name: 'search' }"
-                  >Search</router-link
-                >&nbsp;&nbsp;
-              </li>
-              
+      <div class="footer-bottom">
+        <div class="footer-menu">
+          <ul class="f-menu">
+            <li>
+              <router-link v-bind:to="{ name: 'home' }">Home</router-link
+              >&nbsp;&nbsp;
+            </li>
+            <li>
+              <router-link v-bind:to="{ name: 'search' }">Search</router-link
+              >&nbsp;&nbsp;
+            </li>
 
-    <li><a href="">About</a></li>
-    <li><a href="">Contact</a></li>
-    
-    
- </ul>
- 
- <p>|| copyright &copy;2022  <a href="#">Cbus Books Swap </a>  </p>
-</div>
-         
-</div>
-</div>
-    
-    
-    
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
 
+          <p>|| copyright &copy;2022 <a href="#">Cbus Books Swap </a></p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
-
 /* start of  old app style  */
 /* @import url("https://fonts.googleapis.com/css?family=Titillium+Web");
 @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
@@ -184,13 +170,10 @@ body { margin: 0%;
 }  */
 /* end old app style  */
 
-  body{
-    min-height: 100vh;
-    background-color: rgb(227,223,215);
-    
+body {
+  min-height: 100vh;
+  background-color: rgb(227, 223, 215);
 }
-
-
 
 a {
   color: inherit;
@@ -209,7 +192,7 @@ a {
 .navbar {
   display: flex;
   /* justify-content: space-between; */
-  background-color: rgb(46,34,16);
+  background-color: rgb(46, 34, 16);
   /*   */
 }
 
@@ -218,14 +201,11 @@ a {
   color: #fff;
 }
 
-
-
 .menu ul {
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
-  
 }
 
 .menu li {
@@ -234,84 +214,75 @@ a {
   color: #fff;
   font-size: 16px;
   font-weight: bold;
-  
 }
 
-.menu ul li:active, li:focus, li:hover{
+.menu ul li:active,
+li:focus,
+li:hover {
   text-decoration: none;
-  
 }
-
-
 
 /* footer style */
 
-#footer{
-
-  background-color: rgb(165,150,140);
+#footer {
+  background-color: rgb(165, 150, 140);
   height: 50px;
   padding: 10px;
   margin-top: auto;
 }
 
-.footer-bottom p{
-   color: #fff;
-   font-size: 14px;
-   word-spacing: 2px;
-   text-transform: capitalize;
-   margin: 0;
-
+.footer-bottom p {
+  color: #fff;
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+  margin: 0;
 }
-.footer-bottom p a{
-  color:#e6e6e6;
+.footer-bottom p a {
+  color: #e6e6e6;
   font-size: 16px;
   text-decoration: none;
-  
 }
-.footer-bottom span{
-    text-transform: uppercase;
-    opacity: .5;
-    font-weight: 200;
+.footer-bottom span {
+  text-transform: uppercase;
+  opacity: 0.5;
+  font-weight: 200;
 }
 
-.footer-menu{
+.footer-menu {
   display: flex;
- 
-  
- justify-content: center;
- margin: 0%;
- padding: 0;
-  
 
+  justify-content: center;
+  margin: 0%;
+  padding: 0;
 }
 
-.footer-menu ul{
+.footer-menu ul {
   display: flex;
 }
 
-.footer-menu ul li{
-padding-right: 10px;
-display: block;
+.footer-menu ul li {
+  padding-right: 10px;
+  display: block;
 }
 
-.footer-menu ul li a{
+.footer-menu ul li a {
   color: #fff;
   text-decoration: none;
   margin: 0%;
 }
 
-.footer-menu ul li a:hover{
+.footer-menu ul li a:hover {
   color: #fff;
 }
 
-@media (max-width:500px) {
-.footer-menu ul{
-  display: flex;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
+@media (max-width: 500px) {
+  .footer-menu ul {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 }
 
 /* end of footer style */
-
 </style>
