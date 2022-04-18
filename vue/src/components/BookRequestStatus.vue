@@ -1,45 +1,58 @@
 <template>
-  <div id="book-status">
-    <div id="received-request">
-      <!-- Request received by the user -->
-      <h2>Requests Received</h2>
+  <div>
+    <button @click="visible = !visible">View My Requests</button>
+    <div id="book-status" v-if="visible == true">
+      <div id="received-request">
+        <!-- Request received by the user -->
+        <h2>Requests Received</h2>
 
-      <div
-        v-for="request in requestReceived.slice(0, 2)"
-        v-bind:key="request.book_isbn"
-      >
-        <p>{{ request.title }} From : {{ request.requestSender }}</p>
-        <button
-          v-if="request.transferStatus == 1"
-          type="submit"
-          @click="approveBookRequest(request)"
-          class="btn"
+        <div
+          v-for="request in requestReceived.slice(0, 3)"
+          v-bind:key="request.book_isbn"
         >
-          Approve
-        </button>
-        <button
-          v-if="request.transferStatus == 1"
-          type="submit"
-          @click="declineBookRequest(request)"
-          class="btn"
-        >
-          Decline
-        </button>
-        <button v-if="request.transferStatus == 2" class="btn">Approved</button>
-        <button v-if="request.transferStatus == 3" class="btn">Declined</button>
+          <p>{{ request.title }} From : {{ request.requestSender }}</p>
+          <button
+            v-if="request.transferStatus == 1"
+            type="submit"
+            @click="approveBookRequest(request)"
+            class="btn"
+          >
+            Approve
+          </button>
+          <button
+            v-if="request.transferStatus == 1"
+            type="submit"
+            @click="declineBookRequest(request)"
+            class="btn"
+          >
+            Decline
+          </button>
+          <button v-if="request.transferStatus == 2" class="btn">
+            Approved
+          </button>
+          <button v-if="request.transferStatus == 3" class="btn">
+            Declined
+          </button>
+        </div>
       </div>
-    </div>
-    <!-- Request sent by the user -->
-    <div id="sent-request">
-      <h2>My Requests</h2>
-      <div
-        v-for="request in requestSent.slice(0, 2)"
-        v-bind:key="request.book_isbn"
-      >
-        <p>{{ request.title }} To: {{ request.borrowFrom }}</p>
-        <button v-if="request.transferStatus == 1" class="btn">Pending</button>
-        <button v-if="request.transferStatus == 2" class="btn">Approved</button>
-        <button v-if="request.transferStatus == 3" class="btn">Declined</button>
+      <!-- Request sent by the user -->
+      <div id="sent-request">
+        <h2>My Requests</h2>
+        <div
+          v-for="request in requestSent.slice(0, 3)"
+          v-bind:key="request.book_isbn"
+        >
+          <p>{{ request.title }} To: {{ request.borrowFrom }}</p>
+          <button v-if="request.transferStatus == 1" class="btn">
+            Pending
+          </button>
+          <button v-if="request.transferStatus == 2" class="btn">
+            Approved
+          </button>
+          <button v-if="request.transferStatus == 3" class="btn">
+            Declined
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -56,6 +69,7 @@ export default {
       requestSent: [],
       requestReceived: [],
       username: "",
+      visible: false,
     };
   },
   created() {
