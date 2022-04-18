@@ -126,6 +126,9 @@ INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',6);
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('naveena','$2a$10$vA9tZrrI3R9HqeHfKMNdxev81yjmaeYrHxczvU7UwVJxPSXWxwSKK','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('michael','$2a$10$Gz85MrJiIr/Il.KaDLN7S.yEFUXl0YY6aVPQLZnEcDsYE4ttiaUDe','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('abdalla','$2a$10$DJaD92405KaCVJC.POLq8ecOb/.C1jaMxv7/VscC9nscK2G487.Q.','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('sawyer','$2a$10$f2UprJn2cNZODZj2N9ER3uUfeGJ/Rhyi7UQf3iTYEGkTcYypC7JQC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('steve','$2a$10$TNniwAd.1.E9zZg7QAyZy.Ng5TAc.CEpoQAHv97.x5Snm6vh2wy1C','ROLE_USER');
 
 -- ********************** DATA for reading_list TABLE ********** --

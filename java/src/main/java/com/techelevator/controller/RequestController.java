@@ -29,9 +29,9 @@ public class RequestController {
         String message = null;
         int status = bookRequest.getTransferStatus();
         if (status == 2) {
-            message = bookRequestDao.updateUserBookStatusToApproved(userName);
+            message = bookRequestDao.updateUserBookStatusToApproved(bookRequest, userName);
         } else if (status == 3) {
-            message = bookRequestDao.updateUserBookStatusToDeclined(userName);
+            message = bookRequestDao.updateUserBookStatusToDeclined(bookRequest, userName);
         }
         return message;
     }
