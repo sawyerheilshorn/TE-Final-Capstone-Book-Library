@@ -96,6 +96,7 @@ INSERT INTO genre(genre_id, genre_name) VALUES (5, 'Adventure');
 INSERT INTO genre(genre_id, genre_name) VALUES (6, 'Fantasy');
 INSERT INTO genre(genre_id, genre_name) VALUES (7, 'SciFi');
 INSERT INTO genre(genre_id, genre_name) VALUES (8, 'Drama');
+INSERT INTO genre(genre_id, genre_name) VALUES (9, 'Computer');
 
 
 -- *************************Data for book_details TABLE ****************--
@@ -108,6 +109,12 @@ INSERT INTO book_details(isbn, title, author) VALUES ('9783125971400', 'Le Petit
 INSERT INTO book_details(isbn, title, author) VALUES ('9781534431003', 'This Is How You Lose the Time War', 'Amal El-Mohtar');
 INSERT INTO book_details(isbn, title, author) VALUES ('048627263X', 'Flatland', 'Edwin A. Abbott');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780449208106', 'Things Fall Apart', 'Chinua Achebe');
+INSERT INTO book_details(isbn, title, author) VALUES ('9780072472615', 'The Interactive Computing Series', 'Kenneth C. Laudon');
+INSERT INTO book_details(isbn, title, author) VALUES ('0078823684', 'Java programmers reference', 'Herbert Schildt');
+INSERT INTO book_details(isbn, title, author) VALUES ('9782212677836', 'Applications web complexes et réactives', 'Brice Chaponneau');
+INSERT INTO book_details(isbn, title, author) VALUES ('978-1-64200-200-3', 'Vue.js Succinctly', 'Ed Freitas');
+
+
 
 -- ********************** DATA for book_genre TABLE ************* --
 
@@ -120,6 +127,11 @@ INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',1);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',5);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',1);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',6);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780072472615',9);
+INSERT INTO book_genre(isbn, genre_id) VALUES('0078823684',9);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9782212677836',9);
+INSERT INTO book_genre(isbn, genre_id) VALUES('978-1-64200-200-3',9);
+
 
 -- ************************* Data for users TABLE **************** --
 
@@ -144,11 +156,18 @@ INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 4);
 --********************** DATA for user_book Table ****************--
 INSERT INTO user_book(user_id, isbn) VALUES (1, '9780356500157');
 INSERT INTO user_book(user_id, isbn) VALUES (1, '9780684830490');
+INSERT INTO user_book(user_id, isbn) VALUES (4, '9780684830490');
 INSERT INTO user_book(user_id, isbn) VALUES (1, '9781984822178');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '9780684830490');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '9781984822178');
-INSERT INTO user_book(user_id, isbn) VALUES (4, '9780684830490');
-INSERT INTO user_book(user_id, isbn) VALUES (4, '9781984822178');
+INSERT INTO user_book(user_id, isbn) VALUES (5, '9783125971400');
+INSERT INTO user_book(user_id, isbn) VALUES (6, '9781534431003');
+INSERT INTO user_book(user_id, isbn) VALUES (3, '048627263X');
+INSERT INTO user_book(user_id, isbn) VALUES (3, '0078823684');
+INSERT INTO user_book(user_id, isbn) VALUES (5, '9780072472615');
+INSERT INTO user_book(user_id, isbn) VALUES (6, '9782212677836');
+INSERT INTO user_book(user_id, isbn) VALUES (4, '978-1-64200-200-3');
+
 
 -- ****** DATA for reading_list_book TABLE ****--
 INSERT INTO reading_list_book(list_id, isbn) VALUES (1, '9780356500157');
@@ -157,7 +176,7 @@ INSERT INTO reading_list_book(list_id, isbn) VALUES (2, '9781984822178');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9780684830490');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9781984822178');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9780684830490');
-INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9781984822178');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '978-1-64200-200-3');
 
 -- ****** DATA for book_request_status TABLE ****--
 INSERT INTO book_request_status (book_request_status_desc) VALUES ('Pending');
