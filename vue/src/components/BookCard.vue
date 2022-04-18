@@ -26,7 +26,12 @@
           <h6>Users Who Own This Book:</h6>
           <ul>
             <li v-for="user in users" v-bind:key="user.user_id">
-              <span v-if="user.username != loggedInUser">
+              <span
+                v-if="
+                  user.username != loggedInUser ||
+                  myBooks.forEach(e.title == book.title)
+                "
+              >
                 {{ user.username }}
                 <button
                   @click="sendRequest(user.username)"
@@ -47,6 +52,7 @@
 <script>
 import AuthService from "../services/AuthService";
 import RequestService from "../services/RequestService";
+import BookService from "../services/BookService";
 
 export default {
   name: "book-card",
@@ -55,6 +61,7 @@ export default {
       users: [],
       enabled: true,
       loggedInUser: "",
+      myBooks: [],
     };
   },
   props: {
@@ -64,6 +71,11 @@ export default {
     AuthService.getUsers(this.book.isbn).then((response) => {
       this.users = response.data;
       this.loggedInUser = this.$store.state.user.username;
+    });
+
+    BookService.getMyBooks().then((response) => {
+      this.myBooks = response.data;
+      this.$store.commit("ADD_ALL_BOOK", this.myBooks);
     });
   },
   methods: {
@@ -124,6 +136,7 @@ body {
 
 li {
   list-style: none;
+  justify-content: space-evenly;
 }
 
 .btn {
@@ -134,7 +147,7 @@ li {
 
 ul {
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 p {

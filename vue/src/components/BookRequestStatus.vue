@@ -2,24 +2,42 @@
   <div id="book-status">
     <div id="received-request">
       <!-- Request received by the user -->
-      <h2>Request received</h2>
+      <h2>Request Received</h2>
 
-      <div v-for="request in requestReceived" v-bind:key="request.book_isbn">
+      <div
+        v-for="request in requestReceived.slice(0, 3)"
+        v-bind:key="request.book_isbn"
+      >
         <p>
           {{ request.title }} &nbsp; &nbsp; From : {{ request.requestSender }}
         </p>
-        <button type="submit" @click="approveBookRequest(request)" class="btn">
+        <button
+          v-if="request.transferStatus == 1"
+          type="submit"
+          @click="approveBookRequest(request)"
+          class="btn"
+        >
           Approve
         </button>
-        <button type="submit" @click="declineBookRequest(request)" class="btn">
+        <button
+          v-if="request.transferStatus == 1"
+          type="submit"
+          @click="declineBookRequest(request)"
+          class="btn"
+        >
           Decline
         </button>
+        <button v-if="request.transferStatus == 2" class="btn">Approved</button>
+        <button v-if="request.transferStatus == 3" class="btn">Declined</button>
       </div>
     </div>
     <!-- Request sent by the user -->
     <div id="sent-request">
       <h2>My Request</h2>
-      <div v-for="request in requestSent" v-bind:key="request.book_isbn">
+      <div
+        v-for="request in requestSent.slice(0, 3)"
+        v-bind:key="request.book_isbn"
+      >
         <p>{{ request.title }} To: {{ request.borrowFrom }}</p>
         <button v-if="request.transferStatus == 1" class="btn">Pending</button>
         <button v-if="request.transferStatus == 2" class="btn">Approved</button>
