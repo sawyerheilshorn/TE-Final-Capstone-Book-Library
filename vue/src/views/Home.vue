@@ -1,68 +1,80 @@
 <template>
   <div>
-    <div>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <div class="content">
-          <h1 class="display-4">Logo will be here </h1>
-          <p class="lead">Trade read and add your favorite books.</p>
-          <button type="button" class="btn btn-primary">Get Started</button>
-        </div>
-  </div>
-</div>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <h5><i class="fa fa-road"></i> CBUS Book Swap.</h5>
-                <div class="row">
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li><a href="">Product</a></li>
-                            <li><a href="">Benefits</a></li>
-                            <li><a href="">Partners</a></li>
-                            <li><a href="">Team</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-6">
-                        <ul class="list-unstyled">
-                            <li><a href="">Documentation</a></li>
-                            <li><a href="">Support</a></li>
-                            <li><a href="">Legal Terms</a></li>
-                            <li><a href="">About</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <ul class="nav">
-                    <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
-                </ul>
-                <br>
-            </div>
-            <div class="col-md-2">
-                <h5 class="text-md-right">Contact Us</h5>
-                <hr>
-            </div>
-            <div class="col-md-5">
-                <form>
-                    <fieldset class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <textarea class="form-control" id="exampleMessage" placeholder="Message"></textarea>
-                    </fieldset>
-                    <fieldset class="form-group text-xs-right">
-                        <button type="button" class="btn btn-secondary-outline btn-lg">Send</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-</footer>
-    </div>
+      <div id="myCarousel" class="carousel slide">
+          <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
     
+      <div class="carousel-inner">
+        <div class="banner ">
+          <div class="carousel-item active " id="slide1">
+            <img class="d-block w-100" src="../assets/ReadingBook.jpg" alt="First slide">
+            <div class="container">
+              <p>Reading is the best for get idea</p>
+              <h1>Start Reading</h1>
+              <a href="#" type="button" class="btn btn-info">Get Started</a>
+            </div>
+          </div>
+          <div class="carousel-item " >
+            <img class="d-block w-100" src="../assets/tradeBook.jpeg" alt="Second slide">
+
+            <div class="container">
+              <p>Reading is the best for get idea</p>
+              <h1>Swap Books</h1>
+              <a href="#" type="button" class="btn btn-info">Get Started</a>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <img class="d-block w-100" src="../assets/bookList.jpg" alt="third slide">
+
+            <div class="container">
+              <p>Reading is the best for get idea</p>
+              <h1>Create Your Library</h1>
+              <a href="#" type="button" class="btn btn-info">Get Started</a>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <img class="d-block w-100" src="../assets/requestBooks.jpg" alt="fourth slide">
+
+            <div class="container">
+              <p>Reading is the best for get idea</p>
+              <h1>Request Books</h1>
+              <a href="#" type="button" class="btn btn-info">Get Started</a>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+      </div>
+      </div>
+      </div>
+     
+        <div class="section2">
+          
+          <h5><i class="bi bi-book-fill"></i>+200 Books</h5>
+          <h5> <i class="bi bi-people-fill"></i> 04 Users</h5>
+          <h5><i class="bi bi-book-half"></i> 50 genres </h5>
+        </div>
+
+      <div class="devices-section">
+        <img id="img" src="../assets/device.png" alt="#" class="img-thumbnail">
+        <div class="text">
+
+          <i class="bi bi-grid-fill" width="32" height="32"></i>
+        <h3>Use Any Device</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  
+      </div>
+</div>
+      
   </div>
 </template>
 
@@ -74,113 +86,98 @@ export default {
 
 
 <style scoped>
-.jumbotron {
-  padding: 100px;
-  margin: 0;
-  background-image:  url("../assets/tradeBook.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat; 
-  background: #726ea3;
-  opacity: .7;
-  z-index: -1;
-  
-}
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 
- 
 
-.content{
+
+.carousel-item{
+  height: 32rem;
+  background-color: rgb(46,34,16);
   text-align: center;
   color: #fff;
   font-weight: bold;
-
+  position: relative;
+ 
 }
 
 
-/* footer style starts here  */
+.container{
+  position: absolute;
+  bottom:0;
+  left:0;
+  padding: 50px;
 
-body { margin: 0%;
+}
+.carousel-item img {
+  /* background-image:url("../assets/tradeBook.jpeg"); */
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  opacity: .5;
+}
+
+p{
+  padding: 0%;
+  margin: 0%;
+}
+.container h1{
+  color: #fff;
+   padding: 0%;
+   margin: 0%;
+}
+.btn{
+  background-color: rgb(92, 131, 155);
+}
+
+.devices-section {
+  display: flex;
+  flex-direction: row;
+  justify-items: r;
+  background-color: rgb(227,223,215);
+}
+
+.devices-section img{
+
+    width: 55%; /*image width*/
+    
+    background-color: rgb(227,223,215);
+}
+.devices-section p {
+    
+     display: flex;
+     justify-items: center;
+    
+}
+
+.devices-section h3{ 
   
-  min-height: 10vh;
   display: flex;
   flex-direction: column;
 }
-.navbar .navbar-brand {
-  margin-left: 10%;
-  font-size: 30px;
-  color: rgb(255, 255, 255);
-}
-.navbar .nav-item {
-  padding: 10px 20px;
-}
-.navbar .nav-link {
-  font-size: 20px;
-  margin-left: 10px;
-  color: aliceblue;
-}
-.navbar .nav-link:hover {
-  color: rgb(126, 141, 223);
-}
-.fa-bars {
-  color: #ff1515;
-  font-size: 30px;
-}
-.navbar-custom {
-  background-color: rgb(229 163 102);
+.text{
+ margin-top: 15% ;
+ margin-left: 2%;
+ width: 25%;
 }
 
-
-
-body {
-    font-family: 'Alegreya Sans', sans-serif;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-.footer { 
-  margin-top: auto;
+.section2{
+  display: flex;
+  justify-content: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: rgb(210,199,190);
   
 }
+.section2 h5{
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  padding-top: 1%;
+  color: rgb(42,46,47)
 
-@media (max-width: 34em) {
-    body {
-      margin-bottom: 500px;
-    }
-    .footer {
-      padding: 3em;
-      height: 500px;
-    }
 }
-
-footer {
-  padding-top: 30px;
-  background-color: rgba(219, 176, 148, 0.972);
-  color: #bbb;
+.section2 i {
+  padding-right: 1%;
+  height: 10px;
 }
-
-footer a {
-  color: #999;
-  text-decoration:none;
-}
-
-footer a:hover, footer a:focus {
-  color: #aaa;
-  text-decoration:none;
-  border-bottom:1px dotted #999;
-}
-
-footer .form-control {
-    background-color: #1f2022;
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-    border: none;
-    resize: none;
-    color: #d1d2d2;
-    padding: 0.7em 1em;
-}
-
-/* footer style ends here  */
-
-
 </style>
