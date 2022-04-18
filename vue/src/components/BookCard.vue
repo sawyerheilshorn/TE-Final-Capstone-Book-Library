@@ -26,13 +26,15 @@
           <h6>Users Who Own This Book:</h6>
           <ul>
             <li v-for="user in users" v-bind:key="user.user_id">
-              {{ user.username }}
-              <button
-                @click="sendRequest(user.username)"
-                :disabled="enabled == false"
-              >
-                Request Book
-              </button>
+              <span v-if="user.username != loggedInUser">
+                {{ user.username }}
+                <button
+                  @click="sendRequest(user.username)"
+                  :disabled="enabled == false"
+                >
+                  Request Book
+                </button>
+              </span>
             </li>
           </ul>
         </div>
@@ -51,6 +53,7 @@ export default {
     return {
       users: [],
       enabled: true,
+      loggedInUser: "",
     };
   },
   props: {
@@ -59,6 +62,7 @@ export default {
   created() {
     AuthService.getUsers(this.book.isbn).then((response) => {
       this.users = response.data;
+      this.loggedInUser = this.$store.state.user.username;
     });
   },
   methods: {

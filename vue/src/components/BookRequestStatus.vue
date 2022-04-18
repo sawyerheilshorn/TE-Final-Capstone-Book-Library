@@ -58,6 +58,25 @@ export default {
       });
     });
   },
+  methods: {
+    approveBookRequest(request) {
+      request.transferStatus = 2;
+      RequestService.updateStatus(request).then((response) => {
+        if (response.status === 200) {
+          console.log(response);
+        }
+      });
+    },
+
+    declineBookRequest(request) {
+      request.transferStatus = 3;
+      RequestService.updateStatus(request).then((response) => {
+        if (response.status === 200) {
+          console.log(response);
+        }
+      });
+    },
+  },
 };
 </script>
 

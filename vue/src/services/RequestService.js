@@ -9,6 +9,10 @@ export default {
     sendRequest(isbn, userBorrowFrom) {
         console.log("Hit axios route");
         return axios.post('/sendRequest/' + isbn + "/" + userBorrowFrom);
+    },
+
+    updateStatus(request) {
+        return axios.post('/updateStatus', request);
     }
 
 }
