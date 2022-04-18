@@ -71,26 +71,18 @@
               <router-link v-bind:to="{ name: 'search' }">Search</router-link
               >&nbsp;&nbsp;
             </li>
-            <li>
-              <router-link
-                v-bind:to="{ name: 'login' }"
-                v-if="$store.state.token == ''"
-                >Login</router-link
-              >&nbsp;&nbsp;
-            </li>
-            <li>
-              <router-link
-                v-bind:to="{ name: 'dashboard' }"
-                v-if="$store.state.token != ''"
+
+            <li v-if="$store.state.token != ''">
+              <router-link v-bind:to="{ name: 'dashboard' }"
                 >My Dashboard</router-link
               >&nbsp;&nbsp;
             </li>
-            <li>
-              <router-link
-                v-bind:to="{ name: 'logout' }"
-                v-if="$store.state.token != ''"
-                >Logout</router-link
-              >
+            <li v-if="$store.state.token != ''">
+              <router-link v-bind:to="{ name: 'logout' }">Logout</router-link>
+            </li>
+            <li v-if="$store.state.token == ''">
+              <router-link v-bind:to="{ name: 'login' }">Login</router-link
+              >&nbsp;&nbsp;
             </li>
           </ul>
         </div>

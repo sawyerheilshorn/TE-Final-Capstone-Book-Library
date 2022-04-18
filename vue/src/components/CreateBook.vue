@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main-div">
     <form v-on:submit.prevent class="homeForm">
       <label for="isbn">ISBN</label>
       <input
@@ -65,7 +65,7 @@ export default {
   },
 
   methods: {
-    createBook() {       
+    createBook() {
       BookService.addBookToLibrary(this.book).then((response) => {
         if (response.status === 200) {
           console.log(response);
@@ -81,5 +81,9 @@ export default {
 #btn-submit {
   color: white;
   margin-left: 2%;
+}
+
+#main-div {
+  background-color: #caa472;
 }
 </style>

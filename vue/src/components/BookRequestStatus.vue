@@ -2,15 +2,13 @@
   <div id="book-status">
     <div id="received-request">
       <!-- Request received by the user -->
-      <h2>Request Received</h2>
+      <h2>Requests Received</h2>
 
       <div
-        v-for="request in requestReceived.slice(0, 3)"
+        v-for="request in requestReceived.slice(0, 2)"
         v-bind:key="request.book_isbn"
       >
-        <p>
-          {{ request.title }} &nbsp; &nbsp; From : {{ request.requestSender }}
-        </p>
+        <p>{{ request.title }} From : {{ request.requestSender }}</p>
         <button
           v-if="request.transferStatus == 1"
           type="submit"
@@ -33,9 +31,9 @@
     </div>
     <!-- Request sent by the user -->
     <div id="sent-request">
-      <h2>My Request</h2>
+      <h2>My Requests</h2>
       <div
-        v-for="request in requestSent.slice(0, 3)"
+        v-for="request in requestSent.slice(0, 2)"
         v-bind:key="request.book_isbn"
       >
         <p>{{ request.title }} To: {{ request.borrowFrom }}</p>
@@ -111,12 +109,14 @@ export default {
   background-color: rgb(74, 78, 78);
   margin: 1px;
   grid-area: received-request;
+  border: 2px lightsalmon solid;
 }
 
 .btn {
   color: white;
   background-color: lightsalmon;
   margin: 3px;
+  margin-bottom: 3%;
 }
 
 #sent-request {
@@ -124,10 +124,14 @@ export default {
   background-color: rgb(74, 78, 78);
   /* margin: 1px;   */
   grid-area: sent-request;
+
+  border: 2px lightsalmon solid;
 }
 
 #book-status {
   display: grid;
+  text-align: center;
+
   /* row-gap: 20px; */
   /* column-gap: 50px;  */
 

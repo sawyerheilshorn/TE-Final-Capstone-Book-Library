@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main-div">
     <div class="jumbotron row">
       <div class="row" v-for="book in myBooks" v-bind:key="book.isbn">
         <div class="card" id="myLibraryCard">
@@ -46,9 +46,11 @@ export default {
   display: flex;
   justify-content: space-evenly;
   background-color: #caa472;
+  margin-right: 3%;
 
   width: 75%;
 }
+
 .card img {
   height: 70%;
   width: 70%;
@@ -58,7 +60,14 @@ export default {
 .card h5 {
   text-align: center;
 }
+button {
+  /* height: 70%; */
+}
 #myLibraryCard {
   margin-right: 10%;
+}
+
+#main-div {
+  display: flex;
 }
 </style>
