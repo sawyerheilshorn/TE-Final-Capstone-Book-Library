@@ -1,4 +1,5 @@
 <template>
+  <body>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -35,6 +36,7 @@
       <button id="sign-in" type="submit">Sign in</button>
     </form>
   </div>
+  </body>
 </template>
 
 <script>
@@ -78,10 +80,12 @@ export default {
 </script>
 
 <style>
-/*#login{
-  display: flex;
-  justify-items: center;
-}*/
+
+body {
+  background-image: url("../assets/request2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 
 #username {
   width: 30%;
@@ -99,5 +103,29 @@ export default {
 
 #sign-in {
   margin-left: 1rem;
+  display: inline-block;
+  background-color: #7b38d8;
+  border-radius: 10px;
+  border: 2px double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+  width: 100px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+h1 {
+  color: white;
+  background: #1b5e50;
+  background-size: 30%;
+  width: 100%;
+  font-size: 30px;
+  padding: 1%;
+  margin-top: 2%;
 }
 </style>
