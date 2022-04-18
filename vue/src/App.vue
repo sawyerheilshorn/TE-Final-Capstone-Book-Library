@@ -192,7 +192,7 @@ a {
 .navbar {
   display: flex;
   /* justify-content: space-between; */
-  background-color: rgb(46, 34, 16);
+  background-color: rgb(165, 150, 140);
   /*   */
 }
 

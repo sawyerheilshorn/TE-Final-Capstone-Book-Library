@@ -31,6 +31,7 @@
                 <button
                   @click="sendRequest(user.username)"
                   :disabled="enabled == false"
+                  class="btn"
                 >
                   Request Book
                 </button>
@@ -119,5 +120,24 @@ body {
   width: 100%;
   height: 15vw;
   object-fit: cover;
+}
+
+li {
+  list-style: none;
+}
+
+.btn {
+  color: white;
+  background-color: lightsalmon;
+  margin: 3px;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+p {
+  margin-bottom: 3%;
 }
 </style>

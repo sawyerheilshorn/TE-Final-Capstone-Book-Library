@@ -1,8 +1,7 @@
 <template>
-  <div>
+  <div id="background">
     <h1>Search for Books from Library</h1>
     <book-list />
-
   </div>
 </template>
 
@@ -16,7 +15,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .main {
   width: 50%;
   margin: 50px auto;
@@ -25,7 +24,11 @@ export default {
 h1 {
   text-align: center;
   margin: 1em 1em;
-  color: rgb(46,34,16);
+  color: white;
   font-weight: bold;
+}
+
+#background {
+  background-image: url("../assets/searchPageImage.jpg");
 }
 </style>

@@ -1,22 +1,25 @@
 <template>
-  <div>
-     <book-request-status/>
+  <div id="background">
+    <book-request-status />
     <view-list />
     <my-library />
-   
   </div>
 </template>
 
 <script>
 import ViewList from "../components/ViewList.vue";
 import MyLibrary from "../components/MyLibrary.vue";
-import BookRequestStatus from '../components/BookRequestStatus.vue';
+import BookRequestStatus from "../components/BookRequestStatus.vue";
 
 export default {
   components: { ViewList, MyLibrary, BookRequestStatus },
 };
 </script>
 
-<style>
+<style scoped>
+#background {
+  background-image: url("../assets/homePage.jpg");
 
+  opacity: 0.95;
+}
 </style>
