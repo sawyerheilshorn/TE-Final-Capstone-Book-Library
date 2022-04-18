@@ -21,9 +21,9 @@
       <h2>My Request</h2>
       <div v-for="request in requestSent" v-bind:key="request.book_isbn">
         <p>{{ request.title }} To: {{ request.borrowFrom }}</p>
-        <button type="submit" @click="updateRequestStatus()" class="btn">
-          Pending
-        </button>
+        <button v-if="request.transferStatus == 1" class="btn">Pending</button>
+        <button v-if="request.transferStatus == 2" class="btn">Approved</button>
+        <button v-if="request.transferStatus == 3" class="btn">Declined</button>
       </div>
     </div>
   </div>
@@ -31,6 +31,7 @@
 
 <script>
 import RequestService from "../services/RequestService";
+import BookService from "../services/BookService";
 export default {
   name: "book-request",
   data() {
@@ -65,6 +66,11 @@ export default {
         if (response.status === 200) {
           console.log(response);
         }
+        BookService.getMyBooks().then((response) => {
+          this.myBooks = response.data;
+          this.$store.commit("ADD_ALL_BOOK", this.myBooks);
+        });
+        this.$router.go(this.$router.currentRoute);
       });
     },
 
