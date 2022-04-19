@@ -184,7 +184,7 @@ a {
 .navbar {
   display: flex;
   /* justify-content: space-between; */
-  background-color: rgb(46,34,16);
+  background-color: rgb(126, 114, 106);
   /*   */
 }
 
