@@ -47,10 +47,12 @@
         </div>
       </div>
 
+      <div class="add-list">
       <button id="create-list" @click="formVisible = !formVisible">
-        Add Reading list
+        <i class="bi bi-plus-circle">  Add Reading list </i>
       </button>
       <create-list v-if="formVisible" />
+      </div>
     </div>
 
     >
@@ -129,7 +131,7 @@ export default {
 
 #remove-book-button{
   text-align: center;
-  margin:  .5% 5% 1% 27%;
+  margin:  .5% 5% 1% 0%;
   background-color:rgb(244,241,237);
   color: black;
 }
@@ -137,12 +139,14 @@ export default {
   text-align: center;  
   background-color:rgb(244,241,237);
   color: black;
+  margin:  .5% 5% 1% 0%;
 }
 #delete-list-btn{
-   text-align: center;  
+  text-align: center;  
   background-color:rgb(244,241,237);
   color: black;
   border: none;
+  margin:  .5% 5% 1% 0%;
 }
 
 #create-list {
@@ -176,12 +180,19 @@ h3{
 }
 .card-img-top {
   width: 80%;
- /* height: 10vw; */
+  height: inherit;
   margin: .5% 5% .3% 10%;
   object-fit: cover;
 }
 #create-list {
-  height: 10%;
+  height: 4%;
+  width: 100%;
+  margin-bottom: 5%;
   color: black;
+}
+
+.add-list{
+  display: flex;
+  flex-direction: column;
 }
 </style>

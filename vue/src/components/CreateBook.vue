@@ -36,7 +36,7 @@
       <button
         type="submit"
         @click="createBook()"
-        class="btn btn-submit"
+        class="btn btn-submit "
         id="btn-submit"
       >
         Submit
@@ -78,12 +78,25 @@ export default {
 </script>
 
 <style scoped>
-#btn-submit {
+.btn-submit {
   color: white;
-  margin-left: 2%;
+  margin-top: 10%  ;
+  width: 210px;
+  background-color: rgb(203,192,183);
+}
+#main-div {
+
+  height: 20px;
+  width: 210px;
+}
+input{
+  width: 210px;
+  text-align: center;
+  margin-bottom: 3%;
+  
+}
+input:hover{
+border-color: rgb(203,192,183);
 }
 
-#main-div {
-  background-color: #caa472;
-}
 </style>

@@ -130,6 +130,7 @@ p{
 }
 .btn{
   background-color: rgb(92, 131, 155);
+  width: 18%;
 }
 
 .devices-section {

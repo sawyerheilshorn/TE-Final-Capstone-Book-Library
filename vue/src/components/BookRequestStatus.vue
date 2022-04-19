@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button id="viewRequestButton" @click="visible = !visible">View My Requests</button>
+    <button id="viewRequestButton" @click="visible = !visible"> <i class="bi bi-chat-square-text"> View My Requests</i></button>
     <div id="book-status" v-if="visible == true">
       <div id="received-request">
         <!-- Request received by the user -->
@@ -15,23 +15,25 @@
             v-if="request.transferStatus == 1"
             type="submit"
             @click="approveBookRequest(request)"
-            class="btn"
+            class="new-btn"
           >
-            Approve
+          <i class="bi bi-check2-square"> Approve</i>
+            
           </button>
           <button
             v-if="request.transferStatus == 1"
             type="submit"
             @click="declineBookRequest(request)"
-            class="btn"
-          >
-            Decline
+            class="new-btn"
+          ><i class="bi bi-x-octagon"> Decline</i>
+            
           </button>
-          <button v-if="request.transferStatus == 2" class="btn">
-            Approved
+          <button v-if="request.transferStatus == 2" class="new-btn">
+            <i class="bi bi-check2-square"> Approve</i>
           </button>
-          <button v-if="request.transferStatus == 3" class="btn">
-            Declined
+          <button v-if="request.transferStatus == 3" class="new-btn">
+            
+            <i class="bi bi-x-octagon"> Decline</i>
           </button>
         </div>
       </div>
@@ -43,14 +45,15 @@
           v-bind:key="request.book_isbn"
         >
           <p>{{ request.title }} To: {{ request.borrowFrom }}</p>
-          <button v-if="request.transferStatus == 1" class="btn">
-            Pending
+          <button v-if="request.transferStatus == 1" class="new-btn">
+            <i class="bi bi-hourglass-split"> Pending</i>
+            
           </button>
-          <button v-if="request.transferStatus == 2" class="btn">
-            Approved
+          <button v-if="request.transferStatus == 2" class="new-btn">
+            <i class="bi bi-check2-square"> Approve</i>
           </button>
-          <button v-if="request.transferStatus == 3" class="btn">
-            Declined
+          <button v-if="request.transferStatus == 3" class="new-btn">
+            <i class="bi bi-x-octagon"> Decline</i>
           </button>
         </div>
       </div>
@@ -119,46 +122,47 @@ export default {
 <style scoped>
 #viewRequestButton{    
   margin:.2% 0 .3% 46%; 
-  color: white;
-  background-color: rgb(74, 78, 78);
-  border: 2px lightsalmon solid; 
-  /* background-color: rgb(223, 173, 154); */
-  /* background-color: rgb(203,192,183); */
-  
+  width: 210px;
+ 
 }
 
 #received-request {
   display: grid;
   color: white;
-  background-color: rgb(74, 78, 78);
-  margin: 1px;
+  background-color: rgb(203,192,183);
   grid-area: received-request;
-  border: 2px lightsalmon solid;
+  border: none;
+  
 }
 
-.btn {
-  color: white;
-  background-color: rgb(223, 173, 154);
-  /* background-color: rgb(203,192,183); */
-  margin: 3px;
-  margin-bottom: 3%;
+.new-btn {
+  
+  width: 210px;
+
 }
 
 #sent-request {
   color: white;
-  background-color: rgb(74, 78, 78);
+  background-color: rgb(203,192,183)
+;
   /* margin: 1px;   */
   grid-area: sent-request;
 
-  border: 2px lightsalmon solid;
+  border: none;
 }
 
 #book-status {
   display: grid;
   text-align: center;
-  /* row-gap: 20px; */
-  /* column-gap: 50px;  */
-
   grid-template-areas: "received-request sent-request";
+  
+}
+
+#received-request{
+  width: 50%;
+  margin-left: 50%;
+}
+#sent-request{
+  width: 50%;
 }
 </style>

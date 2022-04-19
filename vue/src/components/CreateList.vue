@@ -2,7 +2,7 @@
   <div>
     <div id="create_reading_list">
       <form v-on:submit.prevent class="homeForm">
-        <label for="reading_list">Add Reading List</label>
+        <label  for="reading_list">Add Reading List</label>
         <input
           id="reading_list"
           type="text"
@@ -49,18 +49,36 @@ export default {
 </script>
 
 <style scoped>
+.btn-submit {
+  color: white;
+  margin-top: 10%  ;
+  width: 210px;
+  background-color: rgb(203,192,183);
+}
+
+
 form {
   /* margin-left: 47%; */
-  color: white;
-  text-align: center;
+  color: black;
+  
   margin-top: 10%;
 }
 
 form input {
-  margin-left: 46%;
+  /* margin-left: 46%; */
+  width: 210px;
 }
 
 button {
   color: white;
 }
+#create_reading_list{
+  
+  width: 100%;
+
+}
+
+
+
 </style>
+

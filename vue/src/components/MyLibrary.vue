@@ -13,9 +13,12 @@
         </div>
       </div>
     </div>
-    <button @click="formVisible = !formVisible">Add Book to Library</button>
+    <div class="add-book">
+    <button id="add-book-btn" @click="formVisible = !formVisible">
+      <i class="bi bi-plus-circle"> Add Book to Library</i></button>
 
     <create-book v-if="formVisible" />
+    </div>
   </div>
 </template>
 
@@ -55,24 +58,30 @@ export default {
 .card img {
   height: 70%;
   width: 70%;
-  margin: 2% 25% 0 60%;
+  margin: 2% 25% 3% 15%;
   /* margin-left: 23%;
   margin-bottom: 3%; */
 }
 .card h5 {
   text-align: center;
 }
-button {
-  /* height: 70%; */
-}
-#myLibraryCard{
-  /* margin-right: 10%; */
-background-color:rgb(49, 147, 180) ;
+#add-book-btn{
+  height: 4%;
+  width: 100%;
+  margin-bottom: 5%;
+ 
 }
 
 
 
 #main-div {
   display: flex;
+  margin: 3%;
+  
+  
+}
+.add-book{
+  display: flex;
+  flex-direction: column;
 }
 </style>
