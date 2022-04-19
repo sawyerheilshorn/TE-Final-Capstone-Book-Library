@@ -137,8 +137,8 @@ export default {
 
 .new-btn {
   
-  width: 210px;
-
+  width: 30%;
+  text-align: center;
 }
 
 #sent-request {
@@ -155,12 +155,13 @@ export default {
   display: grid;
   text-align: center;
   grid-template-areas: "received-request sent-request";
-  
+ 
 }
 
 #received-request{
   width: 50%;
   margin-left: 50%;
+
 }
 #sent-request{
   width: 50%;
