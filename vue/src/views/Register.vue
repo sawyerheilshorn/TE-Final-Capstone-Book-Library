@@ -28,7 +28,7 @@
                     <div class="form-outline mb-4">
                     <input type="password" id="confirmPassword" class="form-control form-control-lg" placeholder="Confirm Password" v-model="user.confirmPassword" required/>
                     </div>
-      <router-link :to="{ name: 'login' }" class="switch">Have an account?</router-link>
+      <router-link :to="{ name: 'login' }" >Have an account?</router-link>
       <button id="createAccount" class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
@@ -110,8 +110,5 @@ export default {
 .btn:hover{
   background-color: rgb(165,150,140);
 }
-.swtich{
-  transition: all 300ms ease-in-out;;
-  
-}
+
 </style>
