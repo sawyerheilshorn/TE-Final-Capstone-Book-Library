@@ -25,7 +25,7 @@
         <div v-if="$store.state.token != ''">
           <h6>Request From:</h6>
           <ul>
-            <li v-for="user in users" v-bind:key="user.user_id">
+            <li v-for="user in users.slice(0, 3)" v-bind:key="user.user_id">
               <div v-if="user.username != loggedInUser || this.myBooks">
                 {{ user.username }}
                 <button
