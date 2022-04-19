@@ -97,14 +97,20 @@ INSERT INTO genre(genre_id, genre_name) VALUES (6, 'Fantasy');
 INSERT INTO genre(genre_id, genre_name) VALUES (7, 'SciFi');
 INSERT INTO genre(genre_id, genre_name) VALUES (8, 'Drama');
 INSERT INTO genre(genre_id, genre_name) VALUES (9, 'Computer');
+--INSERT INTO genre(genre_id, genre_name) VALUES (10, '');
 
 
 -- *************************Data for book_details TABLE ****************--
 
-INSERT INTO book_details(isbn, title, author) VALUES ('9781400079278', 'Kafka by the Shore', 'Haruki Murakami');
-INSERT INTO book_details(isbn, title, author) VALUES ('9780356500157', 'The Girl With All the Gifts', 'M.R. Carey');
+--INSERT INTO book_details(isbn, title, author) VALUES ('9781400079278', 'Kafka by the Shore', 'Haruki Murakami');
+INSERT INTO book_details(isbn, title, author) VALUES ('0060935464', 'To Kill a Mockingbird', 'Harper Lee');
+--INSERT INTO book_details(isbn, title, author) VALUES ('9780356500157', 'The Girl With All the Gifts', 'M.R. Carey');
+INSERT INTO book_details(isbn, title, author) VALUES ('9781408849927', 'Harry Potter and the Philosophers Stone', 'J. K. Rowling');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780684830490', 'The Old Man and the Sea', 'Ernest Hemingway');
+INSERT INTO book_details(isbn, title, author) VALUES ('9781402712173', 'The Adventures of Sherlock Holmes', 'Chris Sasaki and Arthur Conan Doyle');
 INSERT INTO book_details(isbn, title, author) VALUES ('9781984822178', 'Normal People', 'Sally Rooney');
+INSERT INTO book_details(isbn, title, author) VALUES ('9780141323749', 'Anne of Green Gables', 'Lucy Maud Montgomery, GRANDMAS TREASURES, W. A. J. Claus, and M. A.');
+INSERT INTO book_details(isbn, title, author) VALUES ('000711561X', 'The lion, the witch and the wardrobe', 'C.S. Lewis');
 INSERT INTO book_details(isbn, title, author) VALUES ('9783125971400', 'Le Petit Prince', 'Antoine de Saint-Exupéry');
 INSERT INTO book_details(isbn, title, author) VALUES ('9781534431003', 'This Is How You Lose the Time War', 'Amal El-Mohtar');
 INSERT INTO book_details(isbn, title, author) VALUES ('048627263X', 'Flatland', 'Edwin A. Abbott');
@@ -113,22 +119,31 @@ INSERT INTO book_details(isbn, title, author) VALUES ('9780072472615', 'The Inte
 INSERT INTO book_details(isbn, title, author) VALUES ('0078823684', 'Java programmers reference', 'Herbert Schildt');
 INSERT INTO book_details(isbn, title, author) VALUES ('9782212677836', 'Applications web complexes et réactives', 'Brice Chaponneau');
 INSERT INTO book_details(isbn, title, author) VALUES ('978-1-64200-200-3', 'Vue.js Succinctly', 'Ed Freitas');
-
-
+INSERT INTO book_details(isbn, title, author) VALUES ('9780321117847', 'Algorithmics The Spirit of Computing', 'David Harel and Yishai Feldman');
+INSERT INTO book_details(isbn, title, author) VALUES ('9780692156216', 'Algorithms Special Topics', 'Kenneth A Berman');
+INSERT INTO book_details(isbn, title, author) VALUES ('9783319055053', 'Cloud Computing', 'Victor C.M. Leung and Min Chen');
+INSERT INTO book_details(isbn, title, author) VALUES ('9783319105307', 'Cloud Computing', 'Thomas Erl, Ricardo Puttini, and Zaigham Mahmood');
+INSERT INTO book_details(isbn, title, author) VALUES ('9780544430563', 'Curious George gymnastics fun', 'Leora Bernstein');
+--INSERT INTO book_details(isbn, title, author) VALUES ('9780606410090', 'Curious George Mothers Day Surprise', 'H. A. Rey');
+INSERT INTO book_details(isbn, title, author) VALUES ('9781423109624', 'I Will Surprise My Friend!', 'Mo Willems');
+INSERT INTO book_details(isbn, title, author) VALUES ('9781423164821', 'Lets go for a drive!', 'Mo Willems');
+INSERT INTO book_details(isbn, title, author) VALUES ('9780375828379', 'Hop on Pop', 'Dr.Seuss');
+--INSERT INTO book_details(isbn, title, author) VALUES ('9780394929200', 'Theres a Wocket in my Pocket!', 'Dr.Seuss');
 
 -- ********************** DATA for book_genre TABLE ************* --
 
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781400079278',1);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781400079278',6);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9780356500157',2);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9780356500157',8);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9780684830490',1);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',1);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781984822178',5);
+INSERT INTO book_genre(isbn, genre_id) VALUES('0060935464',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('0060935464',6);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781408849927',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781408849927',5);
+INSERT INTO book_genre(isbn, genre_id) VALUES('000711561X',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('000711561X',5);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781402712173',5);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780141323749',1);
+INSERT INTO book_genre(isbn, genre_id) VALUES('0078823684',9);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',1);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',6);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9780072472615',9);
-INSERT INTO book_genre(isbn, genre_id) VALUES('0078823684',9);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9782212677836',9);
 INSERT INTO book_genre(isbn, genre_id) VALUES('978-1-64200-200-3',9);
 
@@ -144,39 +159,68 @@ INSERT INTO users (username,password_hash,role) VALUES ('sawyer','$2a$10$f2UprJn
 INSERT INTO users (username,password_hash,role) VALUES ('steve','$2a$10$TNniwAd.1.E9zZg7QAyZy.Ng5TAc.CEpoQAHv97.x5Snm6vh2wy1C','ROLE_USER');
 
 -- ********************** DATA for reading_list TABLE ********** --
-
+-- select * from reading_list;
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 1);
 INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 1);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 3);
-INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 3);
+INSERT INTO reading_list(list_name, user_id) VALUES('Kids List', 3);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 4);
 INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 4);
+INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 5);
+INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 6);
+INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 7);
 
 
 --********************** DATA for user_book Table ****************--
-INSERT INTO user_book(user_id, isbn) VALUES (1, '9780356500157');
-INSERT INTO user_book(user_id, isbn) VALUES (1, '9780684830490');
-INSERT INTO user_book(user_id, isbn) VALUES (4, '9780684830490');
-INSERT INTO user_book(user_id, isbn) VALUES (1, '9781984822178');
-INSERT INTO user_book(user_id, isbn) VALUES (3, '9780684830490');
-INSERT INTO user_book(user_id, isbn) VALUES (3, '9781984822178');
-INSERT INTO user_book(user_id, isbn) VALUES (5, '9783125971400');
-INSERT INTO user_book(user_id, isbn) VALUES (6, '9781534431003');
-INSERT INTO user_book(user_id, isbn) VALUES (3, '048627263X');
-INSERT INTO user_book(user_id, isbn) VALUES (3, '0078823684');
-INSERT INTO user_book(user_id, isbn) VALUES (5, '9780072472615');
-INSERT INTO user_book(user_id, isbn) VALUES (6, '9782212677836');
-INSERT INTO user_book(user_id, isbn) VALUES (4, '978-1-64200-200-3');
+INSERT INTO user_book(user_id, isbn) VALUES (1, '9781408849927');
+INSERT INTO user_book(user_id, isbn) VALUES (1, '9781402712173');
+INSERT INTO user_book(user_id, isbn) VALUES (1, '0060935464');
 
+
+INSERT INTO user_book(user_id, isbn) VALUES (3, '0060935464');
+INSERT INTO user_book(user_id, isbn) VALUES (3, '9780141323749');
+INSERT INTO user_book(user_id, isbn) VALUES (3, '9783319055053');
+INSERT INTO user_book(user_id, isbn) VALUES (3, '9781423109624');
+INSERT INTO user_book(user_id, isbn) VALUES (3, '000711561X');
+INSERT INTO user_book(user_id, isbn) VALUES (3, '9781423164821');
+INSERT INTO user_book(user_id, isbn) VALUES (3, '9780375828379');
+
+INSERT INTO user_book(user_id, isbn) VALUES (4, '9781402712173');
+INSERT INTO user_book(user_id, isbn) VALUES (4, '000711561X');
+INSERT INTO user_book(user_id, isbn) VALUES (4, '0078823684');
+INSERT INTO user_book(user_id, isbn) VALUES (4, '978-1-64200-200-3');
+INSERT INTO user_book(user_id, isbn) VALUES (4, '9780684830490');
+INSERT INTO user_book(user_id, isbn) VALUES (4, '0060935464');
+
+INSERT INTO user_book(user_id, isbn) VALUES (5, '9783125971400');
+INSERT INTO user_book(user_id, isbn) VALUES (5, '000711561X');
+INSERT INTO user_book(user_id, isbn) VALUES (5, '048627263X');
+INSERT INTO user_book(user_id, isbn) VALUES (5, '9780072472615');
+INSERT INTO user_book(user_id, isbn) VALUES (5, '9781984822178');
+
+
+INSERT INTO user_book(user_id, isbn) VALUES (6, '9781534431003');
+INSERT INTO user_book(user_id, isbn) VALUES (6, '9782212677836');
+INSERT INTO user_book(user_id, isbn) VALUES (6, '048627263X');
+INSERT INTO user_book(user_id, isbn) VALUES (6, '9780684830490');
+INSERT INTO user_book(user_id, isbn) VALUES (6, '9781984822178');
+INSERT INTO user_book(user_id, isbn) VALUES (6, '0060935464');
+
+
+INSERT INTO user_book(user_id, isbn) VALUES (7, '9781402712173');
+INSERT INTO user_book(user_id, isbn) VALUES (7, '9780692156216');
+INSERT INTO user_book(user_id, isbn) VALUES (7, '0078823684');
+INSERT INTO user_book(user_id, isbn) VALUES (7, '9780544430563');
 
 -- ****** DATA for reading_list_book TABLE ****--
-INSERT INTO reading_list_book(list_id, isbn) VALUES (1, '9780356500157');
-INSERT INTO reading_list_book(list_id, isbn) VALUES (2, '9780684830490');
-INSERT INTO reading_list_book(list_id, isbn) VALUES (2, '9781984822178');
-INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9780684830490');
-INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9781984822178');
-INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9780684830490');
-INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '978-1-64200-200-3');
+-- select * from reading_list_book;
+INSERT INTO reading_list_book(list_id, isbn) VALUES (1, '9781408849927');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (2, '9781402712173');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (2, '0060935464');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9781402712173');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '0060935464');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9781423109624');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9780375828379');
 
 -- ****** DATA for book_request_status TABLE ****--
 INSERT INTO book_request_status (book_request_status_desc) VALUES ('Pending');
@@ -186,13 +230,13 @@ INSERT INTO book_request_status (book_request_status_desc) VALUES ('Declined');
 -- ****** DATA for book_request TABLE ****--
 
 INSERT INTO book_request( book_isbn,book_request_status_id, request_received_from, request_sent_to) 
-VALUES('9781984822178',1, 1, 3); 
+VALUES('0060935464',1, 5, 3); 
 
 INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
-VALUES('9780684830490',1, 1, 3);
+VALUES('0078823684',1, 3, 4);
 
 INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
-VALUES('9780356500157',1, 3, 1);
+VALUES('9780072472615',1, 6, 5);
 
 
 
