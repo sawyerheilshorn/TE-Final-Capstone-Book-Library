@@ -26,11 +26,7 @@
           <h6>Request From:</h6>
           <ul>
             <li v-for="user in users" v-bind:key="user.user_id">
-              <div
-                v-if="
-                  user.username != loggedInUser || this.myBooks.isArray(book)
-                "
-              >
+              <div v-if="user.username != loggedInUser || this.myBooks">
                 {{ user.username }}
                 <button
                   @click="sendRequest(user.username)"
@@ -143,7 +139,7 @@ li {
 
 .btn {
   color: white;
-  background-color: lightsalmon;
+  background-color: rgb(203, 192, 183);
   margin: 3px;
   position: static;
 }

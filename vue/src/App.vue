@@ -74,7 +74,7 @@
 
             <li v-if="$store.state.token != ''">
               <router-link v-bind:to="{ name: 'dashboard' }"
-                >My Dashboard</router-link
+                >Dashboard</router-link
               >&nbsp;&nbsp;
             </li>
             <li v-if="$store.state.token != ''">
@@ -212,6 +212,10 @@ a {
 li:focus,
 li:hover {
   text-decoration: none;
+}
+
+li {
+  text-align: center;
 }
 
 /* footer style */
