@@ -24,11 +24,9 @@ export default {
 h1 {
   text-align: center;
   margin: 1em 1em;
-  color: white;
+  color: rgb(46,34,16);
   font-weight: bold;
 }
 
-#background {
-  background-image: url("../assets/searchPageImage.jpg");
-}
+
 </style>

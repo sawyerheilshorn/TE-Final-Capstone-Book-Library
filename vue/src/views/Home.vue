@@ -70,7 +70,10 @@
 
           <i class="bi bi-grid-fill" width="32" height="32"></i>
         <h3>Use Any Device</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+optio, eaque rerum! Provident similique accusantium nemo autem. </p>
   
       </div>
 </div>
@@ -109,7 +112,7 @@ export default {
 
 }
 .carousel-item img {
-  /* background-image:url("../assets/tradeBook.jpeg"); */
+  
   position: absolute;
   background-position: center;
   background-size: cover;
@@ -132,7 +135,6 @@ p{
 .devices-section {
   display: flex;
   flex-direction: row;
-  justify-items: r;
   background-color: rgb(227,223,215);
 }
 

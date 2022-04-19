@@ -1,42 +1,46 @@
 <template>
-  <body>
-  <div id="login" class="text-center">
-    <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
-      <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
-        Invalid username and password!
-      </div>
-      <div
-        class="alert alert-success"
-        role="alert"
-        v-if="this.$route.query.registration"
-      >
-        Thank you for registering, please sign in.
-      </div>
-      <label for="username" class="sr-only">Username</label>
-      <input
-        type="text"
-        id="username"
-        class="form-control"
-        placeholder="Username"
-        v-model="user.username"
-        required
-        autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button id="sign-in" type="submit">Sign in</button>
-    </form>
+  <section class="vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+         <div class="card shadow-2-strong" style="border-radius: 1rem;">
+           <div class="card-body p-5 text-center">
+             <h3 class="mb-5">Please Sign In</h3>
+
+                <div >
+                  <form class="form-signin" @submit.prevent="login">
+                    
+                    <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
+                      Invalid username and password!
+                    </div>
+                    <div
+                      class="alert alert-success"
+                      role="alert"
+                      v-if="this.$route.query.registration"
+                    >
+                      Thank you for registering, please sign in.
+                    </div>
+                    <!-- username  -->
+                    <div class="form-outline mb-4">
+                      <label for="username" class="sr-only">Username</label>
+                      <input type="text" id="username" class="form-control form-control-lg" placeholder="Username" v-model="user.username" required autofocus/>
+                    </div>
+                    <!-- password -->
+                    <div class="form-outline mb-4">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" class="form-control form-control-lg"  placeholder="Password" v-model="user.password" required/>
+                    </div>
+
+                    <router-link :to="{ name: 'register' }">Need an account?</router-link>
+                    <button id="sign-in" class="btn btn-primary btn-lg btn-block" type="submit">Sign in</button>
+                  </form>
+                </div>
+              </div>
   </div>
-  </body>
+  </div>
+    </div>
+  </div>
+  </section>
 </template>
 
 <script>
@@ -79,53 +83,23 @@ export default {
 };
 </script>
 
-<style>
-
-body {
-  background-image: url("../assets/request2.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+<style scoped>
+.card{
+  height: 600px;
+  width: 500px;
+  display: flex;
+  align-content: center;
 }
+.card:hover{
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: all .55s ease-in-out;
+ }
 
-#username {
-  width: 30%;
-  text-align: center;
-  margin-left: 35%;
-  margin-bottom: 1%;
-  margin-top: 10%;
+.btn{
+  background-color: rgb(46,34,16);
 }
-#password {
-  width: 30%;
-  text-align: center;
-  margin-left: 35%;
-  margin-bottom: 1%;
+.btn:hover{
+  background-color: rgb(165,150,140);
 }
 
-#sign-in {
-  margin-left: 1rem;
-  display: inline-block;
-  background-color: #7b38d8;
-  border-radius: 10px;
-  border: 2px double #cccccc;
-  color: #eeeeee;
-  text-align: center;
-  font-size: 20px;
-  padding: 5px;
-  width: 100px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-h1 {
-  color: white;
-  background: #1b5e50;
-  background-size: 30%;
-  width: 100%;
-  font-size: 30px;
-  padding: 1%;
-  margin-top: 2%;
-}
 </style>

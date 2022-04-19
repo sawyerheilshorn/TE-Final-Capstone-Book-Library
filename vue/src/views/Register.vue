@@ -1,43 +1,45 @@
 <template>
-  <div id="register" class="text-center">
-    <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+<section class="vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+         <div class="card shadow-2-strong" style="border-radius: 1rem;">
+           <div class="card-body p-5 text-center"> 
+             <h3 class="h3 mb-3 font-weight-normal">Create Account</h3>
+
+
+  <div id="" class="">
+    <form class="f" @submit.prevent="register">
+     
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
-      <input
-        type="text"
-        id="username"
-        class="form-control"
-        placeholder="Username"
-        v-model="user.username"
-        required
-        autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
-      <input
-        type="password"
-        id="confirmPassword"
-        class="form-control"
-        placeholder="Confirm Password"
-        v-model="user.confirmPassword"
-        required
-      />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+
+                    <div class="form-outline mb-4">
+                      <label for="username" class="sr-only">Username</label>
+                      <input type="text" id="username" class="form-control form-control-lg" placeholder="Username" v-model="user.username" required autofocus/>
+                    </div>
+                    <!-- password -->
+                    <div class="form-outline mb-4">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" class="form-control form-control-lg"  placeholder="Password" v-model="user.password" required/>
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                    <input type="password" id="confirmPassword" class="form-control form-control-lg" placeholder="Confirm Password" v-model="user.confirmPassword" required/>
+                    </div>
+      <router-link :to="{ name: 'login' }" class="switch">Have an account?</router-link>
       <button id="createAccount" class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
     </form>
   </div>
+         </div>
+  </div>
+  </div>
+    </div>
+  </div>
+  </section>
 </template>
 
 <script>
@@ -90,20 +92,26 @@ export default {
 };
 </script>
 
-<style>
-#confirmPassword {
-  width: 30%;
-  text-align: center;
-  margin-left: 35%;
-  margin-bottom: 1%;
+<style scoped>
+.card{
+  height: 600px;
+  width: 500px;
+  display: flex;
+  
 }
-
-#createAccount {
-  width: 20%;
-  margin-left: 47rem;
+.card:hover{
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: all .55s ease-in-out;
+ }
+ 
+.btn{
+  background-color: rgb(46,34,16);
 }
-
-h1 {
-  font-family: serif;
+.btn:hover{
+  background-color: rgb(165,150,140);
+}
+.swtich{
+  transition: all 300ms ease-in-out;;
+  
 }
 </style>
