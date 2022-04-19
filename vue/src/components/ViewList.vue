@@ -9,7 +9,8 @@
             v-for="book in list.bookDetailList"
             v-bind:key="book.isbn"
           >
-            <img class="card-img-top"
+            <img
+              class="card-img-top"
               v-bind:src="
                 'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
               "
@@ -17,18 +18,19 @@
             <h3>{{ book.title }}</h3>
             <button
               @click="removeBookFromList(list.listId, book)"
-              class="btn btn-submit" id="remove-book-button"
+              class="btn btn-submit"
+              id="remove-book-button"
             >
               Remove Book
             </button>
           </div>
 
           <!-- <label for="books" >Choose a Book</label> -->
-          <h3 for="books" >Choose a Book</h3>
+          <h3 for="books">Choose a Book</h3>
 
           <select name="book" id="books" v-model="selectedInput">
             <option
-              v-for="book in $store.state.myLibrary"
+              v-for="book in myBooks"
               :value="book.title"
               :key="book.isbn"
             >
@@ -39,19 +41,25 @@
             type="submit"
             @click="addBookToList(list.listId)"
             class="btn btn-submit"
-            id="add-book-btn"            
+            id="add-book-btn"
           >
             Add Book
           </button>
-          <button class="btn btn-submit" id="delete-list-btn" @click="removeList(list.listId)">Delete This List</button>
+          <button
+            class="btn btn-submit"
+            id="delete-list-btn"
+            @click="removeList(list.listId)"
+          >
+            Delete This List
+          </button>
         </div>
       </div>
 
       <div class="add-list">
-      <button id="create-list" @click="formVisible = !formVisible">
-        <i class="bi bi-plus-circle">  Add Reading list </i>
-      </button>
-      <create-list v-if="formVisible" />
+        <button id="create-list" @click="formVisible = !formVisible">
+          <i class="bi bi-plus-circle"> Add Reading list </i>
+        </button>
+        <create-list v-if="formVisible" />
       </div>
     </div>
 
@@ -68,11 +76,12 @@ export default {
   components: { CreateList },
   name: "view-list",
   data() {
-    return {    
+    return {
       selectedInput: "",
       readingList: [],
       formVisible: false,
       foundBook: {},
+      myBooks: [],
     };
   },
   computed: {},
@@ -89,7 +98,7 @@ export default {
       });
     },
     findBookByName() {
-      return this.$store.state.myLibrary.forEach((book) => {
+      return this.myBooks.forEach((book) => {
         if (book.title == this.selectedInput) {
           console.log("Book found" + JSON.stringify(book));
 
@@ -123,30 +132,33 @@ export default {
     ReadingListService.retrieveList().then((response) => {
       this.readingList = response.data;
     });
+
+    BookService.getMyBooks().then((response) => {
+      this.myBooks = response.data;
+    });
   },
 };
 </script>
 
 <style scoped>
-
-#remove-book-button{
+#remove-book-button {
   text-align: center;
-  margin:  .5% 5% 1% 0%;
-  background-color:rgb(244,241,237);
+  margin: 0.5% 5% 1% 0%;
+  background-color: rgb(244, 241, 237);
   color: black;
 }
-#add-book-btn{
-  text-align: center;  
-  background-color:rgb(244,241,237);
+#add-book-btn {
+  text-align: center;
+  background-color: rgb(244, 241, 237);
   color: black;
-  margin:  .5% 5% 1% 0%;
+  margin: 0.5% 5% 1% 0%;
 }
-#delete-list-btn{
-  text-align: center;  
-  background-color:rgb(244,241,237);
+#delete-list-btn {
+  text-align: center;
+  background-color: rgb(244, 241, 237);
   color: black;
   border: none;
-  margin:  .5% 5% 1% 0%;
+  margin: 0.5% 5% 1% 0%;
 }
 
 #create-list {
@@ -162,7 +174,7 @@ export default {
 }
 .card {
   /* background-color: burlywood; */
-  background-color: rgb(203,192,183);
+  background-color: rgb(203, 192, 183);
   height: 90%;
   margin-top: 20%;
   margin-bottom: 20%;
@@ -170,9 +182,8 @@ export default {
 h2 {
   color: #fff;
   text-align: center;
-
 }
-h3{
+h3 {
   font-size: 16px;
   text-align: center;
   color: black;
@@ -181,7 +192,7 @@ h3{
 .card-img-top {
   width: 80%;
   height: inherit;
-  margin: .5% 5% .3% 10%;
+  margin: 0.5% 5% 0.3% 10%;
   object-fit: cover;
 }
 #create-list {
@@ -191,7 +202,7 @@ h3{
   color: black;
 }
 
-.add-list{
+.add-list {
   display: flex;
   flex-direction: column;
 }

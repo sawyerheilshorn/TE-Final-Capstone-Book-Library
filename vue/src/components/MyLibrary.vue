@@ -14,10 +14,11 @@
       </div>
     </div>
     <div class="add-book">
-    <button id="add-book-btn" @click="formVisible = !formVisible">
-      <i class="bi bi-plus-circle"> Add Book to Library</i></button>
+      <button id="add-book-btn" @click="formVisible = !formVisible">
+        <i class="bi bi-plus-circle"> Add Book to Library</i>
+      </button>
 
-    <create-book v-if="formVisible" />
+      <create-book v-if="formVisible" />
     </div>
   </div>
 </template>
@@ -38,7 +39,6 @@ export default {
   created() {
     BookService.getMyBooks().then((response) => {
       this.myBooks = response.data;
-      this.$store.commit("ADD_ALL_BOOK", this.myBooks);
     });
   },
 };
@@ -48,7 +48,7 @@ export default {
 .jumbotron {
   display: flex;
   justify-content: space-evenly;
-   background-color: rgb(203,192,183);
+  background-color: rgb(203, 192, 183);
   /* background-color: #caa472; */
   margin-right: 3%;
 
@@ -65,22 +65,17 @@ export default {
 .card h5 {
   text-align: center;
 }
-#add-book-btn{
+#add-book-btn {
   height: 4%;
   width: 100%;
   margin-bottom: 5%;
- 
 }
-
-
 
 #main-div {
   display: flex;
   margin: 3%;
-  
-  
 }
-.add-book{
+.add-book {
   display: flex;
   flex-direction: column;
 }
