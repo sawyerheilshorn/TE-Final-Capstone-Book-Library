@@ -23,13 +23,12 @@
           {{ genre.genre_name }}
         </p>
         <div v-if="$store.state.token != ''">
-          <h6>Users Who Own This Book:</h6>
+          <h6>Request From:</h6>
           <ul>
             <li v-for="user in users" v-bind:key="user.user_id">
-              <span
+              <div
                 v-if="
-                  user.username != loggedInUser ||
-                  myBooks.forEach(e.title == book.title)
+                  user.username != loggedInUser || this.myBooks.isArray(book)
                 "
               >
                 {{ user.username }}
@@ -40,7 +39,7 @@
                 >
                   Request Book
                 </button>
-              </span>
+              </div>
             </li>
           </ul>
         </div>
@@ -62,6 +61,7 @@ export default {
       enabled: true,
       loggedInUser: "",
       myBooks: [],
+      owned: false,
     };
   },
   props: {
@@ -145,7 +145,7 @@ li {
   color: white;
   background-color: lightsalmon;
   margin: 3px;
-  width: 100%;
+  position: static;
 }
 
 ul {
