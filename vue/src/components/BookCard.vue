@@ -98,11 +98,11 @@ export default {
 }
 
 .card-deck {
-  margin: 0 1em 1em 1em;
-  padding: 1em 1em;
+  margin: 0 1rem 1rem 1rem;
+  padding: 1rem;
   background-color: rgb(210, 199, 190);
   border-radius: 2%;
-  height: 34vw;
+  height: 34rem;
 }
 
 .card {
@@ -114,6 +114,8 @@ export default {
   /* padding: 14px 80px 18px 36px; */
   /* cursor: pointer; */
   width: 18rem;
+  height: 30rem;
+  margin-top: 1rem;
 }
 .card:hover {
   transform: scale(1.05);
@@ -127,30 +129,35 @@ export default {
 
 body {
   background-color: #f4f1ed;
+  font-size: 1rem;
 }
 .card-img-top {
   width: 100%;
-  height: 15vw;
-  object-fit: cover;
+  height: 15rem;
+  object-fit: contain;
 }
 
 li {
   list-style: none;
-  justify-content: space-evenly;
 }
 
 .btn {
   color: white;
   background-color: lightsalmon;
   margin: 3px;
+  width: 100%;
 }
 
 ul {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-right: 25%;
 }
 
 p {
   margin-bottom: 3%;
+}
+
+#owners {
 }
 </style>
