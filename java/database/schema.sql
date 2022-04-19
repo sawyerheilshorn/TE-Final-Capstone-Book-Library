@@ -167,6 +167,7 @@ INSERT INTO reading_list(list_name, user_id) VALUES('Kids List', 3);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 4);
 INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 4);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 5);
+INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 5);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 6);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 7);
 
@@ -221,6 +222,8 @@ INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9781402712173');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '0060935464');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9781423109624');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9780375828379');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (7, '9783125971400');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (8, '048627263X');
 
 -- ****** DATA for book_request_status TABLE ****--
 INSERT INTO book_request_status (book_request_status_desc) VALUES ('Pending');
@@ -228,6 +231,8 @@ INSERT INTO book_request_status (book_request_status_desc) VALUES ('Approved');
 INSERT INTO book_request_status (book_request_status_desc) VALUES ('Declined');
 
 -- ****** DATA for book_request TABLE ****--
+
+-- select * from users;
 
 INSERT INTO book_request( book_isbn,book_request_status_id, request_received_from, request_sent_to) 
 VALUES('0060935464',1, 5, 3); 
@@ -238,6 +243,11 @@ VALUES('0078823684',1, 3, 4);
 INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
 VALUES('9780072472615',1, 6, 5);
 
+-- INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
+-- VALUES('9780072472615',1, 6, 5);
+
+-- INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
+-- VALUES('9780072472615',1, 6, 5);
 
 
 
