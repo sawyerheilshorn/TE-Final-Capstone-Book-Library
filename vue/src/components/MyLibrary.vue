@@ -45,7 +45,8 @@ export default {
 .jumbotron {
   display: flex;
   justify-content: space-evenly;
-  background-color: #caa472;
+   background-color: rgb(203,192,183);
+  /* background-color: #caa472; */
   margin-right: 3%;
 
   width: 75%;
@@ -54,8 +55,9 @@ export default {
 .card img {
   height: 70%;
   width: 70%;
-  margin-left: 23%;
-  margin-bottom: 3%;
+  margin: 2% 25% 0 60%;
+  /* margin-left: 23%;
+  margin-bottom: 3%; */
 }
 .card h5 {
   text-align: center;
@@ -63,9 +65,12 @@ export default {
 button {
   /* height: 70%; */
 }
-#myLibraryCard {
-  margin-right: 10%;
+#myLibraryCard{
+  /* margin-right: 10%; */
+background-color:rgb(49, 147, 180) ;
 }
+
+
 
 #main-div {
   display: flex;

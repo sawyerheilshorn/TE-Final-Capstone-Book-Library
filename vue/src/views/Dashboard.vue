@@ -18,8 +18,8 @@ export default {
 
 <style scoped>
 #background {
-  background-image: url("../assets/homePage.jpg");
-
+  /* background-image: url("../assets/homePage.jpg"); */
+ background-color: rgb(244,241,237);
   opacity: 0.95;
 }
 </style>

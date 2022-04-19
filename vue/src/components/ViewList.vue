@@ -9,7 +9,7 @@
             v-for="book in list.bookDetailList"
             v-bind:key="book.isbn"
           >
-            <img
+            <img class="card-img-top"
               v-bind:src="
                 'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
               "
@@ -17,13 +17,14 @@
             <h3>{{ book.title }}</h3>
             <button
               @click="removeBookFromList(list.listId, book)"
-              class="btn btn-submit"
+              class="btn btn-submit" id="remove-book-button"
             >
               Remove Book
             </button>
           </div>
 
-          <label for="books">Choose a Book</label>
+          <!-- <label for="books" >Choose a Book</label> -->
+          <h3 for="books" >Choose a Book</h3>
 
           <select name="book" id="books" v-model="selectedInput">
             <option
@@ -38,11 +39,11 @@
             type="submit"
             @click="addBookToList(list.listId)"
             class="btn btn-submit"
-            id="btn-submit"
+            id="add-book-btn"            
           >
             Add Book
           </button>
-          <button @click="removeList(list.listId)">Delete This List</button>
+          <button class="btn btn-submit" id="delete-list-btn" @click="removeList(list.listId)">Delete This List</button>
         </div>
       </div>
 
@@ -65,17 +66,7 @@ export default {
   components: { CreateList },
   name: "view-list",
   data() {
-    return {
-      // selectedBook: {
-      //   isbn: "",
-      //   title: "",
-      //   author: "",
-      //   genreList: [
-      //     {
-      //       genre_name: "",
-      //     },
-      //   ],
-      // },
+    return {    
       selectedInput: "",
       readingList: [],
       formVisible: false,
@@ -135,9 +126,27 @@ export default {
 </script>
 
 <style scoped>
+
+#remove-book-button{
+  text-align: center;
+  margin:  .5% 5% 1% 27%;
+  background-color:rgb(244,241,237);
+  color: black;
+}
+#add-book-btn{
+  text-align: center;  
+  background-color:rgb(244,241,237);
+  color: black;
+}
+#delete-list-btn{
+   text-align: center;  
+  background-color:rgb(244,241,237);
+  color: black;
+  border: none;
+}
+
 #create-list {
   margin-top: 23%;
-
   color: white;
 }
 #books-in-list {
@@ -145,19 +154,32 @@ export default {
 }
 .flex {
   display: flex;
-
   justify-content: space-evenly;
 }
 .card {
-  background-color: burlywood;
+  /* background-color: burlywood; */
+  background-color: rgb(203,192,183);
   height: 90%;
   margin-top: 20%;
   margin-bottom: 20%;
 }
 h2 {
   color: #fff;
-}
+  text-align: center;
 
+}
+h3{
+  font-size: 16px;
+  text-align: center;
+  color: black;
+  margin-top: 1%;
+}
+.card-img-top {
+  width: 80%;
+ /* height: 10vw; */
+  margin: .5% 5% .3% 10%;
+  object-fit: cover;
+}
 #create-list {
   height: 10%;
   color: black;

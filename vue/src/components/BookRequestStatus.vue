@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="visible = !visible">View My Requests</button>
+    <button id="viewRequestButton" @click="visible = !visible">View My Requests</button>
     <div id="book-status" v-if="visible == true">
       <div id="received-request">
         <!-- Request received by the user -->
@@ -117,6 +117,16 @@ export default {
 </script>
 
 <style scoped>
+#viewRequestButton{    
+  margin:.2% 0 .3% 46%; 
+  color: white;
+  background-color: rgb(74, 78, 78);
+  border: 2px lightsalmon solid; 
+  /* background-color: rgb(223, 173, 154); */
+  /* background-color: rgb(203,192,183); */
+  
+}
+
 #received-request {
   display: grid;
   color: white;
@@ -128,7 +138,8 @@ export default {
 
 .btn {
   color: white;
-  background-color: lightsalmon;
+  background-color: rgb(223, 173, 154);
+  /* background-color: rgb(203,192,183); */
   margin: 3px;
   margin-bottom: 3%;
 }
@@ -145,7 +156,6 @@ export default {
 #book-status {
   display: grid;
   text-align: center;
-
   /* row-gap: 20px; */
   /* column-gap: 50px;  */
 
