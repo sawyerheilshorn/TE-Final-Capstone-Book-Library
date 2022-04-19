@@ -49,10 +49,10 @@
             <i class="bi bi-hourglass-split"> Pending</i>
           </button>
           <button v-if="request.transferStatus == 2" class="new-btn">
-            <i class="bi bi-check2-square"> Approve</i>
+            <i class="bi bi-check2-square"> Approved</i>
           </button>
           <button v-if="request.transferStatus == 3" class="new-btn">
-            <i class="bi bi-x-octagon"> Decline</i>
+            <i class="bi bi-x-octagon"> Declined</i>
           </button>
         </div>
       </div>
