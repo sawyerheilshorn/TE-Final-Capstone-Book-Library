@@ -1,53 +1,87 @@
 
 <template>
   <div id="app">
-
-
     <!-- Nav -->
-    <div class="nav-div">
+    <div class="nav-div" id="header">
+      <nav class="navbar navbar-expand-lg py-3 navbar-custom">
+        <div class="container">
+          <a href="#" class="navbar-brand">
+            <!-- Logo Image -->
+            <img
+              src="./assets/logo1.png"
+              width="13%"
+              height="13%"
+              alt=""
+              class="d-inline-block align-middle mr-2"
+            />
+            <!-- Logo Text -->
+            <!-- <span class="text-uppercase font-weight-bold">Company</span> -->
+          </a>
 
-    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
-  <div class="container">
-    <a href="#" class="navbar-brand">
-      <!-- Logo Image -->
-      <img src="./assets/logo1.png" width="13%" height="13%" alt="" class="d-inline-block align-middle mr-2">
-      <!-- Logo Text -->
-      <!-- <span class="text-uppercase font-weight-bold">Company</span> -->
-    </a>
+          <button
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            class="navbar-toggler"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a href="#" class="nav-link"
+                  ><router-link v-bind:to="{ name: 'home' }">Home</router-link
+                  >&nbsp;&nbsp;
+                </a>
+              </li>
 
-    <div id="navbarSupportedContent" class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a href="#" class="nav-link"
+                  ><router-link v-bind:to="{ name: 'search' }"
+                    >Search</router-link
+                  >&nbsp;&nbsp;</a
+                >
+              </li>
 
-        <li class="nav-item active"><a href="#" class="nav-link"><router-link v-bind:to="{ name: 'home' }">Home</router-link
-              >&nbsp;&nbsp; </a></li>
-        
-        <li class="nav-item active"><a href="#" class="nav-link"><router-link v-bind:to="{ name: 'search' }">Search</router-link
-              >&nbsp;&nbsp;</a></li>
+              <li class="nav-item active" v-if="$store.state.token != ''">
+                <a href="#" class="nav-link"
+                  ><router-link v-bind:to="{ name: 'dashboard' }"
+                    >Dashboard</router-link
+                  >&nbsp;&nbsp;</a
+                >
+              </li>
 
-        <li class="nav-item active" v-if="$store.state.token != ''"><a href="#" class="nav-link"><router-link v-bind:to="{ name: 'dashboard' }"
-                >Dashboard</router-link
-              >&nbsp;&nbsp;</a></li>
+              <li class="nav-item active" v-if="$store.state.token != ''">
+                <a href="#" class="nav-link">
+                  <router-link v-bind:to="{ name: 'logout' }"
+                    >Logout</router-link
+                  ></a
+                >
+              </li>
 
-        <li class="nav-item active" v-if="$store.state.token != ''"><a href="#" class="nav-link"> <router-link v-bind:to="{ name: 'logout' }">Logout</router-link></a></li>
-
-        <li class="nav-item active" v-if="$store.state.token == ''"><a href="#" class="nav-link"> <router-link v-bind:to="{ name: 'logout' }"><router-link v-bind:to="{ name: 'login' }">Login</router-link
-              >&nbsp;&nbsp;</router-link></a></li>
-
-
-      </ul>
+              <li class="nav-item active" v-if="$store.state.token == ''">
+                <a href="#" class="nav-link">
+                  <router-link v-bind:to="{ name: 'logout' }"
+                    ><router-link v-bind:to="{ name: 'login' }"
+                      >Login</router-link
+                    >&nbsp;&nbsp;</router-link
+                  ></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
-  </div>
-</nav>
-</div>
 
-   
     <body class="body">
       <router-view />
-    </body> 
-    
-    
+    </body>
+
     <!-- footer -->
     <div class="footer" id="footer">
       <div class="footer-bottom">
@@ -74,7 +108,6 @@
 </template>
 
 <style>
-
 body {
   min-height: 100vh;
   background-color: rgb(227, 223, 215);
@@ -84,6 +117,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.navbar-custom {
+  background-color: rgb(165, 150, 140);
+  color: white;
+}
+
 /* footer style */
 
 #footer {
@@ -140,13 +178,11 @@ a {
 
 @media (max-width: 500px) {
   .footer-menu ul {
-      display: flex;
+    display: flex;
     flex-direction: column;
   }
-  
 }
 /* Isbn - > 9780606410090  title: Curious George Mothers Day Surprise Author- H. A. Rey */
-
 
 /* end of footer style */
 </style>

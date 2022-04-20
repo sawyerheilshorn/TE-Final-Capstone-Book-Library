@@ -4,15 +4,14 @@
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-12 text-center">
-            <p class="lead">Reading opens new worlds</p>
-            <h1 class="fw-light">Start Reading</h1>
+            <h1 class="fw-light">Find Your Next Read with CBUS BookSwap</h1>
 
-            <a
-              v-bind:to="{ name: 'login' }"
+            <router-link
+              v-bind:to="{ name: 'register' }"
               href="#"
               type="button"
               class="btn btn-info"
-              >Get Started</a
+              >Get Started</router-link
             >
           </div>
         </div>
@@ -21,7 +20,7 @@
 
     <div class="section2">
       <h5><i class="bi bi-book-fill"></i>+200 Books</h5>
-      <h5><i class="bi bi-people-fill"></i> 04 Users</h5>
+      <h5><i class="bi bi-people-fill"></i> 05 Users</h5>
       <h5><i class="bi bi-book-half"></i> 50 genres</h5>
     </div>
     <div class="devices-section">
@@ -30,11 +29,11 @@
         <i class="bi bi-grid-fill" width="32" height="32"></i>
         <h3>Use Any Device</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-          voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-          fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-          accusantium nemo autem.
+          CBUS BookSwap is a peer to peer library application that helps you
+          organize your reading and trade your well worn companions for your
+          friends' new and exciting reads. Hey! If you haven't read it it's new
+          to you! We firmly believe that books are meant to be enjoyed and
+          shared not collected and hoarded.
         </p>
       </div>
     </div>
