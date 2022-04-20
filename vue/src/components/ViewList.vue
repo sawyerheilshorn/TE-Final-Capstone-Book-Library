@@ -9,6 +9,7 @@
             v-for="book in list.bookDetailList"
             v-bind:key="book.isbn"
           >
+          <!-- When you click on the image it will re direct to BookViewer page-->
             <img
               class="card-img-top"
               v-bind:src="
