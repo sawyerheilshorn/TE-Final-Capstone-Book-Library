@@ -117,7 +117,7 @@ INSERT INTO book_details(isbn, title, author) VALUES ('048627263X', 'Flatland', 
 INSERT INTO book_details(isbn, title, author) VALUES ('9780449208106', 'Things Fall Apart', 'Chinua Achebe');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780072472615', 'The Interactive Computing Series', 'Kenneth C. Laudon');
 INSERT INTO book_details(isbn, title, author) VALUES ('0078823684', 'Java programmers reference', 'Herbert Schildt');
-INSERT INTO book_details(isbn, title, author) VALUES ('9782212677836', 'Applications web complexes et réactives', 'Brice Chaponneau');
+INSERT INTO book_details(isbn, title, author) VALUES ('9782212677836', 'Applications web complexes', 'Brice Chaponneau');
 INSERT INTO book_details(isbn, title, author) VALUES ('978-1-64200-200-3', 'Vue.js Succinctly', 'Ed Freitas');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780321117847', 'Algorithmics The Spirit of Computing', 'David Harel and Yishai Feldman');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780692156216', 'Algorithms Special Topics', 'Kenneth A Berman');
@@ -228,8 +228,18 @@ INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9781402712173');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '0060935464');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9781423109624');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9780375828379');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (5, '0060935464');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (5, '9780684830490');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (6, '978-1-64200-200-3');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (6, '0078823684');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (7, '9783125971400');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (7, '000711561X');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (8, '048627263X');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (9, '9781984822178');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (9, '048627263X');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (10, '9782212677836');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (11, '0078823684');
+INSERT INTO reading_list_book(list_id, isbn) VALUES (12, '9780544430563');
 
 -- ****** DATA for book_request_status TABLE ****--
 INSERT INTO book_request_status (book_request_status_desc) VALUES ('Pending');
@@ -238,8 +248,8 @@ INSERT INTO book_request_status (book_request_status_desc) VALUES ('Declined');
 
 -- ****** DATA for book_request TABLE ****--
 
--- select * from users;
-
+--select * from users;
+--select * from book_request;
 INSERT INTO book_request( book_isbn,book_request_status_id, request_received_from, request_sent_to) 
 VALUES('0060935464',1, 5, 3); 
 
@@ -249,13 +259,17 @@ VALUES('0078823684',1, 3, 4);
 INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
 VALUES('9780072472615',1, 6, 5);
 
--- INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
--- VALUES('9780072472615',1, 6, 5);
+INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
+VALUES('9780141323749',1, 6, 3);
 
--- INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
--- VALUES('9780072472615',1, 6, 5);
+INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
+VALUES('9781534431003',1, 4, 6);
+ 
+INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
+VALUES('9780375828379',1,7,3);
 
-
+INSERT INTO book_request( book_isbn, book_request_status_id, request_received_from, request_sent_to) 
+VALUES('9780692156216',1,4,7);
 
 ALTER SEQUENCE genre_genre_id_seq RESTART WITH 100;
 
