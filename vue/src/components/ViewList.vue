@@ -14,6 +14,7 @@
               v-bind:src="
                 'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
               "
+              @click="goToViewerPage(book)"
             />
             <h3>{{ book.title }}</h3>
             <button
@@ -62,8 +63,6 @@
         <create-list v-if="formVisible" />
       </div>
     </div>
-
-    >
   </div>
 </template>
 
@@ -127,6 +126,10 @@ export default {
         }
       });
     },
+
+    goToViewerPage(book) {
+      this.$router.push({ name: "viewer", params: { isbn: book.isbn } });
+    },
   },
   created() {
     ReadingListService.retrieveList().then((response) => {
@@ -139,6 +142,8 @@ export default {
   },
 };
 </script>
+
+
 
 <style scoped>
 #remove-book-button {

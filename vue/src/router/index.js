@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Search from '../views/Search.vue'
 import Dashboard from '../views/Dashboard.vue'
+import Viewer from '../views/BookViewer.vue'
 
 Vue.use(Router)
 
@@ -78,10 +79,16 @@ const router = new Router({
             component: Dashboard,
             meta: {
                 requireAuth: true
-            }
+            },
+
         },
 
+        {
+            path: "/viewer/:isbn",
+            name: "viewer",
+            component: Viewer,
 
+        }
 
 
     ]
