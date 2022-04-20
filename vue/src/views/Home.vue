@@ -1,87 +1,18 @@
 <template>
   <div>
-    <div id="myCarousel" class="carousel slide">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-      </ol>
-
-      <div class="carousel-inner">
-        <div class="banner">
-          <div class="carousel-item active" id="slide1">
-            <img
-              class="d-block w-100"
-              src="../assets/ReadingBook.jpg"
-              alt="First slide"
-            />
-            <div class="container">
-              <p>Reading opens new worlds</p>
-              <h1>Start Reading</h1>
-              <a href="#" type="button" class="btn btn-info">Get Started</a>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              class="d-block w-100"
-              src="../assets/tradeBook.jpeg"
-              alt="Second slide"
-            />
-
-            <div class="container">
-              <p>Reading expands your horizons</p>
-              <h1>Swap Books</h1>
-              <a href="#" type="button" class="btn btn-info">Get Started</a>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              class="d-block w-100"
-              src="../assets/bookList.jpg"
-              alt="third slide"
-            />
-
-            <div class="container">
-              <p>Reading enriches young minds</p>
-              <h1>Create Your Library</h1>
-              <a href="#" type="button" class="btn btn-info">Get Started</a>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              class="d-block w-100"
-              src="../assets/requestBooks.jpg"
-              alt="fourth slide"
-            />
-
-            <div class="container">
-              <p>Reading is fun</p>
-              <h1>Request Books</h1>
-              <a href="#" type="button" class="btn btn-info">Get Started</a>
-            </div>
-          </div>
-          <a
-            class="carousel-control-prev"
-            href="#myCarousel"
-            role="button"
-            data-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#myCarousel"
-            role="button"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+    
+    <div class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <p class="lead">Reading opens new worlds</p>
+        <h1 class="fw-light">Start Reading</h1>
+        
+        <a v-bind:to="{ name: 'login' }" href="#" type="button" class="btn btn-info">Get Started</a>
       </div>
     </div>
+  </div>
+</div>
 
     <div class="section2">
       <h5><i class="bi bi-book-fill"></i>+200 Books</h5>
@@ -116,40 +47,32 @@ export default {
 <style scoped>
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 
-.carousel-item {
-  height: 32rem;
-  background-color: rgb(46, 34, 16);
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  position: relative;
-}
-
-.container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 50px;
-}
-.carousel-item img {
-  position: absolute;
-  background-position: center;
+.masthead {
+  height: 50vh;
+  
+  background-image: url("../assets/ReadingBook.jpg");
   background-size: cover;
-  opacity: 0.5;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-p {
+
+.container p {
+  color: #fff;
   padding: 0%;
   margin: 0%;
+  font-size: 150%;
+  
 }
 .container h1 {
   color: #fff;
+  font-size: 400%;
   padding: 0%;
   margin: 0%;
 }
 .btn {
   background-color: rgb(92, 131, 155);
-  width: 18%;
+
 }
 
 .devices-section {

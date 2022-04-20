@@ -1,97 +1,54 @@
+
 <template>
   <div id="app">
-    <!-- <div>
-      <nav
-        id="main-nav"
-        class="navbar sticky-top navbar-expand-lg navbar-custom"
-      >
-        <div class="container">
-          <a class="navbar-brand" href="#">Logo</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsibleNavbar"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav mr-auto w-100 justify-content-end">
-              <li class="nav-item">
-                <router-link class="nav-link" v-bind:to="{ name: 'home' }"
-                  >Home</router-link
-                >&nbsp;&nbsp;
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" v-bind:to="{ name: 'search' }"
-                  >Search</router-link
-                >&nbsp;&nbsp;
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" v-bind:to="{ name: 'login' }"
-                  >Login</router-link
-                >&nbsp;&nbsp;
-              </li>
-              <li class="nav-item">
-                <router-link
-                  class="nav-link"
-                  v-bind:to="{ name: 'dashboard' }"
-                  v-if="$store.state.token != ''"
-                  >My Dashboard</router-link
-                >&nbsp;&nbsp;
-              </li>
-              <li class="nav-item">
-                <router-link
-                  class="nav-link"
-                  v-bind:to="{ name: 'logout' }"
-                  v-if="$store.state.token != ''"
-                  >Logout</router-link
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div> -->
 
-    <div class="nav-container">
-      <!-- logo -->
-      <nav class="navbar">
-        <div class="logo">
-          <a href=""> <img src="" alt="" />LOGO </a>
-        </div>
-        <!-- Nav menu -->
-        <div class="menu">
-          <ul>
-            <li>
-              <router-link v-bind:to="{ name: 'home' }">Home</router-link
-              >&nbsp;&nbsp;
-            </li>
-            <li>
-              <router-link v-bind:to="{ name: 'search' }">Search</router-link
-              >&nbsp;&nbsp;
-            </li>
 
-            <li v-if="$store.state.token != ''">
-              <router-link v-bind:to="{ name: 'dashboard' }"
+    <!-- Nav -->
+    <div class="nav-div">
+
+    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a href="#" class="navbar-brand">
+      <!-- Logo Image -->
+      <img src="./assets/logo1.png" width="13%" height="13%" alt="" class="d-inline-block align-middle mr-2">
+      <!-- Logo Text -->
+      <!-- <span class="text-uppercase font-weight-bold">Company</span> -->
+    </a>
+
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item active"><a href="#" class="nav-link"><router-link v-bind:to="{ name: 'home' }">Home</router-link
+              >&nbsp;&nbsp; </a></li>
+        
+        <li class="nav-item active"><a href="#" class="nav-link"><router-link v-bind:to="{ name: 'search' }">Search</router-link
+              >&nbsp;&nbsp;</a></li>
+
+        <li class="nav-item active" v-if="$store.state.token != ''"><a href="#" class="nav-link"><router-link v-bind:to="{ name: 'dashboard' }"
                 >Dashboard</router-link
-              >&nbsp;&nbsp;
-            </li>
-            <li v-if="$store.state.token != ''">
-              <router-link v-bind:to="{ name: 'logout' }">Logout</router-link>
-            </li>
-            <li v-if="$store.state.token == ''">
-              <router-link v-bind:to="{ name: 'login' }">Login</router-link
-              >&nbsp;&nbsp;
-            </li>
-          </ul>
-        </div>
-      </nav>
+              >&nbsp;&nbsp;</a></li>
+
+        <li class="nav-item active" v-if="$store.state.token != ''"><a href="#" class="nav-link"> <router-link v-bind:to="{ name: 'logout' }">Logout</router-link></a></li>
+
+        <li class="nav-item active" v-if="$store.state.token == ''"><a href="#" class="nav-link"> <router-link v-bind:to="{ name: 'logout' }"><router-link v-bind:to="{ name: 'login' }">Login</router-link
+              >&nbsp;&nbsp;</router-link></a></li>
+
+
+      </ul>
     </div>
-    <!-- footer -->
+  </div>
+</nav>
+</div>
+
+   
     <body class="body">
       <router-view />
-    </body>
+    </body> 
+    
+    
+    <!-- footer -->
     <div class="footer" id="footer">
       <div class="footer-bottom">
         <div class="footer-menu">
@@ -117,50 +74,6 @@
 </template>
 
 <style>
-/* start of  old app style  */
-/* @import url("https://fonts.googleapis.com/css?family=Titillium+Web");
-@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
-
-* {
-  font-family: "Titillium Web", sans-serif;
-  
-}
-body { margin: 0%;
-  
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-}
-.navbar .navbar-brand {
-  margin-left: 10%;
-  font-size: 30px;
-  color: rgb(255, 255, 255);
-}
-.navbar .nav-item {
-  padding: 10px 20px;
-}
-.navbar .nav-link {
-  font-size: 20px;
-  margin-left: 10px;
-  color: aliceblue;
-}
-.navbar .nav-link:hover {
-  color: rgb(126, 141, 223);
-}
-.fa-bars {
-  color: #ff1515;
-  font-size: 30px;
-}
-.navbar-custom {
-  background-color: rgb(229 163 102);
-}
-*/
-/* body {
-  background-image: url("assets/homePage.jpg");
- 
-  opacity: .7;
-}  */
-/* end old app style  */
 
 body {
   min-height: 100vh;
@@ -171,53 +84,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-.navbar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: 0%;
-  width: 100%;
-  opacity: 1;
-}
-
-.navbar {
-  display: flex;
-  /* justify-content: space-between; */
-  background-color: rgb(126, 114, 106);
-  /*   */
-}
-
-.logo {
-  padding: 20px;
-  color: #fff;
-}
-
-.menu ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-}
-
-.menu li {
-  padding: 20px;
-  margin-left: 20px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.menu ul li:active,
-li:focus,
-li:hover {
-  text-decoration: none;
-}
-
-li {
-  text-align: center;
-}
-
 /* footer style */
 
 #footer {
@@ -274,10 +140,10 @@ li {
 
 @media (max-width: 500px) {
   .footer-menu ul {
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 20px;
+      display: flex;
+    flex-direction: column;
   }
+  
 }
 /* Isbn - > 9780606410090  title: Curious George Mothers Day Surprise Author- H. A. Rey */
 
