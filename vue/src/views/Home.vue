@@ -88,6 +88,9 @@
       <h5><i class="bi bi-people-fill"></i> 04 Users</h5>
       <h5><i class="bi bi-book-half"></i> 50 genres</h5>
     </div>
+    <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
+
+    <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
 
     <div class="devices-section">
       <img id="img" src="../assets/device.png" alt="#" class="img-thumbnail" />
@@ -109,6 +112,7 @@
 <script>
 export default {
   name: "home",
+  methods: {},
 };
 </script>
 
