@@ -97,7 +97,7 @@ INSERT INTO genre(genre_id, genre_name) VALUES (6, 'Fantasy');
 INSERT INTO genre(genre_id, genre_name) VALUES (7, 'SciFi');
 INSERT INTO genre(genre_id, genre_name) VALUES (8, 'Drama');
 INSERT INTO genre(genre_id, genre_name) VALUES (9, 'Computer');
---INSERT INTO genre(genre_id, genre_name) VALUES (10, '');
+INSERT INTO genre(genre_id, genre_name) VALUES (10, 'Kids');
 
 
 -- *************************Data for book_details TABLE ****************--
@@ -145,7 +145,11 @@ INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',1);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',6);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9780072472615',9);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9782212677836',9);
-INSERT INTO book_genre(isbn, genre_id) VALUES('978-1-64200-200-3',9);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780544430563',10);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781423109624',10);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9781423164821',10);
+INSERT INTO book_genre(isbn, genre_id) VALUES('9780375828379',10);
+
 
 
 -- ************************* Data for users TABLE **************** --
@@ -165,19 +169,21 @@ INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 1);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 3);
 INSERT INTO reading_list(list_name, user_id) VALUES('Kids List', 3);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 4);
-INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 4);
+INSERT INTO reading_list(list_name, user_id) VALUES('Beach Reading', 4);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 5);
-INSERT INTO reading_list(list_name, user_id) VALUES('Wish List', 5);
+INSERT INTO reading_list(list_name, user_id) VALUES('Bedtime Stories', 5);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 6);
+INSERT INTO reading_list(list_name, user_id) VALUES('Tech Books', 6);
 INSERT INTO reading_list(list_name, user_id) VALUES('My Books', 7);
+INSERT INTO reading_list(list_name, user_id) VALUES('Bedtime Stories', 7);
 
 
 --********************** DATA for user_book Table ****************--
-INSERT INTO user_book(user_id, isbn) VALUES (1, '9781408849927');
-INSERT INTO user_book(user_id, isbn) VALUES (1, '9781402712173');
-INSERT INTO user_book(user_id, isbn) VALUES (1, '0060935464');
+INSERT INTO user_book(user_id, isbn) VALUES (4, '9781408849927');
+INSERT INTO user_book(user_id, isbn) VALUES (5, '9781402712173');
+INSERT INTO user_book(user_id, isbn) VALUES (7, '0060935464');
 
-
+--naveena user_id=3
 INSERT INTO user_book(user_id, isbn) VALUES (3, '0060935464');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '9780141323749');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '9783319055053');
@@ -185,21 +191,21 @@ INSERT INTO user_book(user_id, isbn) VALUES (3, '9781423109624');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '000711561X');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '9781423164821');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '9780375828379');
-
+--michael user_id=4
 INSERT INTO user_book(user_id, isbn) VALUES (4, '9781402712173');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '000711561X');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '0078823684');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '978-1-64200-200-3');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '9780684830490');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '0060935464');
-
+--abdalla user_id=5
 INSERT INTO user_book(user_id, isbn) VALUES (5, '9783125971400');
 INSERT INTO user_book(user_id, isbn) VALUES (5, '000711561X');
 INSERT INTO user_book(user_id, isbn) VALUES (5, '048627263X');
 INSERT INTO user_book(user_id, isbn) VALUES (5, '9780072472615');
 INSERT INTO user_book(user_id, isbn) VALUES (5, '9781984822178');
 
-
+--sawyer user_id=6
 INSERT INTO user_book(user_id, isbn) VALUES (6, '9781534431003');
 INSERT INTO user_book(user_id, isbn) VALUES (6, '9782212677836');
 INSERT INTO user_book(user_id, isbn) VALUES (6, '048627263X');
@@ -207,7 +213,7 @@ INSERT INTO user_book(user_id, isbn) VALUES (6, '9780684830490');
 INSERT INTO user_book(user_id, isbn) VALUES (6, '9781984822178');
 INSERT INTO user_book(user_id, isbn) VALUES (6, '0060935464');
 
-
+--steve user_id=7
 INSERT INTO user_book(user_id, isbn) VALUES (7, '9781402712173');
 INSERT INTO user_book(user_id, isbn) VALUES (7, '9780692156216');
 INSERT INTO user_book(user_id, isbn) VALUES (7, '0078823684');
