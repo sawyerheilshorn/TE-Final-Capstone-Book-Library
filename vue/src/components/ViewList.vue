@@ -148,22 +148,24 @@ export default {
 <style scoped>
 #remove-book-button {
   text-align: center;
-  margin: 0.5% 5% 1% 0%;
+  margin: 0.5% 5% 5% 28%;
   background-color: rgb(244, 241, 237);
   color: black;
 }
 #add-book-btn {
   text-align: center;
+  margin: 0.5% 5% 5% 5%;
+  margin-top: 5%;
   background-color: rgb(244, 241, 237);
   color: black;
-  margin: 0.5% 5% 1% 0%;
 }
 #delete-list-btn {
   text-align: center;
+  margin: 0.5% 5% 5% 5%;
+  margin-top: 2%;
   background-color: rgb(244, 241, 237);
   color: black;
   border: none;
-  margin: 0.5% 5% 1% 0%;
 }
 
 #create-list {

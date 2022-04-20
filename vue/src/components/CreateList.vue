@@ -73,9 +73,7 @@ button {
   color: white;
 }
 #create_reading_list{
-  
   width: 100%;
-
 }
 
 
