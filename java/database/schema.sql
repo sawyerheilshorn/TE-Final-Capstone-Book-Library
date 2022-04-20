@@ -107,7 +107,7 @@ INSERT INTO book_details(isbn, title, author) VALUES ('0060935464', 'To Kill a M
 --INSERT INTO book_details(isbn, title, author) VALUES ('9780356500157', 'The Girl With All the Gifts', 'M.R. Carey');
 INSERT INTO book_details(isbn, title, author) VALUES ('9781408849927', 'Harry Potter and the Philosophers Stone', 'J. K. Rowling');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780684830490', 'The Old Man and the Sea', 'Ernest Hemingway');
-INSERT INTO book_details(isbn, title, author) VALUES ('9781402712173', 'The Adventures of Sherlock Holmes', 'Chris Sasaki and Arthur Conan Doyle');
+INSERT INTO book_details(isbn, title, author) VALUES ('9781402712173', 'The Adventures of Sherlock Holmes', 'Sasaki and Doyle');
 INSERT INTO book_details(isbn, title, author) VALUES ('9781984822178', 'Normal People', 'Sally Rooney');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780141323749', 'Anne of Green Gables', 'Lucy Maud Montgomery, GRANDMAS TREASURES, W. A. J. Claus, and M. A.');
 INSERT INTO book_details(isbn, title, author) VALUES ('000711561X', 'The lion, the witch and the wardrobe', 'C.S. Lewis');

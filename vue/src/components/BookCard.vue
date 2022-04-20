@@ -41,6 +41,7 @@
                   @click="sendRequest(user.username)"
                   :disabled="enabled == false"
                   class="btn"
+                  id="search-btn"
                 >
                   Request
                 </button>
@@ -104,9 +105,11 @@ export default {
 .card-deck {
   margin: 0 1rem 1rem 1rem;
   padding: 1rem;
+  /* background-color: lightskyblue; */
   background-color: rgb(210, 199, 190);
   border-radius: 2%;
   height: 34rem;
+  /* height: 34rem; */
 }
 
 .card {
@@ -145,11 +148,19 @@ li {
   list-style: none;
 }
 
-.btn {
+/* .btn {
   color: white;
   background-color: rgb(203, 192, 183);
   margin: 3px;
   position: static;
+} */
+
+#search-btn {
+  color: white;
+  background-color: rgb(203, 192, 183);
+  margin: 3px;
+  position: static;
+   padding: 3px 3px;
 }
 
 ul {

@@ -28,7 +28,7 @@ export default {
 h1 {
   text-align: center;
   margin: 1em 1em;
-  color: rgb(46,34,16);
+  color: rgb(46,34,16); 
   font-weight: bold;
 }
 
