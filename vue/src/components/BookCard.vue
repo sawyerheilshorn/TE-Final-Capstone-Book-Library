@@ -26,14 +26,23 @@
           <h6>Request From:</h6>
           <ul>
             <li v-for="user in users.slice(0, 3)" v-bind:key="user.user_id">
-              <div v-if="user.username != loggedInUser || this.myBooks">
+              <div
+                v-if="
+                  user.username != loggedInUser &&
+                  !myBooks.find((b) => {
+                    if (b.title == book.title) {
+                      return true;
+                    }
+                  })
+                "
+              >
                 {{ user.username }}
                 <button
                   @click="sendRequest(user.username)"
                   :disabled="enabled == false"
                   class="btn"
                 >
-                  Request Book
+                  Request
                 </button>
               </div>
             </li>
@@ -71,7 +80,6 @@ export default {
 
     BookService.getMyBooks().then((response) => {
       this.myBooks = response.data;
-      this.$store.commit("ADD_ALL_BOOK", this.myBooks);
     });
   },
   methods: {
