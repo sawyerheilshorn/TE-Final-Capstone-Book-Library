@@ -1,7 +1,11 @@
 <template>
   <div id="background">
+    <body>
     <h1>Search for Books from Library</h1>
-    <book-list />
+    
+      <book-list />
+    </body>
+    
   </div>
 </template>
 
@@ -27,6 +31,7 @@ h1 {
   color: rgb(46,34,16);
   font-weight: bold;
 }
+
 
 
 </style>
