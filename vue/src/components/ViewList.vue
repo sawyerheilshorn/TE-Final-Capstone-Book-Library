@@ -142,6 +142,9 @@ export default {
       } else if (book.isbn == "9780684830490") {
         googleIsbn = "9781443414555";
         this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
+      } else if (book.isbn == "9781400079278") {
+        googleIsbn = "9781400044818";
+        this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
       }
     },
   },
