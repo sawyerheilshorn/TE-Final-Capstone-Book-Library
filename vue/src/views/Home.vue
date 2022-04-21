@@ -24,7 +24,7 @@
       <h5><i class="bi bi-book-half"></i> 50 genres</h5>
     </div>
     <div class="devices-section">
-      <img id="img" src="../assets/device.png" alt="#" class="img-thumbnail" />
+      <img id="img" src="../assets/device2.png" alt="#" class="img-thumbnail" />
       <div class="text">
         <i class="bi bi-grid-fill" width="32" height="32"></i>
         <h3>Use Any Device</h3>

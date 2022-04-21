@@ -149,7 +149,7 @@ a {
   margin-top: auto;
 }
 
-.footer-bottom p {  
+.footer-bottom p {
   color: #fff;
   font-size: 14px;
   word-spacing: 2px;
@@ -196,10 +196,12 @@ a {
 }
 
 @media (max-width: 500px) {
- 
-  .footer-menu  {
+  .footer-menu ul {
     display: flex;
     flex-direction: column;
   }
 }
+/* Isbn - > 9780606410090  title: Curious George Mothers Day Surprise Author- H. A. Rey */
+
+/* end of footer style */
 </style>
