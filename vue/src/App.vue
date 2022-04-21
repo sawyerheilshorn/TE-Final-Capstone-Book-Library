@@ -4,19 +4,22 @@
     <!-- Nav -->
     <div class="nav-div" id="header">
       <nav class="navbar navbar-expand-lg py-3 navbar-custom">
-        <div class="container">
+        <div class="container nav-container">
+          <div class="log-background">
           <a href="#" class="navbar-brand">
             <!-- Logo Image -->
             <img
-              src="./assets/logo1.png"
+              src="./assets/logo2.png"
               width="13%"
               height="13%"
               alt=""
-              class="d-inline-block align-middle mr-2"
-            />
+              class=" "
+              id="logo"
+            /> 
             <!-- Logo Text -->
             <!-- <span class="text-uppercase font-weight-bold">Company</span> -->
           </a>
+          </div>
 
           <button
             type="button"
@@ -31,7 +34,7 @@
           </button>
 
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ">
               <li class="nav-item active">
                 <a href="#" class="nav-link"
                   ><router-link v-bind:to="{ name: 'home' }">Home</router-link
@@ -112,15 +115,30 @@ body {
   min-height: 100vh;
   background-color: rgb(227, 223, 215);
 }
-
+div .nav-container{
+  margin: 0px;
+  padding: 0px;
+}
 a {
   color: inherit;
   text-decoration: none;
 }
 .navbar-custom {
   background-color: rgb(165, 150, 140);
+  /* rgb(84,57,41) */
   color: white;
 }
+#logo{
+  height: 30%;
+  width: 25%;
+  margin-left: 30%;
+ }
+.navbar-nav{
+  margin-left: 170%;
+} 
+
+
+
 
 /* footer style */
 
@@ -151,16 +169,20 @@ a {
 
 .footer-menu {
   display: flex;
-  justify-content: center;   
+  justify-content: center;
+  margin: 0%;
+  padding: 0;
 }
 
 .footer-menu ul {
-  display: flex;
+  margin: 0%;
+  padding: 0;
+ 
 }
 
 .footer-menu ul li {
   padding-right: 10px;
-  display: block;
+  
 }
 
 .footer-menu ul li a {
