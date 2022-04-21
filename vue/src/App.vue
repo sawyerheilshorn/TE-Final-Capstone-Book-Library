@@ -101,9 +101,22 @@
 
             <li><a href="">About</a></li>
             <li><a href="">Contact</a></li>
+            <li class="line">||</li>
+            <li ><i class="bi bi-facebook"></i> </li>
+            <li><i class="bi bi-twitter"></i></li>
+            <li><i class="bi bi-instagram"></i></li>
+            <li><i class="bi bi-discord"></i></li>
+            <li class="line">|| </li>
+            
+            
+            
           </ul>
 
-          <p>|| copyright &copy;2022 <a href="#">Cbus Books Swap </a></p>
+          <p>copyright &copy;2022 <a href="#">Cbus Books Swap      </a></p>
+          
+         
+              
+           
         </div>
       </div>
     </div>
@@ -111,6 +124,8 @@
 </template>
 
 <style>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
 body {
   min-height: 100vh;
   background-color: rgb(227, 223, 215);
@@ -134,9 +149,8 @@ a {
   margin-left: 30%;
  }
 .navbar-nav{
-  margin-left: 170%;
+  margin-left: 100%;
 } 
-
 
 
 
@@ -193,6 +207,12 @@ a {
 
 .footer-menu ul li a:hover {
   color: #fff;
+}
+.footer ul li .bi{
+  color: #e6e6e6;
+}
+.line{
+  color: #e6e6e6;
 }
 
 @media (max-width: 500px) {
