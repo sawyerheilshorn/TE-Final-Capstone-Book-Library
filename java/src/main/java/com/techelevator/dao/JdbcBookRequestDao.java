@@ -90,7 +90,7 @@ public class JdbcBookRequestDao implements BookRequestDao {
 
     @Override
     public String updateUserBookStatusToDeclined(BookRequest bookRequest, String userName) {
-        String borrowFromName = bookRequest.getBorrowFrom();
+        String borrowFromName = bookRequest.getRequestSender();gits
         String isbn = bookRequest.getBookISBN();
         String sql = "UPDATE book_request SET book_request_status_id=3 \n" +
                 "WHERE request_received_from=(select user_id from users where username=?) AND book_isbn = ?;";

@@ -230,7 +230,7 @@ INSERT INTO user_book(user_id, isbn) VALUES (7, '9780544430563');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (1, '9781408849927');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (2, '9781402712173');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (2, '0060935464');
-INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9781402712173');
+-- INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '9781402712173');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (3, '0060935464');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9781423109624');
 INSERT INTO reading_list_book(list_id, isbn) VALUES (4, '9780375828379');
