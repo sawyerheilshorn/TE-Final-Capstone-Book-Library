@@ -9,7 +9,7 @@
             v-for="book in list.bookDetailList"
             v-bind:key="book.isbn"
           >
-          <!-- When you click on the image it will re direct to BookViewer page-->
+            <!-- When you click on the image it will re direct to BookViewer page-->
             <img
               class="card-img-top"
               v-bind:src="
@@ -129,7 +129,12 @@ export default {
     },
 
     goToViewerPage(book) {
-      this.$router.push({ name: "viewer", params: { isbn: book.isbn } });
+      let googleIsbn = "";
+      if (book.isbn == "9781491929568") {
+        googleIsbn = "9781491929537";
+      }
+
+      this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
     },
   },
   created() {
