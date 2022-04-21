@@ -6,19 +6,19 @@
       <nav class="navbar navbar-expand-lg py-3 navbar-custom">
         <div class="container nav-container">
           <div class="log-background">
-          <a href="#" class="navbar-brand">
-            <!-- Logo Image -->
-            <img
-              src="./assets/logo2.png"
-              width="13%"
-              height="13%"
-              alt=""
-              class=" "
-              id="logo"
-            /> 
-            <!-- Logo Text -->
-            <!-- <span class="text-uppercase font-weight-bold">Company</span> -->
-          </a>
+            <a href="#" class="navbar-brand">
+              <!-- Logo Image -->
+              <img
+                src="./assets/logo2.png"
+                width="13%"
+                height="13%"
+                alt=""
+                class=""
+                id="logo"
+              />
+              <!-- Logo Text -->
+              <!-- <span class="text-uppercase font-weight-bold">Company</span> -->
+            </a>
           </div>
 
           <button
@@ -34,7 +34,7 @@
           </button>
 
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
-            <ul class="navbar-nav ">
+            <ul class="navbar-nav">
               <li class="nav-item active">
                 <a href="#" class="nav-link"
                   ><router-link v-bind:to="{ name: 'home' }">Home</router-link
@@ -102,21 +102,14 @@
             <li><a href="">About</a></li>
             <li><a href="">Contact</a></li>
             <li class="line">||</li>
-            <li ><i class="bi bi-facebook"></i> </li>
+            <li><i class="bi bi-facebook"></i></li>
             <li><i class="bi bi-twitter"></i></li>
             <li><i class="bi bi-instagram"></i></li>
             <li><i class="bi bi-discord"></i></li>
-            <li class="line">|| </li>
-            
-            
-            
+            <li class="line">||</li>
           </ul>
 
-          <p>copyright &copy;2022 <a href="#">Cbus Books Swap      </a></p>
-          
-         
-              
-           
+          <p>copyright &copy;2022 <a href="#">Cbus Books Swap </a></p>
         </div>
       </div>
     </div>
@@ -130,7 +123,7 @@ body {
   min-height: 100vh;
   background-color: rgb(227, 223, 215);
 }
-div .nav-container{
+div .nav-container {
   margin: 0px;
   padding: 0px;
 }
@@ -143,16 +136,14 @@ a {
   /* rgb(84,57,41) */
   color: white;
 }
-#logo{
+#logo {
   height: 30%;
   width: 25%;
   margin-left: 30%;
- }
-.navbar-nav{
-  margin-left: 100%;
-} 
-
-
+}
+.navbar-nav {
+  margin-left: 165%;
+}
 
 /* footer style */
 
@@ -191,12 +182,10 @@ a {
 .footer-menu ul {
   margin: 0%;
   padding: 0;
- 
 }
 
 .footer-menu ul li {
   padding-right: 10px;
-  
 }
 
 .footer-menu ul li a {
@@ -208,10 +197,10 @@ a {
 .footer-menu ul li a:hover {
   color: #fff;
 }
-.footer ul li .bi{
+.footer ul li .bi {
   color: #e6e6e6;
 }
-.line{
+.line {
   color: #e6e6e6;
 }
 
