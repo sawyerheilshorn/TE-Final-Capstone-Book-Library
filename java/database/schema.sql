@@ -109,7 +109,7 @@ INSERT INTO book_details(isbn, title, author) VALUES ('9781408849927', 'Harry Po
 INSERT INTO book_details(isbn, title, author) VALUES ('9780684830490', 'The Old Man and the Sea', 'Ernest Hemingway');
 INSERT INTO book_details(isbn, title, author) VALUES ('9781402712173', 'The Adventures of Sherlock Holmes', 'Sasaki and Doyle');
 INSERT INTO book_details(isbn, title, author) VALUES ('9781984822178', 'Normal People', 'Sally Rooney');
-INSERT INTO book_details(isbn, title, author) VALUES ('9780141323749', 'Anne of Green Gables', 'Lucy Maud Montgomery, GRANDMAS TREASURES, W. A. J. Claus, and M. A.');
+INSERT INTO book_details(isbn, title, author) VALUES ('9780141323749', 'Anne of Green Gables', 'Lucy Maud Montgomery,Claus,M. A.');
 INSERT INTO book_details(isbn, title, author) VALUES ('000711561X', 'The lion, the witch and the wardrobe', 'C.S. Lewis');
 INSERT INTO book_details(isbn, title, author) VALUES ('9783125971400', 'Le Petit Prince', 'Antoine de Saint-Exupéry');
 INSERT INTO book_details(isbn, title, author) VALUES ('9781534431003', 'This Is How You Lose the Time War', 'Amal El-Mohtar');
