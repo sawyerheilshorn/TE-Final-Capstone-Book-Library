@@ -196,7 +196,8 @@ a {
 }
 
 @media (max-width: 500px) {
-  .footer-menu ul {
+ 
+  .footer-menu  {
     display: flex;
     flex-direction: column;
   }
