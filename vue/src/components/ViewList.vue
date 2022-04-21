@@ -132,9 +132,20 @@ export default {
       let googleIsbn = "";
       if (book.isbn == "9781491929568") {
         googleIsbn = "9781491929537";
+        this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
+      } else if (book.isbn == "0060935464") {
+        googleIsbn = "9780062368683";
+        this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
+      } else if (book.isbn == "9781402712173") {
+        googleIsbn = "9781465449979";
+        this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
+      } else if (book.isbn == "9780684830490") {
+        googleIsbn = "9781443414555";
+        this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
+      } else if (book.isbn == "9781400079278") {
+        googleIsbn = "9781400044818";
+        this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
       }
-
-      this.$router.push({ name: "viewer", params: { isbn: googleIsbn } });
     },
   },
   created() {
