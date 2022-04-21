@@ -15,7 +15,7 @@ CREATE SEQUENCE seq_user_id
 CREATE TABLE book_details(
 	isbn varchar(17) NOT NULL,
 	title varchar(100) NOT NULL,
-	author varchar(100) NOT NULL,	
+	author varchar(100) NOT NULL,
 	CONSTRAINT PK_book_details PRIMARY KEY (isbn)
 	);
 
@@ -117,7 +117,6 @@ INSERT INTO book_details(isbn, title, author) VALUES ('048627263X', 'Flatland', 
 INSERT INTO book_details(isbn, title, author) VALUES ('9780449208106', 'Things Fall Apart', 'Chinua Achebe');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780072472615', 'The Interactive Computing Series', 'Kenneth C. Laudon');
 INSERT INTO book_details(isbn, title, author) VALUES ('0078823684', 'Java programmers reference', 'Herbert Schildt');
-INSERT INTO book_details(isbn, title, author) VALUES ('9781491929568', 'Think Java', 'Downey, Mayfield');
 INSERT INTO book_details(isbn, title, author) VALUES ('9782212677836', 'Applications web complexes', 'Brice Chaponneau');
 INSERT INTO book_details(isbn, title, author) VALUES ('978-1-64200-200-3', 'Vue.js Succinctly', 'Ed Freitas');
 INSERT INTO book_details(isbn, title, author) VALUES ('9780321117847', 'Algorithmics The Spirit of Computing', 'David Harel and Yishai Feldman');
@@ -146,7 +145,6 @@ INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',1);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9783125971400',6);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9780072472615',9);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9782212677836',9);
-INSERT INTO book_genre(isbn, genre_id) VALUES('9781491929568',9);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9780544430563',10);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9781423109624',10);
 INSERT INTO book_genre(isbn, genre_id) VALUES('9781423164821',10);
@@ -193,7 +191,6 @@ INSERT INTO user_book(user_id, isbn) VALUES (3, '9781423109624');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '000711561X');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '9781423164821');
 INSERT INTO user_book(user_id, isbn) VALUES (3, '9780375828379');
-INSERT INTO user_book(user_id, isbn) VALUES (3, '9781491929568');
 --michael user_id=4
 INSERT INTO user_book(user_id, isbn) VALUES (4, '9781402712173');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '000711561X');
@@ -201,14 +198,12 @@ INSERT INTO user_book(user_id, isbn) VALUES (4, '0078823684');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '978-1-64200-200-3');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '9780684830490');
 INSERT INTO user_book(user_id, isbn) VALUES (4, '0060935464');
-INSERT INTO user_book(user_id, isbn) VALUES (4, '9781491929568');
 --abdalla user_id=5
 INSERT INTO user_book(user_id, isbn) VALUES (5, '9783125971400');
 INSERT INTO user_book(user_id, isbn) VALUES (5, '000711561X');
 INSERT INTO user_book(user_id, isbn) VALUES (5, '048627263X');
 INSERT INTO user_book(user_id, isbn) VALUES (5, '9780072472615');
 INSERT INTO user_book(user_id, isbn) VALUES (5, '9781984822178');
-INSERT INTO user_book(user_id, isbn) VALUES (5, '9781491929568');
 
 --sawyer user_id=6
 INSERT INTO user_book(user_id, isbn) VALUES (6, '9781534431003');
@@ -217,7 +212,6 @@ INSERT INTO user_book(user_id, isbn) VALUES (6, '048627263X');
 INSERT INTO user_book(user_id, isbn) VALUES (6, '9780684830490');
 INSERT INTO user_book(user_id, isbn) VALUES (6, '9781984822178');
 INSERT INTO user_book(user_id, isbn) VALUES (6, '0060935464');
-INSERT INTO user_book(user_id, isbn) VALUES (6, '9781491929568');
 
 --steve user_id=7
 INSERT INTO user_book(user_id, isbn) VALUES (7, '9781402712173');

@@ -129,7 +129,6 @@ export default {
     },
 
     goToViewerPage(book) {
-    
       this.$router.push({ name: "viewer", params: { isbn: book.isbn } });
     },
   },
